@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SelectLesonTransmit">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="48sp"
+        android:text="Select lesson"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/scroll_select_lesson_transmit"
+        app:layout_constraintWidth_percent="0.8"
+        tools:ignore="MissingConstraints,UnknownId"/>
+
+    <ScrollView
+        android:id="@+id/scroll_select_lesson_transmit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.6">
+
+        <LinearLayout
+            android:id="@+id/layout_select_lesson_transmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="13">
+
+            <Button
+                android:id="@+id/e_and_t"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="E and T"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/a_and_n"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="A and N"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/i_and_m"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="I and M"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/s_and_o"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="S and O"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/d_and_u"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="D and U"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/r_and_k"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="R and K"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/c_and_p"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="C and P"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/b_and_g"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="B and G"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/w_and_l"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="W and L"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/q_and_h"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Q and H"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/f_and_y"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="F and Y"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/z_and_v"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Z and V"
+                android:layout_margin="4dp"/>
+            <Button
+                android:id="@+id/X_and_J"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="X and J"
+                android:layout_margin="4dp"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
