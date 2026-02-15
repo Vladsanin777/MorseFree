@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectLesonTransmit">
+    tools:context=".SelectLessonTransmit">
 
     <TextView
         android:layout_width="0dp"
@@ -41,91 +41,91 @@
             android:weightSum="13">
 
             <Button
-                android:id="@+id/e_and_t"
+                android:id="@+id/e_and_t_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="E and T"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/a_and_n"
+                android:id="@+id/a_and_n_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="A and N"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/i_and_m"
+                android:id="@+id/i_and_m_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="I and M"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/s_and_o"
+                android:id="@+id/s_and_o_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="S and O"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/d_and_u"
+                android:id="@+id/d_and_u_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="D and U"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/r_and_k"
+                android:id="@+id/r_and_k_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="R and K"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/c_and_p"
+                android:id="@+id/c_and_p_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="C and P"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/b_and_g"
+                android:id="@+id/b_and_g_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="B and G"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/w_and_l"
+                android:id="@+id/w_and_l_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="W and L"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/q_and_h"
+                android:id="@+id/q_and_h_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="Q and H"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/f_and_y"
+                android:id="@+id/f_and_y_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="F and Y"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/z_and_v"
+                android:id="@+id/z_and_v_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="Z and V"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/X_and_J"
+                android:id="@+id/x_and_j_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

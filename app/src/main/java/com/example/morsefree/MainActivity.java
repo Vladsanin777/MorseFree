@@ -26,13 +26,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Внутри onCreate первой Activity
         Button btn = findViewById(R.id.learn_transmit_mode);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SelectLesonTransmit.class);
+                Intent intent = new Intent(MainActivity.this, SelectLessonTransmit.class);
                 startActivity(intent);
             }
         });
