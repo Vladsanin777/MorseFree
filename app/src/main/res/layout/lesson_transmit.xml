@@ -31,19 +31,88 @@
         app:layout_constraintBottom_toTopOf="@+id/view_transmit_level"
         app:layout_constraintWidth_percent="0.8"/>
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/view_transmit_level"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:id="@+id/view_transmit_level"
+        app:layout_constraintWidth_percent="0.8"
         app:layout_constraintTop_toBottomOf="@+id/title_transmit_level_name"
         app:layout_constraintBottom_toTopOf="@+id/button_transmit"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintWidth_percent="0.8">
+        app:layout_constraintRight_toRightOf="parent">
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Symbol"
+            android:textSize="52sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
-    <Button
+        <TextView
+            android:id="@+id/help_and_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="answer"
+            android:textSize="52sp"
+            app:layout_constraintTop_toBottomOf="@id/symbol"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_help"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="help"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:stateListAnimator="@null"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_repeat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="repeat"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_help_all"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="all"
+            android:textSize="10sp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:backgroundTint="?attr/colorSecondary"
+            app:layout_constraintWidth_percent="0.1"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="@+id/button_help"
+            app:layout_constraintRight_toRightOf="@+id/button_help"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_transmit"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -51,12 +120,12 @@
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"
-        app:layout_constraintTop_toBottomOf="@+id/view_transmit_level"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_transmit_level"
         app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintDimensionRatio="1:1"/>
+        app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
