@@ -83,25 +83,25 @@
                 android:text="R and K"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/c_and_p_transmit_lesson"
+                android:id="@+id/w_and_g_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="C and P"
+                android:text="W and G"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/b_and_g_transmit_lesson"
+                android:id="@+id/b_and_j_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="B and G"
+                android:text="B and J"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/w_and_l_transmit_lesson"
+                android:id="@+id/x_and_p_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="W and L"
+                android:text="X and P"
                 android:layout_margin="4dp"/>
             <Button
                 android:id="@+id/q_and_h_transmit_lesson"
@@ -125,11 +125,11 @@
                 android:text="Z and V"
                 android:layout_margin="4dp"/>
             <Button
-                android:id="@+id/x_and_j_transmit_lesson"
+                android:id="@+id/c_and_l_transmit_lesson"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="X and J"
+                android:text="C and L"
                 android:layout_margin="4dp"/>
         </LinearLayout>
     </ScrollView>
