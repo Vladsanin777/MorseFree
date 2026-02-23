@@ -37,193 +37,342 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical"
-            android:weightSum="13">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/e_and_t_transmit_lesson"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="E and T"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/i_and_m_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="I and M"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/a_and_n_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="A and N"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/s_and_o_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="S and O"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/u_and_g_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="U and G"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/r_and_k_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="R and K"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/w_and_d_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="W and D"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/h_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="H"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/v_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="V"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/f_and_q_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="F and Q"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/z_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="Z"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/l_and_y_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="L and Y"
-                android:layout_margin="4dp"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/p_and_x_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="98dp"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                android:text="P and X" />
-            <Button
-                android:id="@+id/j_and_b_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="J and B"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/one_and_six_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="1 and 6"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/two_and_seven_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="2 and 7"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/three_and_eight_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="3 and 8"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/four_and_nine_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="4 and 9"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/five_and_zero_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="5 and 0"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/open_bracket_and_close_bracet_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="( and )"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/point_and_comma_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text=". and ,"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/semicolon_and_colon_transmit_lesson"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="; and :"
-                android:layout_margin="4dp"/>
+                <TextView
+                    android:id="@+id/unit_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unit 1"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:padding="0dp"
+                    android:includeFontPadding="false"/>
 
-            <Button
-                android:id="@+id/quotes_and_apostrophe_transmit_lesson"
+                <Button
+                    android:id="@+id/e_and_t_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:text="E and T"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+
+            </LinearLayout>
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="6dp"
-                android:layout_weight="1"
-                android:text="\&quot; and \'"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/dash_and_slash_transmit_lesson"
+                android:layout_height="24dp"/>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="- and \\"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/question_mark_and_exclamation_mark_transmit_lesson"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/unit_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unit 2"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:padding="0dp"
+                    android:includeFontPadding="false"/>
+                <Button
+                    android:id="@+id/i_and_m_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="I and M"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+
+                <Button
+                    android:id="@+id/a_and_n_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="A and N"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+            </LinearLayout>
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="\? and !"
-                android:layout_margin="4dp"/>
-            <Button
-                android:id="@+id/at_transmit_lesson"
+                android:layout_height="24dp"/>
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="\@"
-                android:layout_margin="4dp"/>
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/unit_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unit 3"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:padding="0dp"
+                    android:includeFontPadding="false"/>
+                <Button
+                    android:id="@+id/s_and_o_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="S and O"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/u_and_g_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="U and G"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/r_and_k_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="R and K"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/w_and_d_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="W and D"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/unit_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unit 4"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:padding="0dp"
+                    android:includeFontPadding="false"/>
+
+                <Button
+                    android:id="@+id/h_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="H"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/v_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="V"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/f_and_q_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="F and Q"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/z_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Z"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/l_and_y_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="L and Y"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/c_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="C"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/p_and_x_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="P and X"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/j_and_b_latin_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="J and B"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/unit_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unit 5"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:padding="0dp"
+                    android:includeFontPadding="false"/>
+                <Button
+                    android:id="@+id/one_and_six_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1 and 6"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/two_and_seven_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2 and 7"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/three_and_eight_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3 and 8"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/four_and_nine_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4 and 9"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/five_and_zero_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="5 and 0"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+            </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/unit_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unit 6"
+                    android:textSize="32sp"
+                    android:gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:padding="0dp"
+                    android:includeFontPadding="false"/>
+                <Button
+                    android:id="@+id/open_bracket_and_close_bracet_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="( and )"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/point_and_comma_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=". and ,"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/semicolon_and_colon_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="; and :"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+
+                <Button
+                    android:id="@+id/quotes_and_apostrophe_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\&quot; and \'"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+
+                <Button
+                    android:id="@+id/dash_and_slash_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- and \\"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/question_mark_and_exclamation_mark_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\? and !"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+                <Button
+                    android:id="@+id/at_transmit_lesson"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="\@"
+                    android:layout_margin="4dp"
+                    android:tag="MORSE_LANGUAGE_LATIN;MORSE_LEVEL_E_AND_T"
+                    android:onClick="onClickSelectLessonTransmit"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

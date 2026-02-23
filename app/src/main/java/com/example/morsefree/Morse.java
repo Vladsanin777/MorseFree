@@ -1,5 +1,7 @@
 package com.example.morsefree;
 
+import static com.example.morsefree.Morse.*;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -136,12 +138,12 @@ public enum Morse {
     public int getMorseDataRaw() {
         return m_morseData;
     }
-    public void setLanguage(Language language) {
+    public void setLanguage(MorseLanguage language) {
         switch (language) {
-            case LATIN:
+            case MORSE_LANGUAGE_LATIN:
                 m_getterSymbol = Morse::getLatin;
                 break;
-            case CYRILLIC:
+            case MORSE_LANGUAGE_CYRILLIC:
                 m_getterSymbol = Morse::getCyrillic;
                 break;
         }
@@ -157,7 +159,7 @@ public enum Morse {
 
     public char getRandomSymbol() {
         switch (m_level) {
-            case E_AND_T_LEVEL:
+            case MORSE_LEVEL_E_AND_T:
                 return (int)(Math.random() * 2) == 1 ? 'E' : 'T';
         }
         return '\0';

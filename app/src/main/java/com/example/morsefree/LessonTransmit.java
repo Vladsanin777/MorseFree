@@ -1,11 +1,12 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.Language.LATIN;
-import static com.example.morsefree.Language.CYRILLIC;
-import static com.example.morsefree.Morse.MORSE_EMPTY;
+import static com.example.morsefree.Morse.*;
+import static com.example.morsefree.MorseLanguage.*;
+import static com.example.morsefree.MorseLevel.*;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -47,6 +48,7 @@ public class LessonTransmit extends AppCompatActivity {
     private final Runnable m_idleRunnable = this::checkMessage;
     private TextView m_userSentenceTextView;
     private TextView m_correctSentenceTextView;
+    private TextView m_levelNameTextView;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
@@ -55,15 +57,25 @@ public class LessonTransmit extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        MorseLevel level = MorseLevel.E_AND_T_LEVEL;
+        Intent intent;
+        MorseLanguage language = MORSE_LANGUAGE_LATIN;
+        MorseLevel level = MORSE_LEVEL_NULL;
+        String nameLevel = "";
 
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.lesson_transmit);
 
+        intent = getIntent();
+        if (intent != null) {
+            language = MorseLanguage.values()[intent.getIntExtra("MORSE_LANGUAGE", 0)];
+            level = MorseLevel.values()[intent.getIntExtra("MORSE_LEVEL", 0)];
+            nameLevel = intent.getStringExtra("LEVEL_NAME");
+        }
+
         m_morse = MORSE_EMPTY;
 
-        m_morse.setLanguage(LATIN);
+        m_morse.setLanguage(language);
 
         m_morse.setLevel(level);
 
@@ -107,9 +119,13 @@ public class LessonTransmit extends AppCompatActivity {
 
         m_lessonTransmitLayout = findViewById(R.id.lesson_transmit);
 
-        updateCorrectSentence();
+        m_levelNameTextView = findViewById(R.id.title_transmit_level_name);
+
+        m_levelNameTextView.setText(nameLevel);
 
         m_lessonTransmitLayout.post(this::initInfoGradient);
+
+        updateCorrectSentence();
 
         Log.d("MorseFree", "On create transmit lesson");
     }
@@ -314,13 +330,11 @@ public class LessonTransmit extends AppCompatActivity {
     private void applySymbol() {
         applySymbolRaw();
         updateUserSentenceTextView();
-        // winGradient();
     }
 
     private void applyWord() {
         m_userSentence += ' ';
         updateUserSentenceTextView();
-        // winGradient();
     }
     private void updateUserSentenceTextView() {
         m_userSentenceTextView.setText(m_userSentence);
