@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/lesson_transmit"
     tools:context=".LessonTransmit">
 
     <TextView
@@ -42,22 +43,22 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TextView
-            android:id="@+id/symbol"
+            android:id="@+id/correct_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Symbol"
+            android:text="sentence"
             android:textSize="52sp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
-            android:id="@+id/help_and_result"
+            android:id="@+id/user_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="answer"
+            android:text="your sentence"
             android:textSize="52sp"
-            app:layout_constraintTop_toBottomOf="@id/symbol"
+            app:layout_constraintTop_toBottomOf="@id/correct_sentence"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
 

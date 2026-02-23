@@ -28,12 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = findViewById(R.id.learn_transmit_mode);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SelectLessonTransmit.class);
-                startActivity(intent);
-            }
-        });
+        btn.setOnClickListener(this::onClickButtonLearnTransmitMode);
+    }
+    private void onClickButtonLearnTransmitMode(View view) {
+        Intent intent = new Intent(MainActivity.this, SelectLessonTransmit.class);
+        startActivity(intent);
     }
 }

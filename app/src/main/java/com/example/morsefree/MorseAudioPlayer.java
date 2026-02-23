@@ -32,7 +32,7 @@ public class MorseAudioPlayer {
     void loopAudio() {
         short buffer[] = new short[1024];
         double phase = 0.0;
-        while (!Thread.currentThread().isInterrupted()) {
+        while (!m_thread.isInterrupted()) {
             for (int i = 0; i < buffer.length; i++) {
                 // Вычисляем синус с учетом накопленной фазы
                 buffer[i] = (short) (Math.sin(phase) * Short.MAX_VALUE);

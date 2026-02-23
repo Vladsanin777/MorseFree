@@ -101,6 +101,8 @@ public enum Morse {
 
     private char m_cyrillic;
 
+    private MorseLevel m_level;
+
     private static Function<Morse, Character> m_getterSymbol =
             morse->morse.m_latin;
 
@@ -143,6 +145,22 @@ public enum Morse {
                 m_getterSymbol = Morse::getCyrillic;
                 break;
         }
+    }
+
+    public void setLevel(MorseLevel level) {
+        m_level = level;
+    }
+
+    public MorseLevel getLevel() {
+        return m_level;
+    }
+
+    public char getRandomSymbol() {
+        switch (m_level) {
+            case E_AND_T_LEVEL:
+                return (int)(Math.random() * 2) == 1 ? 'E' : 'T';
+        }
+        return '\0';
     }
 
     public char getSymbol() {

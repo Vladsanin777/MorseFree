@@ -4,11 +4,9 @@ import static com.example.morsefree.Language.LATIN;
 import static com.example.morsefree.Language.CYRILLIC;
 import static com.example.morsefree.Morse.MORSE_EMPTY;
 
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
-import android.media.AudioFormat;
-import android.media.AudioManager;
-import android.media.AudioTrack;
-import android.media.ToneGenerator;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,11 +16,10 @@ import android.widget.Button;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 
-import android.media.AudioFormat;
-import android.media.AudioManager;
-import android.media.AudioTrack;
+import android.widget.TextView;
 
 public class LessonTransmit extends AppCompatActivity {
     private Button m_transmitButton;
@@ -43,30 +40,36 @@ public class LessonTransmit extends AppCompatActivity {
     private long m_intervalTimeForEpsilonInterWordHigh;
     private long m_intervalTimeForEpsilonInterWordLow;
     private Morse m_morse;
-    private String m_word;
-    private String m_sentence;
-    private String m_answerSentence;
+    private String m_userSentence;
+    private String m_correctSentence;
     private final Handler m_handler =
             new android.os.Handler(Looper.getMainLooper());
     private final Runnable m_idleRunnable = this::checkMessage;
-
-    private MorseAudioPlayer m_sound = new MorseAudioPlayer();
+    private TextView m_userSentenceTextView;
+    private TextView m_correctSentenceTextView;
+    private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
+    private ConstraintLayout m_lessonTransmitLayout;
+    private GradientDrawable m_infoGradient;
+    private int[] m_colorsInfoGradient;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        MorseLevel level = MorseLevel.E_AND_T_LEVEL;
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.lesson_transmit);
 
         m_morse = MORSE_EMPTY;
 
         m_morse.setLanguage(LATIN);
 
-        m_word = "";
+        m_morse.setLevel(level);
 
-        m_sentence = "";
+        m_userSentence = "";
 
-        m_answerSentence = "E";
+        m_correctSentence = "";
 
         m_timeBreakPoint = 0;
 
@@ -95,39 +98,96 @@ public class LessonTransmit extends AppCompatActivity {
         m_intervalTimeForEpsilonInterWordHigh = 300_000_000;
         m_intervalTimeForEpsilonInterWordLow = 360_000_000;
 
+        m_userSentenceTextView = findViewById(R.id.user_sentence);
+
+        m_correctSentenceTextView = findViewById(R.id.correct_sentence);
+
         m_transmitButton = findViewById(R.id.button_transmit);
         m_transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
+
+        m_lessonTransmitLayout = findViewById(R.id.lesson_transmit);
+
+        updateCorrectSentence();
+
+        m_lessonTransmitLayout.post(this::initInfoGradient);
 
         Log.d("MorseFree", "On create transmit lesson");
     }
 
+    void initInfoGradient() {
+        m_infoGradient = new GradientDrawable();
+        m_infoGradient.setGradientType(GradientDrawable.RADIAL_GRADIENT);
+        m_colorsInfoGradient = new int[] {0x00000000, 0x00000000};
+        m_infoGradient.setColors(m_colorsInfoGradient);
+        applyInfoGradient(0xffff00ff);
+    }
+
+    private void failGradient() {
+        applyInfoGradient(0xffff0000);
+    }
+
+    private void winGradient() {
+        applyInfoGradient(0xff00ff00);
+    }
+
+    private void applyInfoGradient(int finalColor) {
+        m_colorsInfoGradient[1] = finalColor;
+        float radius = Math.max(m_lessonTransmitLayout.getWidth(), m_lessonTransmitLayout.getHeight());
+        m_infoGradient.setGradientRadius(radius);
+        m_infoGradient.setColors(m_colorsInfoGradient);
+
+        animationInfoGradient();
+    }
+
+    private void animationInfoGradient() {
+        m_lessonTransmitLayout.setBackground(m_infoGradient);
+        ObjectAnimator.ofInt(m_infoGradient, "alpha", 0xff, 0x00).setDuration(1000).start();
+    }
     private void checkMessage() {
-        applyWordRaw();
-        if (m_sentence.equals(m_answerSentence))
+        applySymbol();
+        if (m_userSentence.equals(m_correctSentence))
             complitedStep();
         else
             notComplitedStep();
         m_timeBreakPoint = 0;
-        clearSentence();
-        updateAnswerSentence();
+        updateCorrectSentence();
+        clearUserSentence();
     }
 
-    void updateAnswerSentence() {
-        m_answerSentence = "T";
+    void clearCorrectSentence() {
+        m_correctSentence = "";
     }
 
-    void clearSentence() {
-        m_sentence = "";
+    void updateCorrectSentence() {
+        clearCorrectSentence();
+        m_correctSentence += m_morse.getRandomSymbol();
+        updateCorrectSentenceTextView();
+        clearUserSentence();
+    }
+
+    private void updateCorrectSentenceTextView() {
+        m_correctSentenceTextView.setText(m_correctSentence);
+    }
+
+    void clearUserSentenceRaw() {
+        m_userSentence = "";
+    }
+
+    void clearUserSentence() {
+        clearUserSentenceRaw();
+        updateUserSentenceTextView();
     }
 
     private void complitedStep() {
-        Log.d("MorseFree", "Complited: " + m_sentence
-                + ", need: " + m_answerSentence);
+        winGradient();
+        Log.d("MorseFree", "Complited: " + m_userSentence
+                + "\n need: " + m_correctSentence + '\n');
     }
 
     private void notComplitedStep() {
-        Log.d("MorseFree", "Not complited: " + m_sentence
-                + ", need: " + m_answerSentence);
+        failGradient();
+        Log.d("MorseFree", "Not complited: " + m_userSentence
+                + "\n need: " + m_correctSentence + '\n');
     }
 
     private boolean OnTouchTransmitButton(View view, MotionEvent event) {
@@ -236,30 +296,33 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void notCorrectInterval(long diff) {
-        
+        failGradient();
+        Log.d("MorseFree", "Not correct interval");
     }
 
     private void notCorrectPointDash(long diff) {
-
+        failGradient();
+        Log.d("MorseFree", "Not correct interval");
     }
 
     private void applySymbolRaw() {
-        m_word += m_morse.getSymbol();
+        m_userSentence += m_morse.getSymbol();
+        Log.d("MorseFree", "input symbol: " + m_morse.getSymbol());
+        m_morse.clear();
     }
 
     private void applySymbol() {
         applySymbolRaw();
-        m_morse.clear();
-    }
-
-    private void applyWordRaw() {
-        applySymbol();
-        m_sentence += m_word;
-        m_word = "";
+        updateUserSentenceTextView();
+        // winGradient();
     }
 
     private void applyWord() {
-        applyWordRaw();
-        m_sentence += ' ';
+        m_userSentence += ' ';
+        updateUserSentenceTextView();
+        // winGradient();
+    }
+    private void updateUserSentenceTextView() {
+        m_userSentenceTextView.setText(m_userSentence);
     }
 }
