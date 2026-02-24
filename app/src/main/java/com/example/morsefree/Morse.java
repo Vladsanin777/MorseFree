@@ -98,17 +98,11 @@ public enum Morse {
     MORSE_AT(convertMorse(0x1A, 0x6), '@', '@');
 
     private int m_morseData;
-
     private char m_latin;
-
     private char m_cyrillic;
-
     private MorseLevel m_level;
-
-    private static Function<Morse, Character> m_getterSymbol =
-            morse->morse.m_latin;
-
-    private static final Map<Integer, Morse> DATA_TO_SYMBOL = 
+    private Function<Morse, Character> getSymbol;
+    private static final Map<Integer, Morse> DATA_TO_SYMBOL =
         new HashMap<Integer, Morse>();
 
     static {
@@ -119,6 +113,7 @@ public enum Morse {
         m_morseData = morseData;
         m_latin = latin;
         m_cyrillic = cyrillic;
+        getSymbol = Morse::getSymbolLatin;
     }
 
     public static int convertMorse(int data, int length) {
@@ -141,10 +136,10 @@ public enum Morse {
     public void setLanguage(MorseLanguage language) {
         switch (language) {
             case MORSE_LANGUAGE_LATIN:
-                m_getterSymbol = Morse::getLatin;
+                getSymbol = Morse::getSymbolLatin;
                 break;
             case MORSE_LANGUAGE_CYRILLIC:
-                m_getterSymbol = Morse::getCyrillic;
+                getSymbol = Morse::getSymbolCyrillic;
                 break;
         }
     }
@@ -157,24 +152,99 @@ public enum Morse {
         return m_level;
     }
 
-    public char getRandomSymbol() {
-        switch (m_level) {
+    public char random(Morse left, Morse rigth) {
+        return (int)(Math.random() * 2) == 1 ?
+                getSymbol(left) : getSymbol(rigth);
+    }
+
+    private char getSymbol(Morse morse) {
+        return getSymbol.apply(morse);
+    }
+
+    public static char getSymbolLatin(Morse morse) {
+        return morse.m_latin;
+    }
+
+    public static char getSymbolCyrillic(Morse morse) {
+        return morse.m_cyrillic;
+    }
+
+    public char generateSymbol(MorseLevel level) {
+        switch (level) {
             case MORSE_LEVEL_E_AND_T:
-                return (int)(Math.random() * 2) == 1 ? 'E' : 'T';
+                return random(MORSE_E, MORSE_T);
+            case MORSE_LEVEL_I_AND_M:
+                return random(MORSE_I, MORSE_M);
+            case MORSE_LEVEL_A_AND_N:
+                return random(MORSE_A, MORSE_N);
+            case MORSE_LEVEL_S_AND_O:
+                return random(MORSE_S, MORSE_O);
+            case MORSE_LEVEL_U_AND_G:
+                return random(MORSE_U, MORSE_G);
+            case MORSE_LEVEL_R_AND_K:
+                return random(MORSE_R, MORSE_K);
+            case MORSE_LEVEL_W_AND_D:
+                return random(MORSE_W, MORSE_D);
+            case MORSE_LEVEL_H_AND_SH:
+                return random(MORSE_H, MORSE_SH);
+            case MORSE_LEVEL_V_AND_CH:
+                return random(MORSE_V, MORSE_CH);
+            case MORSE_LEVEL_F_AND_Q:
+                return random(MORSE_F, MORSE_Q);
+            case MORSE_LEVEL_YU_AND_Z:
+                return random(MORSE_YU, MORSE_Z);
+            case MORSE_LEVEL_L_AND_Y:
+                return random(MORSE_L, MORSE_Y);
+            case MORSE_LEVEL_YA_AND_C:
+                return random(MORSE_YA, MORSE_C);
+            case MORSE_LEVEL_P_AND_X:
+                return random(MORSE_P, MORSE_X);
+            case MORSE_LEVEL_J_AND_B:
+                return random(MORSE_J, MORSE_B);
+            case MORSE_LEVEL_HARD_SING:
+                return getSymbol(MORSE_HARD_SING);
+            case MORSE_LEVEL_ONE_AND_SIX:
+                return random(MORSE_ONE, MORSE_SIX);
+            case MORSE_LEVEL_TWO_AND_SEVEN:
+                return random(MORSE_TWO, MORSE_SEVEN);
+            case MORSE_LEVEL_THREE_AND_EIGHT:
+                return random(MORSE_THREE, MORSE_EIGHT);
+            case MORSE_LEVEL_FOUR_AND_NINE:
+                return random(MORSE_FOUR, MORSE_NINE);
+            case MORSE_LEVEL_FIVE_AND_ZERO:
+                return random(MORSE_FIVE, MORSE_ZERO);
+            case MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET:
+                return random(MORSE_OPEN_BRACKET, MORSE_CLOSE_BRACKET);
+            case MORSE_LEVEL_POINT_AND_COMMA:
+                return random(MORSE_POINT, MORSE_COMMA);
+            case MORSE_LEVEL_SEMICOLON_AND_COLON:
+                return random(MORSE_SEMICOLON, MORSE_COLON);
+            case MORSE_LEVEL_QUOTES_AND_APOSTROPHE:
+                return random(MORSE_QUOTES, MORSE_APOSTROPHE);
+            case MORSE_LEVEL_DASH_AND_SLASH:
+                return random(MORSE_DASH, MORSE_SLASH);
+            case MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK:
+                return random(MORSE_QUESTION_MARK, MORSE_EXCLAMATION_MARK);
+            case MORSE_LEVEL_AT:
+                return getSymbol(MORSE_AT);
         }
         return '\0';
     }
 
+    public char getRandomSymbol() {
+
+        char ch = '\0';
+        while (ch == '\0') {
+            MorseLevel level = (int)(Math.random() * 3) == 0 ?
+                    m_level : MorseLevel.values()
+                    [(int)(Math.random() * (m_level.ordinal()+1))];
+            ch = generateSymbol(level);
+        }
+        return ch;
+    }
+
     public char getSymbol() {
-        return m_getterSymbol.apply(this);
-    }
-
-    public char getLatin() {
-        return m_latin;
-    }
-
-    public char getCyrillic() {
-        return m_cyrillic;
+        return getSymbol.apply(this);
     }
 
     private static void buildCache() {
