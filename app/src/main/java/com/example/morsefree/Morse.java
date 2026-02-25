@@ -2,6 +2,8 @@ package com.example.morsefree;
 
 import static com.example.morsefree.Morse.*;
 
+import androidx.annotation.NonNull;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
@@ -133,7 +135,7 @@ public enum Morse {
     public int getMorseDataRaw() {
         return m_morseData;
     }
-    public void setLanguage(MorseLanguage language) {
+    public void setLanguage(@NonNull MorseLanguage language) {
         switch (language) {
             case MORSE_LANGUAGE_LATIN:
                 getSymbol = Morse::getSymbolLatin;
@@ -161,15 +163,15 @@ public enum Morse {
         return getSymbol.apply(morse);
     }
 
-    public static char getSymbolLatin(Morse morse) {
+    public static char getSymbolLatin(@NonNull Morse morse) {
         return morse.m_latin;
     }
 
-    public static char getSymbolCyrillic(Morse morse) {
+    public static char getSymbolCyrillic(@NonNull Morse morse) {
         return morse.m_cyrillic;
     }
 
-    public char generateSymbol(MorseLevel level) {
+    public char generateSymbol(@NonNull MorseLevel level) {
         switch (level) {
             case MORSE_LEVEL_E_AND_T:
                 return random(MORSE_E, MORSE_T);

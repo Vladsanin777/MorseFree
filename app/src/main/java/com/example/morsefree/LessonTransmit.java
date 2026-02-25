@@ -53,6 +53,7 @@ public class LessonTransmit extends AppCompatActivity {
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
+    private boolean m_is_typing;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -122,6 +123,8 @@ public class LessonTransmit extends AppCompatActivity {
         m_levelNameTextView = findViewById(R.id.title_transmit_level_name);
 
         m_levelNameTextView.setText(nameLevel);
+
+        m_is_typing = false;
 
         m_lessonTransmitLayout.post(this::initInfoGradient);
 
@@ -262,12 +265,30 @@ public class LessonTransmit extends AppCompatActivity {
     void stopSound() {
         m_sound.stop();
     }
+
+    private void updateSymbolRaw() {
+        if (m_is_typing) {
+            m_userSentence = m_userSentence.substring(0, m_userSentence.length() - 1) + m_morse.getSymbol();
+        } else {
+            m_userSentence += m_morse.getSymbol();
+        }
+    }
+
+    private void updateSymbol() {
+        updateSymbolRaw();
+        updateUserSentenceTextView();
+    }
+
     private void applyPoint() {
         m_morse.addPoint();
+        updateSymbol();
+        m_is_typing = true;
     }
 
     private void applyDash() {
         m_morse.addDash();
+        updateSymbol();
+        m_is_typing = true;
     }
 
     private boolean isCorrectTiming(
@@ -322,7 +343,7 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void applySymbolRaw() {
-        m_userSentence += m_morse.getSymbol();
+        m_is_typing = false;
         Log.d("MorseFree", "input symbol: " + m_morse.getSymbol());
         m_morse.clear();
     }
