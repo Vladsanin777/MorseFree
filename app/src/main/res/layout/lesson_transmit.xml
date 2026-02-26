@@ -42,25 +42,81 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
-        <TextView
-            android:id="@+id/correct_sentence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="sentence"
-            android:textSize="52sp"
+        <HorizontalScrollView
+            android:id="@+id/correct_sentence_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintWidth_percent="0.5"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/correct_sentence_morse_scroll_view"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/user_sentence_scroll_view">
 
-        <TextView
-            android:id="@+id/user_sentence"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="your sentence"
-            android:textSize="52sp"
-            app:layout_constraintTop_toBottomOf="@id/correct_sentence"
+            <TextView
+                android:id="@+id/correct_sentence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="correct sentence"
+                android:textSize="52sp"/>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/correct_sentence_morse_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/correct_sentence_scroll_view"
+            app:layout_constraintBottom_toTopOf="@id/user_sentence_morse_scroll_view">
+
+            <com.example.morsefree.MorseGraphView
+                android:id="@+id/correct_sentence_morse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/user_sentence_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintTop_toBottomOf="@id/correct_sentence_scroll_view"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toLeftOf="@id/user_sentence_morse_scroll_view"
+            app:layout_constraintBottom_toTopOf="@id/button_help">
+
+            <TextView
+                android:id="@+id/user_sentence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="user sentence"
+                android:textSize="52sp"/>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:id="@+id/user_sentence_morse_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintTop_toBottomOf="@id/correct_sentence_morse_scroll_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/user_sentence_scroll_view"
+            app:layout_constraintBottom_toTopOf="@id/button_help">
+
+            <com.example.morsefree.MorseGraphView
+                android:id="@+id/user_sentence_morse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@id/correct_sentence"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/correct_sentence_morse"
+                app:layout_constraintBottom_toTopOf="@id/button_repeat"/>
+        </HorizontalScrollView>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_help"
