@@ -154,7 +154,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:text="all"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"

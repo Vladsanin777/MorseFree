@@ -1,0 +1,10 @@
+package com.example.morsefree;
+
+import static com.example.morsefree.ActionMorse.*;
+public enum ActionMorse {
+    NOT_ACTION_MORSE, ERROR_POINT_OR_DASH_ACTION_MORSE,
+    ERROR_ANY_INTERVAL_ACTION_MORSE, POINT_ACTION_MORSE,
+    DASH_ACTION_MORSE, BASE_INTERVAL_ACTION_MORSE,
+    INTER_SYMBOL_INTERVAL_ACTION_MORSE,
+    SPACE_INTERVAL_ACTION_MORSE
+}
