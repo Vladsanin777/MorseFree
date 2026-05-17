@@ -1,10 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/lesson_transmit"
+    android:fitsSystemWindows="true"
+    android:id="@+id/root_layout"
     tools:context=".LessonTransmit">
 
     <TextView
@@ -12,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="48sp"
-        android:text="Transmit level"
+        android:text="@string/transmit_level"
         android:id="@+id/title_transmit_level"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -24,7 +26,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="48sp"
-        android:text="Name level"
+        android:text="@string/label_level"
         android:id="@+id/title_transmit_level_name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

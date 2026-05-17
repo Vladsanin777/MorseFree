@@ -20,17 +20,21 @@ public class SelectLessonTransmit extends AppCompatActivity {
     public void onClickSelectLessonTransmit(View view) {
         Button button = (Button)view;
         String level_name = button.getText().toString();
-        String[] morseLanguageAndMorseLevel = button.getTag().toString().split(";");
+        MorseLevel level = null;
+        MorseLanguage language = null;
 
-        Log.d("MorseFree", level_name);
+        if (button.getTag().toString().contains(";")) {
+            String[] morseLanguageAndMorseLevel = button.getTag().toString().split(";");
+            level = MorseLevel.valueOf(morseLanguageAndMorseLevel[0]);
+            language = MorseLanguage.valueOf(morseLanguageAndMorseLevel[1]);
 
-        MorseLanguage language = MorseLanguage.valueOf(morseLanguageAndMorseLevel[0]);
-        MorseLevel level = MorseLevel.valueOf(morseLanguageAndMorseLevel[1]);
+            Log.d("MorseFree", level_name);
 
-        Intent intent = new Intent(SelectLessonTransmit.this, LessonTransmit.class);
-        intent.putExtra("MORSE_LANGUAGE", language.ordinal());
-        intent.putExtra("MORSE_LEVEL", level.ordinal());
-        intent.putExtra("LEVEL_NAME", level_name);
-        startActivity(intent);
+            Intent intent = new Intent(SelectLessonTransmit.this, LessonTransmit.class);
+            intent.putExtra("MORSE_LANGUAGE", language.ordinal());
+            intent.putExtra("MORSE_LEVEL", level.ordinal());
+            intent.putExtra("LEVEL_NAME", level_name);
+            startActivity(intent);
+        }
     }
 }

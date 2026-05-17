@@ -1,7 +1,19 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.MorseLanguage.*;
+import static com.example.morsefree.MorseLevel.*;
 
 public enum MorseLanguage {
-    MORSE_LANGUAGE_LATIN, MORSE_LANGUAGE_CYRILLIC
+    MORSE_LATIN(MORSE_LEVEL_E_AND_T.ordinal()),
+    MORSE_CYRILLIC(MORSE_LEVEL_E_AND_T.ordinal()),
+    MORSE_NUMBER(MORSE_LEVEL_ONE_AND_SIX.ordinal()),
+    MORSE_SYMBOL(MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET.ordinal());
+
+    private int m_levelOrdinal;
+    MorseLanguage(int ordinal) {
+        m_levelOrdinal = ordinal;
+    }
+
+    int getLevelOrdinal() {
+        return m_levelOrdinal;
+    }
 }

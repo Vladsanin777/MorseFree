@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:id="@+id/root_layout"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="48sp"
-        android:text="Select mode"
+        android:text="@string/select_mode"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,28 +41,28 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Learn Transmit"
+            android:text="@string/learn_transmit"
             android:layout_margin="4dp"/>
         <Button
             android:id="@+id/learn_receive_mode"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Learn Receive"
+            android:text="@string/learn_receive"
             android:layout_margin="4dp"/>
         <Button
             android:id="@+id/transmit_mode"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Transmit"
+            android:text="@string/transmit"
             android:layout_margin="4dp"/>
         <Button
             android:id="@+id/receive_mode"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="Receive"
+            android:text="@string/receive"
             android:layout_margin="4dp"/>
     </LinearLayout>
 

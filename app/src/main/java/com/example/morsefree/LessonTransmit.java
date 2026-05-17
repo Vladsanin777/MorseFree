@@ -11,6 +11,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -48,20 +49,19 @@ public class LessonTransmit extends AppCompatActivity {
     private final Runnable m_idleRunnable = this::checkMessage;
     private TextView m_userSentenceTextView;
     private TextView m_correctSentenceTextView;
-    private TextView m_levelNameTextView;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
     private boolean m_is_typing;
 
-    @SuppressLint("ClickableViewAccessibility")
+    @SuppressLint({"ClickableViewAccessibility", "ResourceType", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent;
         MorseLanguage language = MORSE_LANGUAGE_LATIN;
         MorseLevel level = MORSE_LEVEL_NULL;
-        String nameLevel = "";
+        String nameLevel = null;
 
         super.onCreate(savedInstanceState);
 
@@ -74,7 +74,7 @@ public class LessonTransmit extends AppCompatActivity {
             nameLevel = intent.getStringExtra("LEVEL_NAME");
         }
 
-        m_morse = MORSE_EMPTY;
+        m_morse = Morse.getEmpty();
 
         m_morse.setLanguage(language);
 
@@ -118,19 +118,18 @@ public class LessonTransmit extends AppCompatActivity {
         m_transmitButton = findViewById(R.id.button_transmit);
         m_transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
 
-        m_lessonTransmitLayout = findViewById(R.id.lesson_transmit);
+        TextView levelNameTextView = findViewById(R.id.title_transmit_level_name);
 
-        m_levelNameTextView = findViewById(R.id.title_transmit_level_name);
-
-        m_levelNameTextView.setText(nameLevel);
+        levelNameTextView.setText(nameLevel);
 
         m_is_typing = false;
 
+        m_lessonTransmitLayout = findViewById(R.id.root_layout);
+
         m_lessonTransmitLayout.post(this::initInfoGradient);
 
-        updateCorrectSentence();
 
-        Log.d("MorseFree", "On create transmit lesson");
+        updateCorrectSentence();
     }
 
     void initInfoGradient() {
