@@ -5157,7 +5157,7 @@ C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/
 C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION$/;"	d	file:
 C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
 DASH_ACTION_MORSE	app/src/main/java/com/example/morsefree/ActionMorse.java	/^    DASH_ACTION_MORSE, BASE_INTERVAL_ACTION_MORSE,$/;"	e	enum:ActionMorse	file:
-DATA_TO_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    private static final Map<Integer, Morse> DATA_TO_SYMBOL =$/;"	f	class:Morse	file:
+DATA_TO_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    private static final HashMap<MorseLanguage, HashMap<MorseLevel, ArrayList<Morse>>> DATA_TO_S/;"	f	class:Morse	file:
 DEC	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
 DEC	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
 DEC	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
@@ -5263,207 +5263,130 @@ M	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^ 
 M	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "M": 23,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 M	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "M": 23,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 M	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "M": 23,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-MORSE_APOSTROPHE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_APOSTROPHE_SYMBOL(convertMorse(0x1E, 0x6), MORSE_SYMBOL, '\\''),$/;"	e	enum:Morse	file:
-MORSE_AT_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_AT_SYMBOL(convertMorse(0x1A, 0x6), MORSE_SYMBOL, '@');$/;"	e	enum:Morse	file:
-MORSE_A_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_CYRILLIC(convertMorse(0x1, 0x2), MORSE_CYRILLIC, 'А'),$/;"	e	enum:Morse	file:
-MORSE_A_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_LATIN(convertMorse(0x1, 0x2), MORSE_LATIN, 'A'),$/;"	e	enum:Morse	file:
-MORSE_B_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_CYRILLIC(convertMorse(0x8, 0x4), MORSE_CYRILLIC, 'Б'),$/;"	e	enum:Morse	file:
-MORSE_B_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_LATIN(convertMorse(0x8, 0x4), MORSE_LATIN, 'B'),$/;"	e	enum:Morse	file:
-MORSE_CH_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CH_CYRILLIC(convertMorse(0xE, 0x4), MORSE_CYRILLIC, 'Ч'),$/;"	e	enum:Morse	file:
-MORSE_CLOSE_BRACKET_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CLOSE_BRACKET_SYMBOL(convertMorse(0x2D, 0x6), MORSE_SYMBOL, ')'),$/;"	e	enum:Morse	file:
-MORSE_COLON_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COLON_SYMBOL(convertMorse(0x38, 0x6), MORSE_SYMBOL, ':'),$/;"	e	enum:Morse	file:
-MORSE_COMMA_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COMMA_SYMBOL(convertMorse(0x15, 0x6), MORSE_SYMBOL, ','),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_CYRILLIC(convertMorse(0x1, 0x2), MORSE_CYRILLIC, 'А'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_CYRILLIC(convertMorse(0x8, 0x4), MORSE_CYRILLIC, 'Б'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CH_CYRILLIC(convertMorse(0xE, 0x4), MORSE_CYRILLIC, 'Ч'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_CYRILLIC(convertMorse(0xA, 0x4), MORSE_CYRILLIC, 'Ц'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_CYRILLIC(convertMorse(0x4, 0x3), MORSE_CYRILLIC, 'Д'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_CYRILLIC(convertMorse(0x0, 0x1), MORSE_CYRILLIC, 'Е')$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_CYRILLIC(convertMorse(0x2, 0x4), MORSE_CYRILLIC, 'Ф'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_CYRILLIC(convertMorse(0x6, 0x3), MORSE_CYRILLIC, 'Г'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_HARD_SING_CYRILLIC(convertMorse(0x1A, 0x5), MORSE_CYRILLIC, 'Ъ'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_CYRILLIC(convertMorse(0x0, 0x4), MORSE_CYRILLIC, 'Х'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_CYRILLIC(convertMorse(0x0, 0x2), MORSE_CYRILLIC, 'И'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_CYRILLIC(convertMorse(0x7, 0x4), MORSE_CYRILLIC, 'Й'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_CYRILLIC(convertMorse(0x5, 0x3), MORSE_CYRILLIC, 'К'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_CYRILLIC(convertMorse(0x4, 0x4), MORSE_CYRILLIC, 'Л'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_CYRILLIC(convertMorse(0x3, 0x2), MORSE_CYRILLIC, 'М'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_CYRILLIC(convertMorse(0x2, 0x2), MORSE_CYRILLIC, 'Н'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_CYRILLIC(convertMorse(0x7, 0x3), MORSE_CYRILLIC, 'О'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_CYRILLIC(convertMorse(0x6, 0x4), MORSE_CYRILLIC, 'P'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_CYRILLIC(convertMorse(0xD, 0x4), MORSE_CYRILLIC, 'Щ'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_CYRILLIC(convertMorse(0x2, 0x3), MORSE_CYRILLIC, 'Р'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SH_CYRILLIC(convertMorse(0xF, 0x4), MORSE_CYRILLIC, 'Ш'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_CYRILLIC(convertMorse(0x0, 0x3), MORSE_CYRILLIC, 'С'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_CYRILLIC(convertMorse(0x1, 0x1), MORSE_CYRILLIC, 'Т'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_CYRILLIC(convertMorse(0x1, 0x3), MORSE_CYRILLIC, 'У'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_CYRILLIC(convertMorse(0x1, 0x4), MORSE_CYRILLIC, 'Ж'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_CYRILLIC(convertMorse(0x3, 0x3), MORSE_CYRILLIC, 'В'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_CYRILLIC(convertMorse(0x9, 0x4), MORSE_CYRILLIC, 'Ь'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YA_CYRILLIC(convertMorse(0x5, 0x4), MORSE_CYRILLIC, 'Я'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YU_CYRILLIC(convertMorse(0x3, 0x4), MORSE_CYRILLIC, 'Ю'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_CYRILLIC(convertMorse(0xB, 0x4), MORSE_CYRILLIC, 'Ы'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_CYRILLIC(convertMorse(0xC, 0x4), MORSE_CYRILLIC, 'З'),$/;"	e	enum:Morse	file:
-MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_CYRILLIC(MORSE_LEVEL_E_AND_T),$/;"	e	enum:MorseLanguage	file:
-MORSE_C_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_CYRILLIC(convertMorse(0xA, 0x4), MORSE_CYRILLIC, 'Ц'),$/;"	e	enum:Morse	file:
-MORSE_C_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_LATIN(convertMorse(0xA, 0x4), MORSE_LATIN, 'C'),$/;"	e	enum:Morse	file:
-MORSE_DASH_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_DASH_SYMBOL(convertMorse(0x21, 0x6), MORSE_SYMBOL, '-'),$/;"	e	enum:Morse	file:
-MORSE_D_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_CYRILLIC(convertMorse(0x4, 0x3), MORSE_CYRILLIC, 'Д'),$/;"	e	enum:Morse	file:
-MORSE_D_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_LATIN(convertMorse(0x4, 0x3), MORSE_LATIN, 'D'),$/;"	e	enum:Morse	file:
-MORSE_EIGHT_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EIGHT_NUMBER(convertMorse(0x1C, 0x5), MORSE_NUMBER, '8'),$/;"	e	enum:Morse	file:
-MORSE_EMPTY	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EMPTY(0, MORSE_LATIN, '\\0'),$/;"	e	enum:Morse	file:
-MORSE_EXCLAMATION_MARK_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EXCLAMATION_MARK_SYMBOL(convertMorse(0x33, 0x6), MORSE_SYMBOL, '!'),$/;"	e	enum:Morse	file:
-MORSE_E_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_CYRILLIC(convertMorse(0x0, 0x1), MORSE_CYRILLIC, 'Е')$/;"	e	enum:Morse	file:
-MORSE_E_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_LATIN(convertMorse(0x0, 0x1), MORSE_LATIN,'E'),$/;"	e	enum:Morse	file:
-MORSE_FIVE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FIVE_NUMBER(convertMorse(0x0, 0x5), MORSE_NUMBER, '5'),$/;"	e	enum:Morse	file:
-MORSE_FOUR_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FOUR_NUMBER(convertMorse(0x01, 0x5), MORSE_NUMBER, '4'),$/;"	e	enum:Morse	file:
-MORSE_F_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_CYRILLIC(convertMorse(0x2, 0x4), MORSE_CYRILLIC, 'Ф'),$/;"	e	enum:Morse	file:
-MORSE_F_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_LATIN(convertMorse(0x2, 0x4), MORSE_LATIN, 'F'),$/;"	e	enum:Morse	file:
-MORSE_G_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_CYRILLIC(convertMorse(0x6, 0x3), MORSE_CYRILLIC, 'Г'),$/;"	e	enum:Morse	file:
-MORSE_G_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_LATIN(convertMorse(0x6, 0x3), MORSE_LATIN, 'G'),$/;"	e	enum:Morse	file:
-MORSE_HARD_SING_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_HARD_SING_CYRILLIC(convertMorse(0x1A, 0x5), MORSE_CYRILLIC, 'Ъ'),$/;"	e	enum:Morse	file:
-MORSE_H_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_CYRILLIC(convertMorse(0x0, 0x4), MORSE_CYRILLIC, 'Х'),$/;"	e	enum:Morse	file:
-MORSE_H_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_LATIN(convertMorse(0x0, 0x4), MORSE_LATIN, 'H'),$/;"	e	enum:Morse	file:
-MORSE_I_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_CYRILLIC(convertMorse(0x0, 0x2), MORSE_CYRILLIC, 'И'),$/;"	e	enum:Morse	file:
-MORSE_I_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_LATIN(convertMorse(0x0, 0x2), MORSE_LATIN, 'I'),$/;"	e	enum:Morse	file:
-MORSE_J_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_CYRILLIC(convertMorse(0x7, 0x4), MORSE_CYRILLIC, 'Й'),$/;"	e	enum:Morse	file:
-MORSE_J_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_LATIN(convertMorse(0x7, 0x4), MORSE_LATIN, 'J'),$/;"	e	enum:Morse	file:
-MORSE_K_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_CYRILLIC(convertMorse(0x5, 0x3), MORSE_CYRILLIC, 'К'),$/;"	e	enum:Morse	file:
-MORSE_K_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_LATIN(convertMorse(0x5, 0x3), MORSE_LATIN, 'K'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_LATIN(convertMorse(0x1, 0x2), MORSE_LATIN, 'A'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_LATIN(convertMorse(0x8, 0x4), MORSE_LATIN, 'B'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_LATIN(convertMorse(0xA, 0x4), MORSE_LATIN, 'C'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_LATIN(convertMorse(0x4, 0x3), MORSE_LATIN, 'D'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_LATIN(convertMorse(0x0, 0x1), MORSE_LATIN,'E'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_LATIN(convertMorse(0x2, 0x4), MORSE_LATIN, 'F'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_LATIN(convertMorse(0x6, 0x3), MORSE_LATIN, 'G'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_LATIN(convertMorse(0x0, 0x4), MORSE_LATIN, 'H'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_LATIN(convertMorse(0x0, 0x2), MORSE_LATIN, 'I'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_LATIN(convertMorse(0x7, 0x4), MORSE_LATIN, 'J'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_LATIN(convertMorse(0x5, 0x3), MORSE_LATIN, 'K'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_LATIN(convertMorse(0x4, 0x4), MORSE_LATIN, 'L'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_LATIN(convertMorse(0x3, 0x2), MORSE_LATIN, 'M'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_LATIN(convertMorse(0x2, 0x2), MORSE_LATIN, 'N'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_LATIN(convertMorse(0x7, 0x3), MORSE_LATIN, 'O'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_LATIN(convertMorse(0x6, 0x4), MORSE_LATIN, 'P'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_LATIN(convertMorse(0xD, 0x4), MORSE_LATIN, 'Q'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_LATIN(convertMorse(0x2, 0x3), MORSE_LATIN, 'R'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_LATIN(convertMorse(0x0, 0x3), MORSE_LATIN, 'S'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_LATIN(convertMorse(0x1, 0x1), MORSE_LATIN, 'T'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_LATIN(convertMorse(0x1, 0x3), MORSE_LATIN, 'U'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_LATIN(convertMorse(0x1, 0x4), MORSE_LATIN, 'V'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_LATIN(convertMorse(0x3, 0x3), MORSE_LATIN, 'W'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_LATIN(convertMorse(0x9, 0x4), MORSE_LATIN, 'X'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_LATIN(convertMorse(0xB, 0x4), MORSE_LATIN, 'Y'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_LATIN(convertMorse(0xC, 0x4), MORSE_LATIN, 'Z'),$/;"	e	enum:Morse	file:
-MORSE_LATIN	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_LATIN(MORSE_LEVEL_E_AND_T), $/;"	e	enum:MorseLanguage	file:
+MORSE_APOSTROPHE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_APOSTROPHE_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUOTES_AND_APOSTROPHE, convertMorse(0x1E, /;"	e	enum:Morse	file:
+MORSE_AT_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_AT_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_AT, convertMorse(0x1A, 0x6), '@');$/;"	e	enum:Morse	file:
+MORSE_A_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_A_AND_N, convertMorse(0x1, 0x2), 'А'),$/;"	e	enum:Morse	file:
+MORSE_A_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_LATIN(MORSE_LATIN, MORSE_LEVEL_A_AND_N, convertMorse(0x1, 0x2), 'A'),$/;"	e	enum:Morse	file:
+MORSE_B_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_J_AND_B, convertMorse(0x8, 0x4), 'Б'),$/;"	e	enum:Morse	file:
+MORSE_B_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_LATIN(MORSE_LATIN, MORSE_LEVEL_J_AND_B, convertMorse(0x8, 0x4), 'B'),$/;"	e	enum:Morse	file:
+MORSE_CH_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CH_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_V_AND_CH, convertMorse(0xE, 0x4), 'Ч'),$/;"	e	enum:Morse	file:
+MORSE_CLOSE_BRACKET_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CLOSE_BRACKET_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET, convert/;"	e	enum:Morse	file:
+MORSE_COLON_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COLON_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, convertMorse(0x38, 0x6), ':'),$/;"	e	enum:Morse	file:
+MORSE_COMMA_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COMMA_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, convertMorse(0x15, 0x6), ','),$/;"	e	enum:Morse	file:
+MORSE_CYRILLIC	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_CYRILLIC(MORSE_LEVEL_E_AND_T.ordinal()),$/;"	e	enum:MorseLanguage	file:
+MORSE_C_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YA_AND_C, convertMorse(0xA, 0x4), 'Ц'),$/;"	e	enum:Morse	file:
+MORSE_C_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_LATIN(MORSE_LATIN, MORSE_LEVEL_YA_AND_C, convertMorse(0xA, 0x4), 'C'),$/;"	e	enum:Morse	file:
+MORSE_DASH_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_DASH_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_DASH_AND_SLASH, convertMorse(0x21, 0x6), '-'),$/;"	e	enum:Morse	file:
+MORSE_D_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_W_AND_D, convertMorse(0x4, 0x3), 'Д'),$/;"	e	enum:Morse	file:
+MORSE_D_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_LATIN(MORSE_LATIN, MORSE_LEVEL_W_AND_D, convertMorse(0x4, 0x3), 'D'),$/;"	e	enum:Morse	file:
+MORSE_EIGHT_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EIGHT_NUMBER(MORSE_NUMBER, MORSE_LEVEL_THREE_AND_EIGHT, convertMorse(0x1C, 0x5), '8'),$/;"	e	enum:Morse	file:
+MORSE_EXCLAMATION_MARK_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EXCLAMATION_MARK_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK, /;"	e	enum:Morse	file:
+MORSE_E_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_E_AND_T, convertMorse(0x0, 0x1), 'Е'),$/;"	e	enum:Morse	file:
+MORSE_E_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_LATIN(MORSE_LATIN, MORSE_LEVEL_E_AND_T, convertMorse(0x0, 0x1),'E'),$/;"	e	enum:Morse	file:
+MORSE_FIVE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FIVE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FIVE_AND_ZERO, convertMorse(0x0, 0x5), '5'),$/;"	e	enum:Morse	file:
+MORSE_FOUR_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FOUR_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FOUR_AND_NINE, convertMorse(0x01, 0x5), '4'),$/;"	e	enum:Morse	file:
+MORSE_F_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_F_AND_Q, convertMorse(0x2, 0x4), 'Ф'),$/;"	e	enum:Morse	file:
+MORSE_F_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_LATIN(MORSE_LATIN, MORSE_LEVEL_F_AND_Q, convertMorse(0x2, 0x4), 'F'),$/;"	e	enum:Morse	file:
+MORSE_G_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_U_AND_G, convertMorse(0x6, 0x3), 'Г'),$/;"	e	enum:Morse	file:
+MORSE_G_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_LATIN(MORSE_LATIN, MORSE_LEVEL_U_AND_G, convertMorse(0x6, 0x3), 'G'),$/;"	e	enum:Morse	file:
+MORSE_HARD_SING_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_HARD_SING_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_HARD_SING, convertMorse(0x1A, 0x5), 'Ъ/;"	e	enum:Morse	file:
+MORSE_H_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_H_AND_SH, convertMorse(0x0, 0x4), 'Х'),$/;"	e	enum:Morse	file:
+MORSE_H_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_LATIN(MORSE_LATIN, MORSE_LEVEL_H_AND_SH, convertMorse(0x0, 0x4), 'H'),$/;"	e	enum:Morse	file:
+MORSE_I_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_I_AND_M, convertMorse(0x0, 0x2), 'И'),$/;"	e	enum:Morse	file:
+MORSE_I_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_LATIN(MORSE_LATIN, MORSE_LEVEL_I_AND_M, convertMorse(0x0, 0x2), 'I'),$/;"	e	enum:Morse	file:
+MORSE_J_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_J_AND_B, convertMorse(0x7, 0x4), 'Й'),$/;"	e	enum:Morse	file:
+MORSE_J_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_LATIN(MORSE_LATIN, MORSE_LEVEL_J_AND_B, convertMorse(0x7, 0x4), 'J'),$/;"	e	enum:Morse	file:
+MORSE_K_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_R_AND_K, convertMorse(0x5, 0x3), 'К'),$/;"	e	enum:Morse	file:
+MORSE_K_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_LATIN(MORSE_LATIN, MORSE_LEVEL_R_AND_K, convertMorse(0x5, 0x3), 'K'),$/;"	e	enum:Morse	file:
+MORSE_LATIN	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_LATIN(MORSE_LEVEL_E_AND_T.ordinal()),$/;"	e	enum:MorseLanguage	file:
 MORSE_LEVEL_AT	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_AT$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_A_AND_N	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_I_AND_M, MORSE_LEVEL_A_AND_N,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_A_AND_N	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_A_AND_N, MORSE_LEVEL_S_AND_O,$/;"	e	enum:MorseLevel	file:
 MORSE_LEVEL_DASH_AND_SLASH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_DASH_AND_SLASH,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_E_AND_T	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_NULL, MORSE_LEVEL_E_AND_T,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_FIVE_AND_ZERO	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_FOUR_AND_NINE, MORSE_LEVEL_FIVE_AND_ZERO,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_FOUR_AND_NINE	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_FOUR_AND_NINE, MORSE_LEVEL_FIVE_AND_ZERO,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_F_AND_Q	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_F_AND_Q, MORSE_LEVEL_YU_AND_Z,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_HARD_SING	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_HARD_SING, MORSE_LEVEL_ONE_AND_SIX,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_H_AND_SH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_H_AND_SH, MORSE_LEVEL_V_AND_CH,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_I_AND_M	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_I_AND_M, MORSE_LEVEL_A_AND_N,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_J_AND_B	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_P_AND_X, MORSE_LEVEL_J_AND_B,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_L_AND_Y	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_L_AND_Y, MORSE_LEVEL_YA_AND_C,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_NULL	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_NULL, MORSE_LEVEL_E_AND_T,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_ONE_AND_SIX	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_HARD_SING, MORSE_LEVEL_ONE_AND_SIX,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_E_AND_T	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_E_AND_T, MORSE_LEVEL_I_AND_M,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_E_AND_T.ordinal	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_CYRILLIC(MORSE_LEVEL_E_AND_T.ordinal()),$/;"	e	enum:MorseLanguage	file:
+MORSE_LEVEL_E_AND_T.ordinal	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_LATIN(MORSE_LEVEL_E_AND_T.ordinal()),$/;"	e	enum:MorseLanguage	file:
+MORSE_LEVEL_FIVE_AND_ZERO	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_FIVE_AND_ZERO,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_FOUR_AND_NINE	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_THREE_AND_EIGHT, MORSE_LEVEL_FOUR_AND_NINE,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_F_AND_Q	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_V_AND_CH, MORSE_LEVEL_F_AND_Q,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_HARD_SING	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_J_AND_B, MORSE_LEVEL_HARD_SING,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_H_AND_SH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_W_AND_D, MORSE_LEVEL_H_AND_SH,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_I_AND_M	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_E_AND_T, MORSE_LEVEL_I_AND_M,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_J_AND_B	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_J_AND_B, MORSE_LEVEL_HARD_SING,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_L_AND_Y	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YU_AND_Z, MORSE_LEVEL_L_AND_Y,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_ONE_AND_SIX	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_ONE_AND_SIX, MORSE_LEVEL_TWO_AND_SEVEN,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_ONE_AND_SIX.ordinal	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_NUMBER(MORSE_LEVEL_ONE_AND_SIX.ordinal()),$/;"	e	enum:MorseLanguage	file:
 MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET.ordinal	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_SYMBOL(MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET.ordinal());$/;"	e	enum:MorseLanguage	file:
 MORSE_LEVEL_POINT_AND_COMMA	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_POINT_AND_COMMA,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_P_AND_X	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_P_AND_X, MORSE_LEVEL_J_AND_B,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_P_AND_X	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YA_AND_C, MORSE_LEVEL_P_AND_X,$/;"	e	enum:MorseLevel	file:
 MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK,$/;"	e	enum:MorseLevel	file:
 MORSE_LEVEL_QUOTES_AND_APOSTROPHE	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_QUOTES_AND_APOSTROPHE,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_R_AND_K	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_R_AND_K, MORSE_LEVEL_W_AND_D,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_R_AND_K	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_U_AND_G, MORSE_LEVEL_R_AND_K,$/;"	e	enum:MorseLevel	file:
 MORSE_LEVEL_SEMICOLON_AND_COLON	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_SEMICOLON_AND_COLON,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_S_AND_O	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_S_AND_O, MORSE_LEVEL_U_AND_G,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_THREE_AND_EIGHT	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_TWO_AND_SEVEN, MORSE_LEVEL_THREE_AND_EIGHT,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_TWO_AND_SEVEN	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_TWO_AND_SEVEN, MORSE_LEVEL_THREE_AND_EIGHT,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_U_AND_G	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_S_AND_O, MORSE_LEVEL_U_AND_G,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_V_AND_CH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_H_AND_SH, MORSE_LEVEL_V_AND_CH,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_W_AND_D	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_R_AND_K, MORSE_LEVEL_W_AND_D,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_YA_AND_C	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_L_AND_Y, MORSE_LEVEL_YA_AND_C,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_YU_AND_Z	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_F_AND_Q, MORSE_LEVEL_YU_AND_Z,$/;"	e	enum:MorseLevel	file:
-MORSE_L_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_CYRILLIC(convertMorse(0x4, 0x4), MORSE_CYRILLIC, 'Л'),$/;"	e	enum:Morse	file:
-MORSE_L_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_LATIN(convertMorse(0x4, 0x4), MORSE_LATIN, 'L'),$/;"	e	enum:Morse	file:
-MORSE_M_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_CYRILLIC(convertMorse(0x3, 0x2), MORSE_CYRILLIC, 'М'),$/;"	e	enum:Morse	file:
-MORSE_M_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_LATIN(convertMorse(0x3, 0x2), MORSE_LATIN, 'M'),$/;"	e	enum:Morse	file:
-MORSE_NINE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_NINE_NUMBER(convertMorse(0x1E, 0x5), MORSE_NUMBER, '9'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EIGHT_NUMBER(convertMorse(0x1C, 0x5), MORSE_NUMBER, '8'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FIVE_NUMBER(convertMorse(0x0, 0x5), MORSE_NUMBER, '5'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FOUR_NUMBER(convertMorse(0x01, 0x5), MORSE_NUMBER, '4'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_NINE_NUMBER(convertMorse(0x1E, 0x5), MORSE_NUMBER, '9'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ONE_NUMBER(convertMorse(0x0F, 0x5), MORSE_NUMBER, '1'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEVEN_NUMBER(convertMorse(0x18, 0x5), MORSE_NUMBER, '7'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SIX_NUMBER(convertMorse(0x10, 0x5), MORSE_NUMBER, '9'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_THREE_NUMBER(convertMorse(0x03, 0x5), MORSE_NUMBER, '3'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_TWO_NUMBER(convertMorse(0x07, 0x5), MORSE_NUMBER, '2'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ZERO_NUMBER(convertMorse(0x1F, 0x5), MORSE_NUMBER, '0'),$/;"	e	enum:Morse	file:
-MORSE_NUMBER	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_NUMBER(MORSE_LEVEL_ONE_AND_SIX),$/;"	e	enum:MorseLanguage	file:
-MORSE_N_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_CYRILLIC(convertMorse(0x2, 0x2), MORSE_CYRILLIC, 'Н'),$/;"	e	enum:Morse	file:
-MORSE_N_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_LATIN(convertMorse(0x2, 0x2), MORSE_LATIN, 'N'),$/;"	e	enum:Morse	file:
-MORSE_ONE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ONE_NUMBER(convertMorse(0x0F, 0x5), MORSE_NUMBER, '1'),$/;"	e	enum:Morse	file:
-MORSE_OPEN_BRACKET_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_OPEN_BRACKET_SYMBOL(convertMorse(0x16, 0x6), MORSE_SYMBOL, '('),$/;"	e	enum:Morse	file:
-MORSE_O_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_CYRILLIC(convertMorse(0x7, 0x3), MORSE_CYRILLIC, 'О'),$/;"	e	enum:Morse	file:
-MORSE_O_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_LATIN(convertMorse(0x7, 0x3), MORSE_LATIN, 'O'),$/;"	e	enum:Morse	file:
-MORSE_POINT_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_POINT_SYMBOL(convertMorse(0x00, 0x6), MORSE_SYMBOL, '.'),$/;"	e	enum:Morse	file:
-MORSE_P_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_CYRILLIC(convertMorse(0x6, 0x4), MORSE_CYRILLIC, 'P'),$/;"	e	enum:Morse	file:
-MORSE_P_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_LATIN(convertMorse(0x6, 0x4), MORSE_LATIN, 'P'),$/;"	e	enum:Morse	file:
-MORSE_QUESTION_MARK_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUESTION_MARK_SYMBOL(convertMorse(0x0C, 0x6), MORSE_SYMBOL, '?'),$/;"	e	enum:Morse	file:
-MORSE_QUOTES_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUOTES_SYMBOL(convertMorse(0x12, 0x6), MORSE_SYMBOL, '\\"'),$/;"	e	enum:Morse	file:
-MORSE_Q_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_CYRILLIC(convertMorse(0xD, 0x4), MORSE_CYRILLIC, 'Щ'),$/;"	e	enum:Morse	file:
-MORSE_Q_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_LATIN(convertMorse(0xD, 0x4), MORSE_LATIN, 'Q'),$/;"	e	enum:Morse	file:
-MORSE_R_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_CYRILLIC(convertMorse(0x2, 0x3), MORSE_CYRILLIC, 'Р'),$/;"	e	enum:Morse	file:
-MORSE_R_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_LATIN(convertMorse(0x2, 0x3), MORSE_LATIN, 'R'),$/;"	e	enum:Morse	file:
-MORSE_SEMICOLON_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEMICOLON_SYMBOL(convertMorse(0x2A, 0x6), MORSE_SYMBOL, ';'),$/;"	e	enum:Morse	file:
-MORSE_SEVEN_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEVEN_NUMBER(convertMorse(0x18, 0x5), MORSE_NUMBER, '7'),$/;"	e	enum:Morse	file:
-MORSE_SH_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SH_CYRILLIC(convertMorse(0xF, 0x4), MORSE_CYRILLIC, 'Ш'),$/;"	e	enum:Morse	file:
-MORSE_SIX_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SIX_NUMBER(convertMorse(0x10, 0x5), MORSE_NUMBER, '9'),$/;"	e	enum:Morse	file:
-MORSE_SLASH_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SLASH_SYMBOL(convertMorse(0x12, 0x5), MORSE_SYMBOL, '\/'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_APOSTROPHE_SYMBOL(convertMorse(0x1E, 0x6), MORSE_SYMBOL, '\\''),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_AT_SYMBOL(convertMorse(0x1A, 0x6), MORSE_SYMBOL, '@');$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CLOSE_BRACKET_SYMBOL(convertMorse(0x2D, 0x6), MORSE_SYMBOL, ')'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COLON_SYMBOL(convertMorse(0x38, 0x6), MORSE_SYMBOL, ':'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COMMA_SYMBOL(convertMorse(0x15, 0x6), MORSE_SYMBOL, ','),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_DASH_SYMBOL(convertMorse(0x21, 0x6), MORSE_SYMBOL, '-'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EXCLAMATION_MARK_SYMBOL(convertMorse(0x33, 0x6), MORSE_SYMBOL, '!'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_OPEN_BRACKET_SYMBOL(convertMorse(0x16, 0x6), MORSE_SYMBOL, '('),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_POINT_SYMBOL(convertMorse(0x00, 0x6), MORSE_SYMBOL, '.'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUESTION_MARK_SYMBOL(convertMorse(0x0C, 0x6), MORSE_SYMBOL, '?'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUOTES_SYMBOL(convertMorse(0x12, 0x6), MORSE_SYMBOL, '\\"'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEMICOLON_SYMBOL(convertMorse(0x2A, 0x6), MORSE_SYMBOL, ';'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SLASH_SYMBOL(convertMorse(0x12, 0x5), MORSE_SYMBOL, '\/'),$/;"	e	enum:Morse	file:
-MORSE_SYMBOL	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_SYMBOL(MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET)$/;"	e	enum:MorseLanguage	file:
-MORSE_S_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_CYRILLIC(convertMorse(0x0, 0x3), MORSE_CYRILLIC, 'С'),$/;"	e	enum:Morse	file:
-MORSE_S_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_LATIN(convertMorse(0x0, 0x3), MORSE_LATIN, 'S'),$/;"	e	enum:Morse	file:
-MORSE_THREE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_THREE_NUMBER(convertMorse(0x03, 0x5), MORSE_NUMBER, '3'),$/;"	e	enum:Morse	file:
-MORSE_TWO_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_TWO_NUMBER(convertMorse(0x07, 0x5), MORSE_NUMBER, '2'),$/;"	e	enum:Morse	file:
-MORSE_T_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_CYRILLIC(convertMorse(0x1, 0x1), MORSE_CYRILLIC, 'Т'),$/;"	e	enum:Morse	file:
-MORSE_T_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_LATIN(convertMorse(0x1, 0x1), MORSE_LATIN, 'T'),$/;"	e	enum:Morse	file:
-MORSE_U_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_CYRILLIC(convertMorse(0x1, 0x3), MORSE_CYRILLIC, 'У'),$/;"	e	enum:Morse	file:
-MORSE_U_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_LATIN(convertMorse(0x1, 0x3), MORSE_LATIN, 'U'),$/;"	e	enum:Morse	file:
-MORSE_V_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_CYRILLIC(convertMorse(0x1, 0x4), MORSE_CYRILLIC, 'Ж'),$/;"	e	enum:Morse	file:
-MORSE_V_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_LATIN(convertMorse(0x1, 0x4), MORSE_LATIN, 'V'),$/;"	e	enum:Morse	file:
-MORSE_W_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_CYRILLIC(convertMorse(0x3, 0x3), MORSE_CYRILLIC, 'В'),$/;"	e	enum:Morse	file:
-MORSE_W_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_LATIN(convertMorse(0x3, 0x3), MORSE_LATIN, 'W'),$/;"	e	enum:Morse	file:
-MORSE_X_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_CYRILLIC(convertMorse(0x9, 0x4), MORSE_CYRILLIC, 'Ь'),$/;"	e	enum:Morse	file:
-MORSE_X_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_LATIN(convertMorse(0x9, 0x4), MORSE_LATIN, 'X'),$/;"	e	enum:Morse	file:
-MORSE_YA_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YA_CYRILLIC(convertMorse(0x5, 0x4), MORSE_CYRILLIC, 'Я'),$/;"	e	enum:Morse	file:
-MORSE_YU_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YU_CYRILLIC(convertMorse(0x3, 0x4), MORSE_CYRILLIC, 'Ю'),$/;"	e	enum:Morse	file:
-MORSE_Y_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_CYRILLIC(convertMorse(0xB, 0x4), MORSE_CYRILLIC, 'Ы'),$/;"	e	enum:Morse	file:
-MORSE_Y_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_LATIN(convertMorse(0xB, 0x4), MORSE_LATIN, 'Y'),$/;"	e	enum:Morse	file:
-MORSE_ZERO_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ZERO_NUMBER(convertMorse(0x1F, 0x5), MORSE_NUMBER, '0'),$/;"	e	enum:Morse	file:
-MORSE_Z_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_CYRILLIC(convertMorse(0xC, 0x4), MORSE_CYRILLIC, 'З'),$/;"	e	enum:Morse	file:
-MORSE_Z_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_LATIN(convertMorse(0xC, 0x4), MORSE_LATIN, 'Z'),$/;"	e	enum:Morse	file:
+MORSE_LEVEL_S_AND_O	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_A_AND_N, MORSE_LEVEL_S_AND_O,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_THREE_AND_EIGHT	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_THREE_AND_EIGHT, MORSE_LEVEL_FOUR_AND_NINE,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_TWO_AND_SEVEN	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_ONE_AND_SIX, MORSE_LEVEL_TWO_AND_SEVEN,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_U_AND_G	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_U_AND_G, MORSE_LEVEL_R_AND_K,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_V_AND_CH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_V_AND_CH, MORSE_LEVEL_F_AND_Q,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_W_AND_D	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_W_AND_D, MORSE_LEVEL_H_AND_SH,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_YA_AND_C	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YA_AND_C, MORSE_LEVEL_P_AND_X,$/;"	e	enum:MorseLevel	file:
+MORSE_LEVEL_YU_AND_Z	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YU_AND_Z, MORSE_LEVEL_L_AND_Y,$/;"	e	enum:MorseLevel	file:
+MORSE_L_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_L_AND_Y, convertMorse(0x4, 0x4), 'Л'),$/;"	e	enum:Morse	file:
+MORSE_L_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_LATIN(MORSE_LATIN, MORSE_LEVEL_L_AND_Y, convertMorse(0x4, 0x4), 'L'),$/;"	e	enum:Morse	file:
+MORSE_M_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_I_AND_M, convertMorse(0x3, 0x2), 'М'),$/;"	e	enum:Morse	file:
+MORSE_M_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_LATIN(MORSE_LATIN, MORSE_LEVEL_I_AND_M, convertMorse(0x3, 0x2), 'M'),$/;"	e	enum:Morse	file:
+MORSE_NINE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_NINE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FOUR_AND_NINE, convertMorse(0x1E, 0x5), '9'),$/;"	e	enum:Morse	file:
+MORSE_NUMBER	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_NUMBER(MORSE_LEVEL_ONE_AND_SIX.ordinal()),$/;"	e	enum:MorseLanguage	file:
+MORSE_N_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_A_AND_N, convertMorse(0x2, 0x2), 'Н'),$/;"	e	enum:Morse	file:
+MORSE_N_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_LATIN(MORSE_LATIN, MORSE_LEVEL_A_AND_N, convertMorse(0x2, 0x2), 'N'),$/;"	e	enum:Morse	file:
+MORSE_ONE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ONE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_ONE_AND_SIX, convertMorse(0x0F, 0x5), '1'),$/;"	e	enum:Morse	file:
+MORSE_OPEN_BRACKET_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_OPEN_BRACKET_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET, convertM/;"	e	enum:Morse	file:
+MORSE_O_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_S_AND_O, convertMorse(0x7, 0x3), 'О'),$/;"	e	enum:Morse	file:
+MORSE_O_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_LATIN(MORSE_LATIN, MORSE_LEVEL_S_AND_O, convertMorse(0x7, 0x3), 'O'),$/;"	e	enum:Morse	file:
+MORSE_POINT_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_POINT_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, convertMorse(0x00, 0x6), '.'),$/;"	e	enum:Morse	file:
+MORSE_P_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_P_AND_X, convertMorse(0x6, 0x4), 'P'),$/;"	e	enum:Morse	file:
+MORSE_P_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_LATIN(MORSE_LATIN, MORSE_LEVEL_P_AND_X, convertMorse(0x6, 0x4), 'P'),$/;"	e	enum:Morse	file:
+MORSE_QUESTION_MARK_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUESTION_MARK_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK, con/;"	e	enum:Morse	file:
+MORSE_QUOTES_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUOTES_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUOTES_AND_APOSTROPHE, convertMorse(0x12, 0x6)/;"	e	enum:Morse	file:
+MORSE_Q_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_F_AND_Q, convertMorse(0xD, 0x4), 'Щ'),$/;"	e	enum:Morse	file:
+MORSE_Q_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_LATIN(MORSE_LATIN, MORSE_LEVEL_F_AND_Q, convertMorse(0xD, 0x4), 'Q'),$/;"	e	enum:Morse	file:
+MORSE_R_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_R_AND_K, convertMorse(0x2, 0x3), 'Р'),$/;"	e	enum:Morse	file:
+MORSE_R_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_LATIN(MORSE_LATIN, MORSE_LEVEL_R_AND_K, convertMorse(0x2, 0x3), 'R'),$/;"	e	enum:Morse	file:
+MORSE_SEMICOLON_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEMICOLON_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, convertMorse(0x2A, 0x6), '/;"	e	enum:Morse	file:
+MORSE_SEVEN_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEVEN_NUMBER(MORSE_NUMBER, MORSE_LEVEL_TWO_AND_SEVEN, convertMorse(0x18, 0x5), '7'),$/;"	e	enum:Morse	file:
+MORSE_SH_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SH_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_H_AND_SH, convertMorse(0xF, 0x4), 'Ш'),$/;"	e	enum:Morse	file:
+MORSE_SIX_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SIX_NUMBER(MORSE_NUMBER, MORSE_LEVEL_ONE_AND_SIX, convertMorse(0x10, 0x5), '9'),$/;"	e	enum:Morse	file:
+MORSE_SLASH_SYMBOL	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SLASH_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_DASH_AND_SLASH, convertMorse(0x12, 0x5), '\/'),$/;"	e	enum:Morse	file:
+MORSE_SYMBOL	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MORSE_SYMBOL(MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET.ordinal());$/;"	e	enum:MorseLanguage	file:
+MORSE_S_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_S_AND_O, convertMorse(0x0, 0x3), 'С'),$/;"	e	enum:Morse	file:
+MORSE_S_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_LATIN(MORSE_LATIN, MORSE_LEVEL_S_AND_O, convertMorse(0x0, 0x3), 'S'),$/;"	e	enum:Morse	file:
+MORSE_THREE_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_THREE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_THREE_AND_EIGHT, MORSE_LEVEL_FIconvertMorse(0x0/;"	e	enum:Morse	file:
+MORSE_TWO_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_TWO_NUMBER(MORSE_NUMBER, MORSE_LEVEL_TWO_AND_SEVEN, convertMorse(0x07, 0x5), '2'),$/;"	e	enum:Morse	file:
+MORSE_T_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_E_AND_T, convertMorse(0x1, 0x1), 'Т'),$/;"	e	enum:Morse	file:
+MORSE_T_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_LATIN(MORSE_LATIN, MORSE_LEVEL_E_AND_T, convertMorse(0x1, 0x1), 'T'),$/;"	e	enum:Morse	file:
+MORSE_U_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_U_AND_G, convertMorse(0x1, 0x3), 'У'),$/;"	e	enum:Morse	file:
+MORSE_U_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_LATIN(MORSE_LATIN, MORSE_LEVEL_U_AND_G, convertMorse(0x1, 0x3), 'U'),$/;"	e	enum:Morse	file:
+MORSE_V_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_V_AND_CH, convertMorse(0x1, 0x4), 'Ж'),$/;"	e	enum:Morse	file:
+MORSE_V_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_LATIN(MORSE_LATIN, MORSE_LEVEL_V_AND_CH, convertMorse(0x1, 0x4), 'V'),$/;"	e	enum:Morse	file:
+MORSE_W_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_W_AND_D, convertMorse(0x3, 0x3), 'В'),$/;"	e	enum:Morse	file:
+MORSE_W_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_LATIN(MORSE_LATIN, MORSE_LEVEL_W_AND_D, convertMorse(0x3, 0x3), 'W'),$/;"	e	enum:Morse	file:
+MORSE_X_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_P_AND_X, convertMorse(0x9, 0x4), 'Ь'),$/;"	e	enum:Morse	file:
+MORSE_X_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_LATIN(MORSE_LATIN, MORSE_LEVEL_P_AND_X, convertMorse(0x9, 0x4), 'X'),$/;"	e	enum:Morse	file:
+MORSE_YA_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YA_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YA_AND_C, convertMorse(0x5, 0x4), 'Я'),$/;"	e	enum:Morse	file:
+MORSE_YU_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YU_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YU_AND_Z, convertMorse(0x3, 0x4), 'Ю'),$/;"	e	enum:Morse	file:
+MORSE_Y_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_L_AND_Y, convertMorse(0xB, 0x4), 'Ы'),$/;"	e	enum:Morse	file:
+MORSE_Y_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_LATIN(MORSE_LATIN, MORSE_LEVEL_L_AND_Y, convertMorse(0xB, 0x4), 'Y'),$/;"	e	enum:Morse	file:
+MORSE_ZERO_NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ZERO_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FIVE_AND_ZERO, convertMorse(0x1F, 0x5), '0'),$/;"	e	enum:Morse	file:
+MORSE_Z_CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YU_AND_Z, convertMorse(0xC, 0x4), 'З'),$/;"	e	enum:Morse	file:
+MORSE_Z_LATIN	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_LATIN(MORSE_LATIN, MORSE_LEVEL_YU_AND_Z, convertMorse(0xC, 0x4), 'Z'),$/;"	e	enum:Morse	file:
 MainActivity	app/src/main/java/com/example/morsefree/MainActivity.java	/^public class MainActivity extends AppCompatActivity {$/;"	c
-Morse	app/src/main/java/com/example/morsefree/Morse.java	/^    private Morse(int morseData, char latin, char cyrillic) {$/;"	m	class:Morse	file:
+Morse	app/src/main/java/com/example/morsefree/Morse.java	/^    private Morse(MorseLanguage language, MorseLevel level,$/;"	m	class:Morse	file:
 Morse	app/src/main/java/com/example/morsefree/Morse.java	/^public enum Morse {$/;"	g
 MorseAudioPlayer	app/src/main/java/com/example/morsefree/MorseAudioPlayer.java	/^    public MorseAudioPlayer() {$/;"	m	class:MorseAudioPlayer
 MorseAudioPlayer	app/src/main/java/com/example/morsefree/MorseAudioPlayer.java	/^public class MorseAudioPlayer {$/;"	c
 MorseGraphView	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public MorseGraphView(Context context, AttributeSet attributeSet) {$/;"	m	class:MorseGraphView
 MorseGraphView	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^public class MorseGraphView extends View {$/;"	c
+MorseLanguage	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    MorseLanguage(int ordinal) {$/;"	m	class:MorseLanguage
 MorseLanguage	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^public enum MorseLanguage {$/;"	g
 MorseLevel	app/src/main/java/com/example/morsefree/MorseLevel.java	/^public enum MorseLevel {$/;"	g
 N	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "N": 24,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -6095,7 +6018,6 @@ cleanCommandsComponents	app/.cxx/Debug/2l62296u/x86/android_gradle_build.json	/^
 cleanCommandsComponents	app/.cxx/Debug/2l62296u/x86/android_gradle_build_mini.json	/^  "cleanCommandsComponents": [$/;"	a
 cleanCommandsComponents	app/.cxx/Debug/2l62296u/x86_64/android_gradle_build.json	/^  "cleanCommandsComponents": [$/;"	a
 cleanCommandsComponents	app/.cxx/Debug/2l62296u/x86_64/android_gradle_build_mini.json	/^  "cleanCommandsComponents": [$/;"	a
-clear	app/src/main/java/com/example/morsefree/Morse.java	/^    public void clear() {$/;"	m	class:Morse
 clearCorrectSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void clearCorrectSentence() {$/;"	m	class:LessonTransmit
 clearUserSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void clearUserSentence() {$/;"	m	class:LessonTransmit
 clearUserSentenceRaw	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void clearUserSentenceRaw() {$/;"	m	class:LessonTransmit
@@ -6294,86 +6216,6 @@ const	app/.cxx/Debug/2l62296u/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/C
 const	app/.cxx/Debug/2l62296u/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
 const	app/.cxx/Debug/2l62296u/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
 const	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define const$/;"	d	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_APOSTROPHE_SYMBOL(convertMorse(0x1E, 0x6), MORSE_SYMBOL, '\\''),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_AT_SYMBOL(convertMorse(0x1A, 0x6), MORSE_SYMBOL, '@');$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_CYRILLIC(convertMorse(0x1, 0x2), MORSE_CYRILLIC, 'А'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_A_LATIN(convertMorse(0x1, 0x2), MORSE_LATIN, 'A'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_CYRILLIC(convertMorse(0x8, 0x4), MORSE_CYRILLIC, 'Б'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_B_LATIN(convertMorse(0x8, 0x4), MORSE_LATIN, 'B'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CH_CYRILLIC(convertMorse(0xE, 0x4), MORSE_CYRILLIC, 'Ч'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_CLOSE_BRACKET_SYMBOL(convertMorse(0x2D, 0x6), MORSE_SYMBOL, ')'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COLON_SYMBOL(convertMorse(0x38, 0x6), MORSE_SYMBOL, ':'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_COMMA_SYMBOL(convertMorse(0x15, 0x6), MORSE_SYMBOL, ','),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_CYRILLIC(convertMorse(0xA, 0x4), MORSE_CYRILLIC, 'Ц'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_C_LATIN(convertMorse(0xA, 0x4), MORSE_LATIN, 'C'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_DASH_SYMBOL(convertMorse(0x21, 0x6), MORSE_SYMBOL, '-'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_CYRILLIC(convertMorse(0x4, 0x3), MORSE_CYRILLIC, 'Д'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_D_LATIN(convertMorse(0x4, 0x3), MORSE_LATIN, 'D'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EIGHT_NUMBER(convertMorse(0x1C, 0x5), MORSE_NUMBER, '8'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_EXCLAMATION_MARK_SYMBOL(convertMorse(0x33, 0x6), MORSE_SYMBOL, '!'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_CYRILLIC(convertMorse(0x0, 0x1), MORSE_CYRILLIC, 'Е')$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_E_LATIN(convertMorse(0x0, 0x1), MORSE_LATIN,'E'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FIVE_NUMBER(convertMorse(0x0, 0x5), MORSE_NUMBER, '5'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_FOUR_NUMBER(convertMorse(0x01, 0x5), MORSE_NUMBER, '4'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_CYRILLIC(convertMorse(0x2, 0x4), MORSE_CYRILLIC, 'Ф'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_F_LATIN(convertMorse(0x2, 0x4), MORSE_LATIN, 'F'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_CYRILLIC(convertMorse(0x6, 0x3), MORSE_CYRILLIC, 'Г'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_G_LATIN(convertMorse(0x6, 0x3), MORSE_LATIN, 'G'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_HARD_SING_CYRILLIC(convertMorse(0x1A, 0x5), MORSE_CYRILLIC, 'Ъ'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_CYRILLIC(convertMorse(0x0, 0x4), MORSE_CYRILLIC, 'Х'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_H_LATIN(convertMorse(0x0, 0x4), MORSE_LATIN, 'H'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_CYRILLIC(convertMorse(0x0, 0x2), MORSE_CYRILLIC, 'И'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_I_LATIN(convertMorse(0x0, 0x2), MORSE_LATIN, 'I'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_CYRILLIC(convertMorse(0x7, 0x4), MORSE_CYRILLIC, 'Й'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_J_LATIN(convertMorse(0x7, 0x4), MORSE_LATIN, 'J'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_CYRILLIC(convertMorse(0x5, 0x3), MORSE_CYRILLIC, 'К'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_K_LATIN(convertMorse(0x5, 0x3), MORSE_LATIN, 'K'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_CYRILLIC(convertMorse(0x4, 0x4), MORSE_CYRILLIC, 'Л'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_L_LATIN(convertMorse(0x4, 0x4), MORSE_LATIN, 'L'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_CYRILLIC(convertMorse(0x3, 0x2), MORSE_CYRILLIC, 'М'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_M_LATIN(convertMorse(0x3, 0x2), MORSE_LATIN, 'M'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_NINE_NUMBER(convertMorse(0x1E, 0x5), MORSE_NUMBER, '9'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_CYRILLIC(convertMorse(0x2, 0x2), MORSE_CYRILLIC, 'Н'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_N_LATIN(convertMorse(0x2, 0x2), MORSE_LATIN, 'N'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ONE_NUMBER(convertMorse(0x0F, 0x5), MORSE_NUMBER, '1'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_OPEN_BRACKET_SYMBOL(convertMorse(0x16, 0x6), MORSE_SYMBOL, '('),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_CYRILLIC(convertMorse(0x7, 0x3), MORSE_CYRILLIC, 'О'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_O_LATIN(convertMorse(0x7, 0x3), MORSE_LATIN, 'O'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_POINT_SYMBOL(convertMorse(0x00, 0x6), MORSE_SYMBOL, '.'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_CYRILLIC(convertMorse(0x6, 0x4), MORSE_CYRILLIC, 'P'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_P_LATIN(convertMorse(0x6, 0x4), MORSE_LATIN, 'P'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUESTION_MARK_SYMBOL(convertMorse(0x0C, 0x6), MORSE_SYMBOL, '?'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_QUOTES_SYMBOL(convertMorse(0x12, 0x6), MORSE_SYMBOL, '\\"'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_CYRILLIC(convertMorse(0xD, 0x4), MORSE_CYRILLIC, 'Щ'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Q_LATIN(convertMorse(0xD, 0x4), MORSE_LATIN, 'Q'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_CYRILLIC(convertMorse(0x2, 0x3), MORSE_CYRILLIC, 'Р'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_R_LATIN(convertMorse(0x2, 0x3), MORSE_LATIN, 'R'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEMICOLON_SYMBOL(convertMorse(0x2A, 0x6), MORSE_SYMBOL, ';'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SEVEN_NUMBER(convertMorse(0x18, 0x5), MORSE_NUMBER, '7'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SH_CYRILLIC(convertMorse(0xF, 0x4), MORSE_CYRILLIC, 'Ш'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SIX_NUMBER(convertMorse(0x10, 0x5), MORSE_NUMBER, '9'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_SLASH_SYMBOL(convertMorse(0x12, 0x5), MORSE_SYMBOL, '\/'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_CYRILLIC(convertMorse(0x0, 0x3), MORSE_CYRILLIC, 'С'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_S_LATIN(convertMorse(0x0, 0x3), MORSE_LATIN, 'S'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_THREE_NUMBER(convertMorse(0x03, 0x5), MORSE_NUMBER, '3'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_TWO_NUMBER(convertMorse(0x07, 0x5), MORSE_NUMBER, '2'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_CYRILLIC(convertMorse(0x1, 0x1), MORSE_CYRILLIC, 'Т'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_T_LATIN(convertMorse(0x1, 0x1), MORSE_LATIN, 'T'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_CYRILLIC(convertMorse(0x1, 0x3), MORSE_CYRILLIC, 'У'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_U_LATIN(convertMorse(0x1, 0x3), MORSE_LATIN, 'U'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_CYRILLIC(convertMorse(0x1, 0x4), MORSE_CYRILLIC, 'Ж'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_V_LATIN(convertMorse(0x1, 0x4), MORSE_LATIN, 'V'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_CYRILLIC(convertMorse(0x3, 0x3), MORSE_CYRILLIC, 'В'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_W_LATIN(convertMorse(0x3, 0x3), MORSE_LATIN, 'W'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_CYRILLIC(convertMorse(0x9, 0x4), MORSE_CYRILLIC, 'Ь'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_X_LATIN(convertMorse(0x9, 0x4), MORSE_LATIN, 'X'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YA_CYRILLIC(convertMorse(0x5, 0x4), MORSE_CYRILLIC, 'Я'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_YU_CYRILLIC(convertMorse(0x3, 0x4), MORSE_CYRILLIC, 'Ю'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_CYRILLIC(convertMorse(0xB, 0x4), MORSE_CYRILLIC, 'Ы'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Y_LATIN(convertMorse(0xB, 0x4), MORSE_LATIN, 'Y'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_ZERO_NUMBER(convertMorse(0x1F, 0x5), MORSE_NUMBER, '0'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_CYRILLIC(convertMorse(0xC, 0x4), MORSE_CYRILLIC, 'З'),$/;"	e	enum:Morse	file:
-convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    MORSE_Z_LATIN(convertMorse(0xC, 0x4), MORSE_LATIN, 'Z'),$/;"	e	enum:Morse	file:
 convertMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    public static int convertMorse(int data, int length) {$/;"	m	class:Morse
 correctSentence	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/LessonTransmitBinding.java	/^  public final TextView correctSentence;$/;"	f	class:LessonTransmitBinding
 correctSentenceMorse	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/LessonTransmitBinding.java	/^  public final MorseGraphView correctSentenceMorse;$/;"	f	class:LessonTransmitBinding
@@ -10408,7 +10250,7 @@ fullConfigurationHashKey	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v
 fullConfigurationHashKey	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^  "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\\n# Shou/;"	s
 fullConfigurationHashKey	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^  "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\\n# Shou/;"	s
 fullConfigurationHashKey	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^  "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\\n# Shou/;"	s
-generateSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    public char generateSymbol(@NonNull MorseLevel level) {$/;"	m	class:Morse
+generateSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    public Morse generateSymbol(@NonNull MorseLevel level) {$/;"	m	class:Morse
 generator	app/.cxx/Debug/1v11b672/x86/.cmake/api/v1/reply/index-2026-01-31T14-50-04-0443.json	/^		"generator" : $/;"	o	object:cmake
 generator	app/.cxx/Debug/1v11b672/x86_64/.cmake/api/v1/reply/index-2026-01-31T14-50-44-0225.json	/^		"generator" : $/;"	o	object:cmake
 generator	app/.cxx/Debug/2l62296u/arm64-v8a/.cmake/api/v1/reply/index-2026-02-22T12-48-26-0424.json	/^		"generator" : $/;"	o	object:cmake
@@ -10416,18 +10258,15 @@ generator	app/.cxx/Debug/2l62296u/armeabi-v7a/.cmake/api/v1/reply/index-2026-03-
 generator	app/.cxx/Debug/2l62296u/x86/.cmake/api/v1/reply/index-2026-02-22T08-48-05-0384.json	/^		"generator" : $/;"	o	object:cmake
 generator	app/.cxx/Debug/2l62296u/x86_64/.cmake/api/v1/reply/index-2026-02-22T10-03-07-0161.json	/^		"generator" : $/;"	o	object:cmake
 getLevel	app/src/main/java/com/example/morsefree/Morse.java	/^    public MorseLevel getLevel() {$/;"	m	class:Morse
+getLevelOrdinal	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    int getLevelOrdinal() {$/;"	m	class:MorseLanguage
 getMorseData	app/src/main/java/com/example/morsefree/Morse.java	/^    public int getMorseData() {$/;"	m	class:Morse
 getMorseDataRaw	app/src/main/java/com/example/morsefree/Morse.java	/^    public int getMorseDataRaw() {$/;"	m	class:Morse
 getMorseLength	app/src/main/java/com/example/morsefree/Morse.java	/^    public int getMorseLength() {$/;"	m	class:Morse
-getRandomSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    public char getRandomSymbol() {$/;"	m	class:Morse
+getRandomSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    public Morse getRandomSymbol() {$/;"	m	class:Morse
 getRoot	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^  public ConstraintLayout getRoot() {$/;"	m	class:ActivityMainBinding
 getRoot	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/LessonTransmitBinding.java	/^  public ConstraintLayout getRoot() {$/;"	m	class:LessonTransmitBinding
 getRoot	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public ConstraintLayout getRoot() {$/;"	m	class:SelectLessonTransmitBinding
-getSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    private Function<Morse, Character> getSymbol;$/;"	f	class:Morse	file:
 getSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    private char getSymbol(Morse morse) {$/;"	m	class:Morse	file:
-getSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^    public char getSymbol() {$/;"	m	class:Morse
-getSymbolCyrillic	app/src/main/java/com/example/morsefree/Morse.java	/^    public static char getSymbolCyrillic(@NonNull Morse morse) {$/;"	m	class:Morse
-getSymbolLatin	app/src/main/java/com/example/morsefree/Morse.java	/^    public static char getSymbolLatin(@NonNull Morse morse) {$/;"	m	class:Morse
 getTimeIntervalPoint	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public long  getTimeIntervalPoint() {$/;"	m	class:MorseGraphView
 gradle.version	.gradle/buildOutputCleanup/cache.properties	/^gradle.version=9.1.0$/;"	k
 gradleModulePathName	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^      "gradleModulePathName": ":app",$/;"	s	object:variant.module
@@ -12977,15 +12816,14 @@ m_intervalTimeForInterWord	app/src/main/java/com/example/morsefree/LessonTransmi
 m_intervalTimeForPoint	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private long m_intervalTimeForPoint;$/;"	f	class:LessonTransmit	file:
 m_isPressed	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    boolean m_isPressed = false;$/;"	f	class:MorseGraphView
 m_is_typing	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private boolean m_is_typing;$/;"	f	class:LessonTransmit	file:
-m_language	app/src/main/java/com/example/morsefree/Morse.java	/^    private MorseLanguage m_language;$/;"	f	class:Morse	file:
 m_lastTimeAction	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    long m_lastTimeAction = 0;$/;"	f	class:MorseGraphView
 m_lessonTransmitLayout	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private ConstraintLayout m_lessonTransmitLayout;$/;"	f	class:LessonTransmit	file:
-m_level	app/src/main/java/com/example/morsefree/Morse.java	/^    private MorseLevel m_level;$/;"	f	class:Morse	file:
+m_levelOrdinal	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^    private int m_levelOrdinal;$/;"	f	class:MorseLanguage	file:
 m_morse	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private Morse m_morse;$/;"	f	class:LessonTransmit	file:
-m_morseData	app/src/main/java/com/example/morsefree/Morse.java	/^    private int m_morseData;$/;"	f	class:Morse	file:
+m_morseData	app/src/main/java/com/example/morsefree/Morse.java	/^    private final int m_morseData;$/;"	f	class:Morse	file:
 m_paint	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    Paint m_paint = new Paint();$/;"	f	class:MorseGraphView
 m_sound	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private final MorseAudioPlayer m_sound = new MorseAudioPlayer();$/;"	f	class:LessonTransmit	file:
-m_symbol	app/src/main/java/com/example/morsefree/Morse.java	/^    private char m_symbol;$/;"	f	class:Morse	file:
+m_symbol	app/src/main/java/com/example/morsefree/Morse.java	/^    private final char m_symbol;$/;"	f	class:Morse	file:
 m_thread	app/src/main/java/com/example/morsefree/MorseAudioPlayer.java	/^    private Thread m_thread;$/;"	f	class:MorseAudioPlayer	file:
 m_timeBreakPoint	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private long m_timeBreakPoint;$/;"	f	class:LessonTransmit	file:
 m_timeIntervalPoint	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    long m_timeIntervalPoint = 0;$/;"	f	class:MorseGraphView
@@ -17079,6 +16917,34 @@ quotesAndApostropheTransmitLesson	app/build/generated/data_binding_base_class_so
 rAndKCyrillicTransmitLesson	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public final Button rAndKCyrillicTransmitLesson;$/;"	f	class:SelectLessonTransmitBinding
 rAndKLatinTransmitLesson	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public final Button rAndKLatinTransmitLesson;$/;"	f	class:SelectLessonTransmitBinding
 random	app/src/main/java/com/example/morsefree/Morse.java	/^    public char random(Morse left, Morse rigth) {$/;"	m	class:Morse
+random_a_and_n	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_a_and_n() {$/;"	m	class:Morse
+random_at	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_at() {$/;"	m	class:Morse
+random_dash_and_slash	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_dash_and_slash() {$/;"	m	class:Morse
+random_e_and_t	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_e_and_t() {$/;"	m	class:Morse
+random_f_and_q	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_f_and_q() {$/;"	m	class:Morse
+random_five_and_zero	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_five_and_zero() {$/;"	m	class:Morse
+random_four_and_nine	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_four_and_nine() {$/;"	m	class:Morse
+random_h_and_sh	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_h_and_sh() {$/;"	m	class:Morse
+random_hard_sing	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_hard_sing() {$/;"	m	class:Morse
+random_i_and_m	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_i_and_m() {$/;"	m	class:Morse
+random_j_and_b	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_j_and_b() {$/;"	m	class:Morse
+random_l_and_y	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_l_and_y() {$/;"	m	class:Morse
+random_one_and_six	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_one_and_six() {$/;"	m	class:Morse
+random_open_bracket_and_close_bracket	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_open_bracket_and_close_bracket() {$/;"	m	class:Morse
+random_p_and_x	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_p_and_x() {$/;"	m	class:Morse
+random_point_and_comma	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_point_and_comma() {$/;"	m	class:Morse
+random_question_mark_and_exclamation_mark	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_question_mark_and_exclamation_mark() {$/;"	m	class:Morse
+random_quotes_and_apostrophe	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_quotes_and_apostrophe() {$/;"	m	class:Morse
+random_r_and_k	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_r_and_k() {$/;"	m	class:Morse
+random_s_and_o	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_s_and_o() {$/;"	m	class:Morse
+random_semicolon_and_colon	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_semicolon_and_colon() {$/;"	m	class:Morse
+random_three_and_eight	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_three_and_eight() {$/;"	m	class:Morse
+random_two_and_seven	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_two_and_seven() {$/;"	m	class:Morse
+random_u_and_g	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_u_and_g() {$/;"	m	class:Morse
+random_v_and_ch	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_v_and_ch() {$/;"	m	class:Morse
+random_w_and_d	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_w_and_d() {$/;"	m	class:Morse
+random_ya_and_c	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_ya_and_c() {$/;"	m	class:Morse
+random_yu_and_z	app/src/main/java/com/example/morsefree/Morse.java	/^    Morse random_yu_and_z() {$/;"	m	class:Morse
 receiveMode	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^  public final Button receiveMode;$/;"	f	class:ActivityMainBinding
 release	app/src/main/java/com/example/morsefree/MorseAudioPlayer.java	/^    public void release() {$/;"	m	class:MorseAudioPlayer
 reply	app/.cxx/Debug/1v11b672/x86/.cmake/api/v1/reply/index-2026-01-31T14-50-04-0443.json	/^	"reply" : $/;"	o
@@ -17160,7 +17026,6 @@ sdkFolder	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_mode
 sdkFolder	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^        "sdkFolder": "\/home\/vlad\/Android\/Sdk",$/;"	s	object:variant.module.project
 sdkFolder	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^        "sdkFolder": "\/home\/vlad\/Android\/Sdk",$/;"	s	object:variant.module.project
 semicolonAndColonTransmitLesson	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public final Button semicolonAndColonTransmitLesson;$/;"	f	class:SelectLessonTransmitBinding
-setLanguage	app/src/main/java/com/example/morsefree/Morse.java	/^    public void setLanguage(@NonNull MorseLanguage language) {$/;"	m	class:Morse
 setLevel	app/src/main/java/com/example/morsefree/Morse.java	/^    public void setLevel(MorseLevel level) {$/;"	m	class:Morse
 setTimeIntervalPoint	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public void setTimeIntervalPoint(long timeIntervalPoint) {$/;"	m	class:MorseGraphView
 soFolder	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^  "soFolder": "\/home\/vlad\/AndroidStudioProjects\/MorseFree\/app\/build\/intermediates\/cxx\/D/;"	s
@@ -23290,7 +23155,7 @@ unknownFields	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/metadata_ge
 unknownFields	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/metadata_generation_record.json	/^    "unknownFields": {$/;"	o	object:2
 updateCorrectSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void updateCorrectSentence() {$/;"	m	class:LessonTransmit
 updateCorrectSentenceTextView	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void updateCorrectSentenceTextView() {$/;"	m	class:LessonTransmit	file:
-updateMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    private void updateMorse(int data, int length) {$/;"	m	class:Morse	file:
+updateMorse	app/src/main/java/com/example/morsefree/Morse.java	/^    private static void updateMorse(int data, int length) {$/;"	m	class:Morse	file:
 updateSymbol	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void updateSymbol() {$/;"	m	class:LessonTransmit	file:
 updateSymbolRaw	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void updateSymbolRaw() {$/;"	m	class:LessonTransmit	file:
 updateUserSentenceTextView	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void updateUserSentenceTextView() {$/;"	m	class:LessonTransmit	file:

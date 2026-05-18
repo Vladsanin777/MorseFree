@@ -41,14 +41,16 @@ public class LessonTransmit extends AppCompatActivity {
     private long m_intervalTimeForEpsilonInterSymbolLow;
     private long m_intervalTimeForEpsilonInterWordHigh;
     private long m_intervalTimeForEpsilonInterWordLow;
-    private Morse m_morse;
+    private boolean m_isLess;
+    private MorseLanguage m_language;
+    private MorseLevel m_level;
     private String m_userSentence;
-    private String m_correctSentence;
+    private String m_sentence;
     private final Handler m_handler =
             new android.os.Handler(Looper.getMainLooper());
     private final Runnable m_idleRunnable = this::checkMessage;
     private TextView m_userSentenceTextView;
-    private TextView m_correctSentenceTextView;
+    private TextView m_sentenceTextView;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
@@ -58,31 +60,27 @@ public class LessonTransmit extends AppCompatActivity {
     @SuppressLint({"ClickableViewAccessibility", "ResourceType", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Intent intent;
-        MorseLanguage language = MORSE_LANGUAGE_LATIN;
-        MorseLevel level = MORSE_LEVEL_NULL;
-        String nameLevel = null;
-
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        m_language = MORSE_LATIN;
+        m_level = MORSE_LEVEL_E_AND_T;
+        m_isLess = false;
 
         setContentView(R.layout.lesson_transmit);
 
-        intent = getIntent();
         if (intent != null) {
-            language = MorseLanguage.values()[intent.getIntExtra("MORSE_LANGUAGE", 0)];
-            level = MorseLevel.values()[intent.getIntExtra("MORSE_LEVEL", 0)];
-            nameLevel = intent.getStringExtra("LEVEL_NAME");
+            m_language = MorseLanguage.values()[intent.getIntExtra("MORSE_LANGUAGE", 0)];
+            m_level = MorseLevel.values()[intent.getIntExtra("MORSE_LEVEL", 0)];
+            m_isLess = intent.getBooleanExtra("MORSE_IS_LESS", false);
+            String nameLevel = intent.getStringExtra("LEVEL_NAME");
+
+            TextView levelNameTextView = findViewById(R.id.title_transmit_level_name);
+            levelNameTextView.setText(nameLevel);
         }
 
-        m_morse = Morse.getEmpty();
-
-        m_morse.setLanguage(language);
-
-        m_morse.setLevel(level);
-
-        m_userSentence = "";
-
-        m_correctSentence = "";
+        updateSentence();
+        clearUserSentence();
 
         m_timeBreakPoint = 0;
 
@@ -111,25 +109,14 @@ public class LessonTransmit extends AppCompatActivity {
         m_intervalTimeForEpsilonInterWordHigh = 300_000_000;
         m_intervalTimeForEpsilonInterWordLow = 360_000_000;
 
-        m_userSentenceTextView = findViewById(R.id.user_sentence);
-
-        m_correctSentenceTextView = findViewById(R.id.correct_sentence);
-
         m_transmitButton = findViewById(R.id.button_transmit);
         m_transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
-
-        TextView levelNameTextView = findViewById(R.id.title_transmit_level_name);
-
-        levelNameTextView.setText(nameLevel);
 
         m_is_typing = false;
 
         m_lessonTransmitLayout = findViewById(R.id.root_layout);
 
         m_lessonTransmitLayout.post(this::initInfoGradient);
-
-
-        updateCorrectSentence();
     }
 
     void initInfoGradient() {
@@ -163,49 +150,44 @@ public class LessonTransmit extends AppCompatActivity {
     }
     private void checkMessage() {
         applySymbol();
-        if (m_userSentence.equals(m_correctSentence))
+        if (m_userSentence.equals(m_sentence))
             complitedStep();
         else
             notComplitedStep();
         m_timeBreakPoint = 0;
-        updateCorrectSentence();
+        updateSentence();
         clearUserSentence();
     }
 
-    void clearCorrectSentence() {
-        m_correctSentence = "";
+    void clearSentence() {
+        m_sentence = "";
+        m_sentenceTextView.setText(m_sentence);
     }
 
-    void updateCorrectSentence() {
-        clearCorrectSentence();
-        m_correctSentence += m_morse.getRandomSymbol();
-        updateCorrectSentenceTextView();
+    void updateSentence() {
+        if (m_isRandomLengthSentense) {
+            m_sentence = newSentence(int)(Math.random() * m_lengthSentence));
+        } else {
+            m_sentence += newSentence(m_lengthSentence);
+        }
         clearUserSentence();
-    }
-
-    private void updateCorrectSentenceTextView() {
-        m_correctSentenceTextView.setText(m_correctSentence);
-    }
-
-    void clearUserSentenceRaw() {
-        m_userSentence = "";
     }
 
     void clearUserSentence() {
-        clearUserSentenceRaw();
-        updateUserSentenceTextView();
+        m_userSentence = "";
+        m_userSentenceTextView.setText(m_userSentence);
     }
 
     private void complitedStep() {
         winGradient();
         Log.d("MorseFree", "Complited: " + m_userSentence
-                + "\n need: " + m_correctSentence + '\n');
+                + "\n need: " + m_sentence + '\n');
     }
 
     private void notComplitedStep() {
         failGradient();
         Log.d("MorseFree", "Not complited: " + m_userSentence
-                + "\n need: " + m_correctSentence + '\n');
+                + "\n need: " + m_sentence + '\n');
     }
 
     private boolean OnTouchTransmitButton(View view, MotionEvent event) {
@@ -257,6 +239,13 @@ public class LessonTransmit extends AppCompatActivity {
         return false;
     }
 
+    char randomSymbolCurrentAndLessLevel() {
+        return Morse.randomSymbolCurrentAndLessLevel(m_language, m_level).symbol();
+    }
+
+    char randomSymbolCurrentLevel() {
+        return Morse.randomSymbolCurrentLevel(m_language, m_level).symbol();
+    }
     void startSound() {
         m_sound.start();
     }
@@ -265,12 +254,19 @@ public class LessonTransmit extends AppCompatActivity {
         m_sound.stop();
     }
 
-    private void updateSymbolRaw() {
-        if (m_is_typing) {
-            m_userSentence = m_userSentence.substring(0, m_userSentence.length() - 1) + m_morse.getSymbol();
+
+    private String newSentence(int length) {
+        String sentence = "";
+        if (m_isLess) {
+            for (int i = 0; i < length; i++) {
+                sentence += randomSymbolCurrentAndLessLevel();
+            }
         } else {
-            m_userSentence += m_morse.getSymbol();
+            for (int i = 0; i < length; i++) {
+                sentence += randomSymbolCurrentLevel();
+            }
         }
+        return sentence;
     }
 
     private void updateSymbol() {
@@ -355,8 +351,5 @@ public class LessonTransmit extends AppCompatActivity {
     private void applyWord() {
         m_userSentence += ' ';
         updateUserSentenceTextView();
-    }
-    private void updateUserSentenceTextView() {
-        m_userSentenceTextView.setText(m_userSentence);
     }
 }
