@@ -59,4 +59,9 @@
     <string name="label_level">"Label level"</string>
     <string name="help">"Help"</string>
     <string name="repeat">"Repeat"</string>
+    <string name="invalid">"Invalid"</string>
+    <string name="sentence">"Sentence"</string>
+    <string name="user_sentence">"User sentence"</string>
+    <string name="all">"All"</string>
+    <string name="clue">"Clue"</string>
 </resources>

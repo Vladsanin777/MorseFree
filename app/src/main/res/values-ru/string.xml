@@ -60,4 +60,9 @@
     <string name="label_level">"Название уровня"</string>
     <string name="help">"Помощь"</string>
     <string name="repeat">"Повторить"</string>
+    <string name="invalid">"Невалидный"</string>
+    <string name="sentence">"Предложение"</string>
+    <string name="user_sentence">"Предложение пользователя"</string>
+    <string name="all">"Все"</string>
+    <string name="clue">"Подсказка"</string>
 </resources>

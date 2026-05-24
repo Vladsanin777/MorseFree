@@ -166,21 +166,67 @@ public enum Morse {
                 (length << 0x18));
     }
 
-    public int serial() {
-        return (m_data & ((0x1 <<
-                (length())) - 1));
+    public static int addPointRaw(int dataRaw) {
+        return addPointRaw(data(dataRaw), length(dataRaw));
+    }
+
+    public static int addPointRaw(int data, int length) {
+        return serial(data << 1, length + 1);
+    }
+
+    public static int addDashRaw(int dataRaw) {
+        return addDashRaw(data(dataRaw), length(dataRaw));
+    }
+
+    public static int addDashRaw(int data, int length) {
+        return serial((data << 1) | 0x1, length + 1);
+    }
+
+    public static int length(int dataRaw) {
+        return dataRaw >> 18;
+    }
+
+    public static int data(int dataRaw) {
+        return (dataRaw & ((0x1 <<
+                (length(dataRaw))) - 1));
+    }
+
+    public static int empty() {
+        return serial(0, 0);
+    }
+
+    public int data() {
+        return data(m_data);
+    }
+
+    public int length() {
+        return length(m_data);
     }
 
     public int dataRaw() {
         return m_data;
     }
 
-    public int length() {
-        return m_data >> 0x18;
+    public MorseLanguage language() {
+        return m_language;
     }
 
     public char symbol() {
         return m_symbol;
+    }
+
+    public static Morse findMorse(MorseLanguage language, int data, int length) {
+        return findMorse(language, serial(data, length));
+    }
+    public static Morse findMorse(MorseLanguage language, int dataRaw) {
+        Morse foundMorse = null;
+        for (Morse morse : values()) {
+            if (morse.dataRaw() == dataRaw && language == morse.language()) {
+                foundMorse = morse;
+                break;
+            }
+        }
+        return foundMorse;
     }
 
     public static ArrayList<Morse> symbols(

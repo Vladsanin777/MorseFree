@@ -16,11 +16,11 @@
         android:textSize="48sp"
         android:text="@string/transmit_level"
         android:id="@+id/title_transmit_level"
+        app:layout_constraintWidth_percent="0.8"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/title_transmit_level_name"
-        app:layout_constraintWidth_percent="0.8"/>
+        app:layout_constraintBottom_toTopOf="@+id/title_transmit_level_name" />
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -28,54 +28,56 @@
         android:textSize="48sp"
         android:text="@string/label_level"
         android:id="@+id/title_transmit_level_name"
+        app:layout_constraintWidth_percent="0.8"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_transmit_level"
-        app:layout_constraintBottom_toTopOf="@+id/view_transmit_level"
-        app:layout_constraintWidth_percent="0.8"/>
+        app:layout_constraintBottom_toTopOf="@+id/view_transmit_level" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/view_transmit_level"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintWidth_percent="0.8"
         app:layout_constraintTop_toBottomOf="@+id/title_transmit_level_name"
-        app:layout_constraintBottom_toTopOf="@+id/button_transmit"
+        app:layout_constraintBottom_toTopOf="@+id/control_panel"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <HorizontalScrollView
-            android:id="@+id/correct_sentence_scroll_view"
+            android:id="@+id/sentence_scroll_view"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.5"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/correct_sentence_morse_scroll_view"
+            app:layout_constraintRight_toLeftOf="@id/sentence_morse_scroll_view"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintBottom_toTopOf="@id/user_sentence_scroll_view">
 
             <TextView
-                android:id="@+id/correct_sentence"
+                android:id="@+id/sentence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="correct sentence"
+                android:text="@string/sentence"
                 android:textSize="52sp"/>
         </HorizontalScrollView>
 
         <HorizontalScrollView
-            android:id="@+id/correct_sentence_morse_scroll_view"
+            android:id="@+id/sentence_morse_scroll_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
+            android:importantForAccessibility="no"
             app:layout_constraintWidth_percent="0.5"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/correct_sentence_scroll_view"
+            app:layout_constraintLeft_toRightOf="@id/sentence_scroll_view"
             app:layout_constraintBottom_toTopOf="@id/user_sentence_morse_scroll_view">
 
             <com.example.morsefree.MorseGraphView
-                android:id="@+id/correct_sentence_morse"
+                android:id="@+id/sentence_morse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
         </HorizontalScrollView>
@@ -83,19 +85,19 @@
         <HorizontalScrollView
             android:id="@+id/user_sentence_scroll_view"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintTop_toBottomOf="@id/correct_sentence_scroll_view"
+            app:layout_constraintTop_toBottomOf="@id/sentence_scroll_view"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/user_sentence_morse_scroll_view"
-            app:layout_constraintBottom_toTopOf="@id/button_help">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <TextView
                 android:id="@+id/user_sentence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="user sentence"
+                android:text="@string/user_sentence"
                 android:textSize="52sp"/>
         </HorizontalScrollView>
 
@@ -104,27 +106,35 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="horizontal"
+            android:importantForAccessibility="no"
             app:layout_constraintWidth_percent="0.5"
-            app:layout_constraintTop_toBottomOf="@id/correct_sentence_morse_scroll_view"
+            app:layout_constraintTop_toBottomOf="@id/sentence_morse_scroll_view"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toRightOf="@id/user_sentence_scroll_view"
-            app:layout_constraintBottom_toTopOf="@id/button_help">
+            app:layout_constraintBottom_toBottomOf="parent">
 
             <com.example.morsefree.MorseGraphView
                 android:id="@+id/user_sentence_morse"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toRightOf="@id/correct_sentence"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/correct_sentence_morse"
-                app:layout_constraintBottom_toTopOf="@id/button_repeat"/>
+                android:layout_height="wrap_content"/>
         </HorizontalScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/control_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintBottom_toTopOf="@id/button_transmit"
+        app:layout_constraintTop_toBottomOf="@id/view_transmit_level"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_help"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="help"
+            android:text="@string/clue"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"
@@ -136,11 +146,22 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"/>
 
+        <TextView
+            android:id="@+id/current_symbol"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:textSize="54sp"
+            app:layout_constraintLeft_toRightOf="@id/button_help"
+            app:layout_constraintRight_toLeftOf="@id/button_repeat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_repeat"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="repeat"
+            android:text="@string/repeat"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"
@@ -155,7 +176,7 @@
             android:id="@+id/button_help_all"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:text="all"
+            android:text="@string/all"
             android:textSize="11sp"
             android:insetLeft="0dp"
             android:insetTop="0dp"
@@ -179,11 +200,12 @@
         android:insetTop="0dp"
         android:insetRight="0dp"
         android:insetBottom="0dp"
+        android:importantForAccessibility="no"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_transmit_level"
+        app:layout_constraintTop_toBottomOf="@id/control_panel"
         app:layout_constraintWidth_percent="0.8"
         app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
 
