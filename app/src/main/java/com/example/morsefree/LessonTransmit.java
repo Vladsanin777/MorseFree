@@ -117,20 +117,26 @@ public class LessonTransmit extends AppCompatActivity {
         m_intervalTimeForEpsilonInterWordHigh = 300_000_000;
         m_intervalTimeForEpsilonInterWordLow = 360_000_000;
 
+        Log.d("Debug", "d");
         m_currentSymbolTextView = findViewById(R.id.current_symbol);
         m_userSentenceTextView = findViewById(R.id.user_sentence);
         m_sentenceTextView = findViewById(R.id.sentence);
         m_userSentenceMorse = findViewById(R.id.user_sentence_morse);
         m_sentenceMorse = findViewById(R.id.sentence_morse);
 
+        Log.d("Debug", "d");
         Button transmitButton = findViewById(R.id.button_transmit);
         transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
+        Log.d("Debug", "d");
 
         m_lessonTransmitLayout = findViewById(R.id.root_layout);
+        Log.d("Debug", "d");
 
         m_lessonTransmitLayout.post(this::initInfoGradient);
+        Log.d("Debug", "d");
 
         updateSentence();
+        Log.d("Debug", "d");
     }
 
     void initInfoGradient() {
@@ -200,8 +206,8 @@ public class LessonTransmit extends AppCompatActivity {
         m_userSentenceTextView.setText(m_userSentence);
     }
 
-    void updateUserSentence(char string) {
-        m_userSentence += string;
+    void updateUserSentence(char symbol) {
+        m_userSentence += symbol;
         m_userSentenceTextView.setText(m_userSentence);
     }
 
@@ -392,6 +398,7 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void applySymbol() {
         updateSymbol();
+        updateUserSentence(m_currentSymbol);
         m_dataMorse = Morse.empty();
     }
 

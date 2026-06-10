@@ -3,6 +3,8 @@ package com.example.morsefree;
 import static com.example.morsefree.MorseLanguage.*;
 import static com.example.morsefree.MorseLevel.*;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
@@ -141,20 +143,25 @@ public enum Morse {
         m_language = language;
     }
 
-    private void postInit() {
+    static {
+        postInit();
+    }
+
+    private static void postInit() {
         for (Morse morse : values()) {
+            Log.d("init", morse.m_language + " " + morse.m_level);
             HashMap<MorseLevel, ArrayList<Morse>> map = DATA_TO_SYMBOL.get(morse.m_language);
 
             if (map == null) {
-                map = DATA_TO_SYMBOL.put(morse.m_language,
-                        new HashMap<MorseLevel, ArrayList<Morse>>());
+                DATA_TO_SYMBOL.put(morse.m_language,
+                        map = new HashMap<MorseLevel, ArrayList<Morse>>());
             }
 
             ArrayList<Morse> arr = map.get(morse.m_level);
 
             if (arr == null) {
-                arr = map.put(morse.m_level,
-                        new ArrayList<Morse>());
+                map.put(morse.m_level,
+                        arr = new ArrayList<Morse>());
             }
 
             arr.add(morse);
@@ -183,7 +190,7 @@ public enum Morse {
     }
 
     public static int length(int dataRaw) {
-        return dataRaw >> 18;
+        return dataRaw >> 0x18;
     }
 
     public static int data(int dataRaw) {
