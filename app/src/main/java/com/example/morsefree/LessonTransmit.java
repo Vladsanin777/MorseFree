@@ -211,6 +211,7 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void completedStep() {
         winGradient();
+        m_handler.removeCallbacks(m_idleRunnable);
         m_timeBreakPoint = 0;
         Log.d("MorseFree", "Completed: " + m_userSentence
                 + "\n need: " + m_sentence + '\n');
@@ -218,6 +219,8 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void notCompletedStep() {
         failGradient();
+        m_handler.removeCallbacks(m_idleRunnable);
+        m_userSentenceMorse.stop();
         m_timeBreakPoint = 0;
         Log.d("MorseFree", "Not completed: " + m_userSentence
                 + "\n need: " + m_sentence + '\n');
@@ -263,8 +266,8 @@ public class LessonTransmit extends AppCompatActivity {
                 else if (isDash(diff))
                     applyDash();
                 else {
+                    m_userSentenceMorse.press();
                     notCorrectInterval(diff);
-                    m_userSentenceMorse.stop();
 
                     return true;
                 }
