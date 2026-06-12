@@ -232,7 +232,8 @@ public class LessonTransmit extends AppCompatActivity {
                 startSound();
                 view.setPressed(true);
                 if (m_timeBreakPoint == 0) {
-                    m_userSentenceMorse.startDown();
+                    m_userSentenceMorse.setIsStartUp(false);
+                    m_userSentenceMorse.start(true);
                 } else {
                     m_userSentenceMorse.press();
                     if (isInterBase(diff))

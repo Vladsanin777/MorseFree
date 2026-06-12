@@ -24,6 +24,7 @@ public class MorseGraphView extends View {
     private boolean m_isRunning = false;
     private long m_timeShift = 0;
     private long m_timingPoint = 0;
+    private boolean m_isInput = false;
 
     public MorseGraphView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -43,31 +44,43 @@ public class MorseGraphView extends View {
         m_paint.setColor(color);
     }
 
+    public int getColor() {
+        return m_paint.getColor();
+    }
+
     private int dpToPx(int dp) {
         float density = getContext().getResources().getDisplayMetrics().density;
         return (int) (dp * density);
     }
 
-    private void start(boolean start) {
+    public void start(boolean isInput) {
         m_isRunning = true;
-        m_timeShift = 0;
-        m_isStartUp = start;
-        press();
+        m_timeShift = System.nanoTime();
         m_changePoints.clear();
-        m_changePoints.add(System.nanoTime());
+        setIsInput(isInput);
+        press();
         postInvalidateOnAnimation();
     }
 
-    public void startUp() {
-        start(true);
+    public void setIsStartUp(boolean isStartUp) {
+        m_isStartUp = isStartUp;
     }
 
-    public void startDown() {
-        start(false);
+    public boolean getIsStartUp() {
+        return m_isStartUp;
+    }
+
+    public void setIsInput(boolean isInput) {
+        m_isInput = isInput;
+    }
+
+    public boolean getIsInput() {
+        return m_isInput;
     }
 
     public void stop() {
         m_isRunning = false;
+        invalidate();
     }
 
     public void setTimingPoint(long timingPoint) {
@@ -76,12 +89,14 @@ public class MorseGraphView extends View {
 
     public void startAgain() {
         m_isRunning = true;
-        m_timeShift = System.nanoTime() - m_changePoints.get(m_changePoints.size() - 1);
-        press();
+        m_timeShift += System.nanoTime() - m_changePoints.get(m_changePoints.size() - 1);
+        postInvalidateOnAnimation();
     }
 
     public void press() {
-        m_changePoints.add(System.nanoTime() - m_timeShift);
+        if (m_isInput) {
+            m_changePoints.add(System.nanoTime() - m_timeShift);
+        }
     }
 
     @Override
@@ -93,26 +108,16 @@ public class MorseGraphView extends View {
         setMeasuredDimension(width, height);
     }
 
-    @Override
-    protected void onDraw(@NonNull Canvas canvas) {
-        super.onDraw(canvas);
-
-        if (m_changePoints.isEmpty()) {
-            return;
-        }
-
+    void drawTime(@NonNull Canvas canvas, long currentTime, boolean isHalf) {
         int width = getWidth();
         int height = getHeight();
         float yCenter = height / 2f;
 
-        long endPoint;
-
-        if (m_isRunning) {
-            endPoint = System.nanoTime();
+        if (isHalf) {
             width /= 2;
-        } else {
-            endPoint = m_changePoints.get(m_changePoints.size() - 1);
         }
+
+        long endPoint = currentTime - m_timeShift;
 
         long widthTime = (long) ((width / (float) m_strokeWidthPx) * m_timingPoint);
         long startTime = endPoint - widthTime;
@@ -135,10 +140,26 @@ public class MorseGraphView extends View {
                 if (xStart < 0) xStart = 0;
 
                 canvas.drawLine(xStart - m_offset, yCenter - m_offset,
-                        xEnd - m_offset, yCenter - m_offset, m_paint);
+                        xEnd - m_strokeWidthPx, yCenter - m_offset, m_paint);
             }
 
             lastPoint = currentPoint;
+        }
+    }
+
+    @Override
+    protected void onDraw(@NonNull Canvas canvas) {
+        super.onDraw(canvas);
+
+        if (m_changePoints.isEmpty()) {
+            return;
+        }
+
+        if (m_isRunning && m_isInput) {
+            drawTime(canvas, System.nanoTime(), true);
+        } else {
+            long lastSavedPoint = m_changePoints.get(m_changePoints.size() - 1) + m_timeShift;
+            drawTime(canvas, lastSavedPoint, false);
         }
 
         if (m_isRunning) {
