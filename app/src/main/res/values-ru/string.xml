@@ -67,4 +67,6 @@
     <string name="clue">"Подсказка"</string>
     <string name="back">"Назад"</string>
     <string name="repetition">"Повторение"</string>
+    <string name="clear">"Очистить"</string>
+    <string name="start">"Старт"</string>
 </resources>

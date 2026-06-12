@@ -66,4 +66,6 @@
     <string name="clue">"Clue"</string>
     <string name="back">"Back"</string>
     <string name="repetition">"Repetition"</string>
+    <string name="clear">"Clear"</string>
+    <string name="start">"Start"</string>
 </resources>

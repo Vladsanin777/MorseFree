@@ -14,27 +14,26 @@ import java.util.ArrayList;
 
 public class MorseGraphView extends View {
     private static final int DEFAULT_HEIGHT_DP = 60;
-    private static final int DEFAULT_DIAMETER_LINE_DP = 6;
-    private int m_defaultHeightPx = 0;
-    private int m_strokeWidthPx = 0;
-    private float m_offset = 0.0f;
+    private int m_defaultHeightPx = dpToPx(DEFAULT_HEIGHT_DP);
+    private int m_thicknessDp = 6;
+    private int m_thicknessPx = dpToPx(m_thicknessDp);
+    private float m_offsetPx = m_thicknessPx / 2f;
     private ArrayList<Long> m_changePoints = new ArrayList<Long>();
     private boolean m_isStartUp = false;
     private Paint m_paint = new Paint();
     private boolean m_isRunning = false;
     private long m_timeShift = 0;
-    private long m_timingPoint = 0;
     private boolean m_isInput = false;
+    private String m_text = null;
+    private MorseTolerances m_tolerances = null;
 
     public MorseGraphView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
 
         m_defaultHeightPx = dpToPx(DEFAULT_HEIGHT_DP);
-        m_strokeWidthPx = dpToPx(DEFAULT_DIAMETER_LINE_DP);
-        m_offset = m_strokeWidthPx / 2f;
 
         m_paint.setStyle(Paint.Style.STROKE);
-        m_paint.setStrokeWidth(m_strokeWidthPx);
+        m_paint.setStrokeWidth(m_thicknessPx);
         m_paint.setStrokeCap(Paint.Cap.ROUND);
         m_paint.setAntiAlias(true);
         m_paint.setColor(0xFFFFFFFF);
@@ -48,9 +47,97 @@ public class MorseGraphView extends View {
         return m_paint.getColor();
     }
 
+    public MorseTolerances getTolerances() {
+        return m_tolerances;
+    }
+
+    public void setTolerances(MorseTolerances tolerances) {
+        m_tolerances = tolerances;
+    }
+
+    public String getText() {
+        return m_text;
+    }
+
+    private void cleanText() {
+        m_text = null;
+        m_changePoints.clear();
+    }
+    public void setText(@NonNull String text) {
+        if (text == null) {
+            return;
+        }
+
+        if (text.isEmpty() && text.charAt(0) == ' ') {
+            return;
+        }
+
+        if (m_tolerances == null) {
+            return;
+        }
+
+        cleanText();
+
+        m_text = text;
+
+        long currentTime = 0;
+
+        m_changePoints.add(currentTime);
+
+        for (char symbol : text.toCharArray()) {
+            if (symbol == ' ') {
+                m_changePoints.set(m_changePoints.size() - 1,
+                        currentTime += (m_tolerances.getPeriodGapWord() -
+                                m_changePoints.get(m_changePoints.size() - 1)));
+            }
+
+            MorseConst morseConst = MorseConst.find(symbol);
+
+            if (morseConst == null) {
+                continue;
+            }
+
+            Morse morse = morseConst.getMorse();
+
+            while (morse.pop()) {
+                m_changePoints.add(currentTime +=
+                        (morse.isPointOnTop() ? m_tolerances.getPeriodPoint()
+                                : m_tolerances.getPeriodDash()));
+                m_changePoints.add(currentTime += m_tolerances.getPeriodGapBase());
+            }
+
+            m_changePoints.set(m_changePoints.size() - 1,
+                    currentTime += (m_tolerances.getPeriodGapSymbol() -
+                            m_changePoints.get(m_changePoints.size() - 1)));
+        }
+    }
+
     private int dpToPx(int dp) {
         float density = getContext().getResources().getDisplayMetrics().density;
         return (int) (dp * density);
+    }
+
+    private int pxToDp(int px) {
+        float density = getContext().getResources().getDisplayMetrics().density;
+        return (int) (px / density);
+    }
+
+    public void setThicknessDp(int dp) {
+        m_thicknessPx = dpToPx(dp);
+        m_thicknessDp = dp;
+    }
+
+    public void setThicknessPx(int px) {
+        m_thicknessPx = px;
+        m_thicknessDp = pxToDp(px);
+    }
+
+    public int getThicknessDp() {
+        return m_thicknessDp;
+    }
+
+    public int getThicknessPx() {
+        return m_thicknessPx;
     }
 
     public void start(boolean isInput) {
@@ -81,10 +168,6 @@ public class MorseGraphView extends View {
     public void stop() {
         m_isRunning = false;
         invalidate();
-    }
-
-    public void setTimingPoint(long timingPoint) {
-        m_timingPoint = timingPoint;
     }
 
     public void startAgain() {
@@ -119,7 +202,7 @@ public class MorseGraphView extends View {
 
         long endPoint = currentTime - m_timeShift;
 
-        long widthTime = (long) ((width / (float) m_strokeWidthPx) * m_timingPoint);
+        long widthTime = (long) ((width / (float) m_thicknessPx) * m_tolerances.getPeriodPoint());
         long startTime = endPoint - widthTime;
 
         long lastPoint = endPoint;
@@ -131,16 +214,19 @@ public class MorseGraphView extends View {
                 break;
             }
 
-            boolean shouldDraw = ((index % 2 == 1) && m_isStartUp) || ((index % 2 == 0) && !m_isStartUp);
+            boolean shouldDraw = ((index % 2 == 1) && m_isStartUp)
+                    || ((index % 2 == 0) && !m_isStartUp);
 
             if (shouldDraw) {
-                float xStart = width - ((endPoint - currentPoint) / (float) m_timingPoint) * m_strokeWidthPx;
-                float xEnd = width - ((endPoint - lastPoint) / (float) m_timingPoint) * m_strokeWidthPx;
+                float xStart = width - ((endPoint - currentPoint) /
+                        (float) m_tolerances.getPeriodPoint()) * m_thicknessPx;
+                float xEnd = width - ((endPoint - lastPoint) /
+                        (float) m_tolerances.getPeriodPoint()) * m_thicknessPx;
 
                 if (xStart < 0) xStart = 0;
 
-                canvas.drawLine(xStart - m_offset, yCenter - m_offset,
-                        xEnd - m_strokeWidthPx, yCenter - m_offset, m_paint);
+                canvas.drawLine(xStart - m_offsetPx, yCenter - m_offsetPx,
+                        xEnd - m_thicknessPx, yCenter - m_offsetPx, m_paint);
             }
 
             lastPoint = currentPoint;

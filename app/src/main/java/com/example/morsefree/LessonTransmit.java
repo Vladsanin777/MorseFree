@@ -1,6 +1,5 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.Morse.*;
 import static com.example.morsefree.MorseLanguage.*;
 import static com.example.morsefree.MorseLevel.*;
 
@@ -11,7 +10,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -23,25 +21,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.widget.TextView;
 
-import java.util.Map;
-
 public class LessonTransmit extends AppCompatActivity {
-    private long m_timeBreakPoint = 0;
-    private long m_intervalTimeForPoint;
-    private long m_intervalTimeForDash;
-    private long m_intervalTimeForInterBase;
-    private long m_intervalTimeForInterSymbol;
-    private long m_intervalTimeForInterWord;
-    private long m_intervalTimeForEpsilonPointHigh;
-    private long m_intervalTimeForEpsilonPointLow;
-    private long m_intervalTimeForEpsilonDashHigh;
-    private long m_intervalTimeForEpsilonDashLow;
-    private long m_intervalTimeForEpsilonInterBaseHigh;
-    private long m_intervalTimeForEpsilonInterBaseLow;
-    private long m_intervalTimeForEpsilonInterSymbolHigh;
-    private long m_intervalTimeForEpsilonInterSymbolLow;
-    private long m_intervalTimeForEpsilonInterWordHigh;
-    private long m_intervalTimeForEpsilonInterWordLow;
     private boolean m_isLess;
     private MorseLanguage m_language;
     private MorseLevel m_level;
@@ -61,8 +41,9 @@ public class LessonTransmit extends AppCompatActivity {
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
-    private int m_dataMorse;
+    private Morse m_morse;
     private char m_currentSymbol = '\0';
+    private MorseTolerances m_tolerances = new MorseTolerances();
 
     @SuppressLint({"ClickableViewAccessibility", "ResourceType", "MissingInflatedId"})
     @Override
@@ -90,31 +71,6 @@ public class LessonTransmit extends AppCompatActivity {
             levelNameTextView.setText(nameLevel);
         }
 
-        m_intervalTimeForPoint = 120_000_000;
-
-        m_intervalTimeForDash = 360_000_000;
-
-        m_intervalTimeForInterBase = 120_000_000;
-
-        m_intervalTimeForInterSymbol = 360_000_000;
-
-        m_intervalTimeForInterWord = 840_000_000;
-
-        m_intervalTimeForEpsilonPointHigh = 60_000_000;
-        m_intervalTimeForEpsilonPointLow = 90_000_000;
-
-        m_intervalTimeForEpsilonDashHigh = 90_000_000;
-        m_intervalTimeForEpsilonDashLow = 120_000_000;
-
-        m_intervalTimeForEpsilonInterBaseHigh = 60_000_000;
-        m_intervalTimeForEpsilonInterBaseLow = 90_000_000;
-
-        m_intervalTimeForEpsilonInterSymbolHigh = 90_000_000;
-        m_intervalTimeForEpsilonInterSymbolLow = 120_000_000;
-
-        m_intervalTimeForEpsilonInterWordHigh = 300_000_000;
-        m_intervalTimeForEpsilonInterWordLow = 360_000_000;
-
         m_currentSymbolTextView = findViewById(R.id.current_symbol);
         m_userSentenceTextView = findViewById(R.id.user_sentence);
         m_sentenceTextView = findViewById(R.id.sentence);
@@ -130,7 +86,15 @@ public class LessonTransmit extends AppCompatActivity {
 
         updateSentence();
 
-        m_userSentenceMorse.setTimingPoint(m_intervalTimeForPoint);
+        m_userSentenceMorse.setTolerances(m_tolerances);
+
+        Button backButton = findViewById(R.id.button_back);
+
+        backButton.setOnClickListener(this::onClickBack);
+    }
+
+    private void onClickBack(View view) {
+        finish();
     }
 
     void initInfoGradient() {
@@ -212,7 +176,7 @@ public class LessonTransmit extends AppCompatActivity {
     private void completedStep() {
         winGradient();
         m_handler.removeCallbacks(m_idleRunnable);
-        m_timeBreakPoint = 0;
+        m_tolerances.clearBreakPoint();
         Log.d("MorseFree", "Completed: " + m_userSentence
                 + "\n need: " + m_sentence + '\n');
     }
@@ -221,59 +185,59 @@ public class LessonTransmit extends AppCompatActivity {
         failGradient();
         m_handler.removeCallbacks(m_idleRunnable);
         m_userSentenceMorse.stop();
-        m_timeBreakPoint = 0;
+        m_tolerances.clearBreakPoint();
         Log.d("MorseFree", "Not completed: " + m_userSentence
                 + "\n need: " + m_sentence + '\n');
     }
 
     private boolean OnTouchTransmitButton(View view, MotionEvent event) {
-        long newTimeBreakPoint = System.nanoTime();
-        long diff = newTimeBreakPoint - m_timeBreakPoint;
+        m_tolerances.createBreakPoint();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                m_tolerances.createBreakPoint();
+
                 m_handler.removeCallbacks(m_idleRunnable);
                 startSound();
                 view.setPressed(true);
-                if (m_timeBreakPoint == 0) {
-                    m_userSentenceMorse.setIsStartUp(false);
-                    m_userSentenceMorse.start(true);
-                } else {
+                if (m_tolerances.isDiff()) {
                     m_userSentenceMorse.press();
-                    if (isInterBase(diff))
+
+                    if (m_tolerances.isGapBase()) {
                         ;
-                    else if (isInterSymbol(diff))
+                    } else if (m_tolerances.isGapSymbol()) {
                         applySymbol();
-                    else if (isInterWord(diff))
+                    } else if (m_tolerances.isGapWord()) {
                         applyWord();
-                    else {
-                        notCorrectInterval(diff);
+                    } else {
+                        notCorrectInterval(m_tolerances.getDiff());
                         return true;
                     }
+                } else {
+                    m_userSentenceMorse.setIsStartUp(false);
+                    m_userSentenceMorse.start(true);
                 }
-
-                m_timeBreakPoint = newTimeBreakPoint;
 
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
+                m_tolerances.createBreakPoint();
+
                 m_handler.postDelayed(m_idleRunnable,
-                        (m_intervalTimeForInterWord +
-                        m_intervalTimeForEpsilonInterWordHigh) / 1_000_000);
+                        m_tolerances.getPeriodGapWord() +
+                        m_tolerances.getPeriodGapWordEpsilonHigh());
                 stopSound();
                 view.setPressed(false);
-                if (isPoint(diff))
+                m_userSentenceMorse.press();
+
+                if (m_tolerances.isPoint()) {
                     applyPoint();
-                else if (isDash(diff))
+                } else if (m_tolerances.isDash()) {
                     applyDash();
-                else {
-                    m_userSentenceMorse.press();
-                    notCorrectInterval(diff);
+                } else {
+                    notCorrectInterval(m_tolerances.getDiff());
 
                     return true;
                 }
-                m_userSentenceMorse.press();
-
-                m_timeBreakPoint = newTimeBreakPoint;
 
                 return true;
             case MotionEvent.ACTION_MOVE:
@@ -283,17 +247,17 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     char randomSymbolCurrentAndLessLevel() {
-        Morse morse = Morse.randomSymbolCurrentAndLessLevel(m_language, m_level);
+        MorseConst morse = MorseConst.randomSymbolCurrentAndLessLevel(m_language, m_level);
         if (morse != null) {
-            return morse.symbol();
+            return morse.getSymbol();
         }
         return '\0';
     }
 
     char randomSymbolCurrentLevel() {
-        Morse morse = Morse.randomSymbolCurrentLevel(m_language, m_level);
+        MorseConst morse = MorseConst.randomSymbolCurrentLevel(m_language, m_level);
         if (morse != null) {
-            return morse.symbol();
+            return morse.getSymbol();
         }
         return '\0';
     }
@@ -327,9 +291,9 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void updateSymbol() {
-        Morse morse = Morse.findMorse(m_language, m_dataMorse);
+        MorseConst morse = MorseConst.find(m_language, m_morse);
         if (morse != null) {
-            m_currentSymbol = morse.symbol();
+            m_currentSymbol = morse.getSymbol();
         } else {
             m_currentSymbol = '\0';
         }
@@ -337,56 +301,15 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void applyPoint() {
-        m_dataMorse = Morse.addPointRaw(m_dataMorse);
+        m_morse.addPoint();
 
         updateSymbol();
     }
 
     private void applyDash() {
-        m_dataMorse = Morse.addDashRaw(m_dataMorse);
+        m_morse.addDash();
 
         updateSymbol();
-    }
-
-    private boolean isCorrectTiming(
-            long diff, long intervalTime,
-            long intervalTimeEpsilonHigh,
-            long intervalTimeEpsilonLow) {
-        long epsilon = diff - intervalTime;
-        if (epsilon > 0)
-            return epsilon < intervalTimeEpsilonHigh;
-        else
-            return -epsilon < intervalTimeEpsilonLow;
-    }
-
-    private boolean isPoint(long diff) {
-        return isCorrectTiming(diff, m_intervalTimeForPoint,
-                m_intervalTimeForEpsilonPointHigh,
-                m_intervalTimeForEpsilonPointLow);
-    }
-
-    private boolean isDash(long diff) {
-        return isCorrectTiming(diff, m_intervalTimeForDash,
-                m_intervalTimeForEpsilonDashHigh,
-                m_intervalTimeForEpsilonDashLow);
-    }
-
-    private boolean isInterBase(long diff) {
-        return isCorrectTiming(diff, m_intervalTimeForInterBase,
-                m_intervalTimeForEpsilonInterBaseHigh,
-                m_intervalTimeForEpsilonInterBaseLow);
-    }
-
-    private boolean isInterSymbol(long diff) {
-        return isCorrectTiming(diff, m_intervalTimeForInterSymbol,
-                m_intervalTimeForEpsilonInterSymbolHigh,
-                m_intervalTimeForEpsilonInterSymbolLow);
-    }
-
-    private boolean isInterWord(long diff) {
-        return isCorrectTiming(diff, m_intervalTimeForInterWord,
-                m_intervalTimeForEpsilonInterWordHigh,
-                m_intervalTimeForEpsilonInterWordLow);
     }
 
     private void notCorrectInterval(long diff) {
@@ -397,13 +320,13 @@ public class LessonTransmit extends AppCompatActivity {
     private void applySymbol() {
         updateSymbol();
         updateUserSentence(m_currentSymbol);
-        m_dataMorse = Morse.empty();
+        m_morse.clear();
         m_currentSymbol = '\0';
     }
 
     private void applyWord() {
         updateUserSentence(' ');
-        m_dataMorse = Morse.empty();
+        m_morse.clear();
         m_currentSymbol = '\0';
     }
 }
