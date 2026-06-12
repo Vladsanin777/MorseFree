@@ -134,7 +134,7 @@ public class MorseGraphView extends View {
 
                 if (xStart < 0) xStart = 0;
 
-                canvas.drawLine(xStart + m_offset, yCenter - m_offset,
+                canvas.drawLine(xStart - m_offset, yCenter - m_offset,
                         xEnd - m_offset, yCenter - m_offset, m_paint);
             }
 
