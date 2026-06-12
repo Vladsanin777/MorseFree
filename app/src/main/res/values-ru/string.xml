@@ -65,4 +65,6 @@
     <string name="user_sentence">"Предложение пользователя"</string>
     <string name="all">"Все"</string>
     <string name="clue">"Подсказка"</string>
+    <string name="back">"Назад"</string>
+    <string name="repetition">"Повторение"</string>
 </resources>

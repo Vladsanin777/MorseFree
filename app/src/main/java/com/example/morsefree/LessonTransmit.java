@@ -26,7 +26,7 @@ import android.widget.TextView;
 import java.util.Map;
 
 public class LessonTransmit extends AppCompatActivity {
-    private long m_timeBreakPoint;
+    private long m_timeBreakPoint = 0;
     private long m_intervalTimeForPoint;
     private long m_intervalTimeForDash;
     private long m_intervalTimeForInterBase;
@@ -55,14 +55,14 @@ public class LessonTransmit extends AppCompatActivity {
     private TextView m_currentSymbolTextView;
     private TextView m_userSentenceTextView;
     private TextView m_sentenceTextView;
-    private View m_userSentenceMorse;
-    private View m_sentenceMorse;
+    private MorseGraphView m_userSentenceMorse = null;
+    private MorseGraphView m_sentenceMorse = null;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
     private int m_dataMorse;
-    char m_currentSymbol = '\0';
+    private char m_currentSymbol = '\0';
 
     @SuppressLint({"ClickableViewAccessibility", "ResourceType", "MissingInflatedId"})
     @Override
@@ -90,8 +90,6 @@ public class LessonTransmit extends AppCompatActivity {
             levelNameTextView.setText(nameLevel);
         }
 
-        m_timeBreakPoint = 0;
-
         m_intervalTimeForPoint = 120_000_000;
 
         m_intervalTimeForDash = 360_000_000;
@@ -117,26 +115,22 @@ public class LessonTransmit extends AppCompatActivity {
         m_intervalTimeForEpsilonInterWordHigh = 300_000_000;
         m_intervalTimeForEpsilonInterWordLow = 360_000_000;
 
-        Log.d("Debug", "d");
         m_currentSymbolTextView = findViewById(R.id.current_symbol);
         m_userSentenceTextView = findViewById(R.id.user_sentence);
         m_sentenceTextView = findViewById(R.id.sentence);
         m_userSentenceMorse = findViewById(R.id.user_sentence_morse);
         m_sentenceMorse = findViewById(R.id.sentence_morse);
 
-        Log.d("Debug", "d");
         Button transmitButton = findViewById(R.id.button_transmit);
         transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
-        Log.d("Debug", "d");
 
         m_lessonTransmitLayout = findViewById(R.id.root_layout);
-        Log.d("Debug", "d");
 
         m_lessonTransmitLayout.post(this::initInfoGradient);
-        Log.d("Debug", "d");
 
         updateSentence();
-        Log.d("Debug", "d");
+
+        m_userSentenceMorse.setTimingPoint(m_intervalTimeForPoint);
     }
 
     void initInfoGradient() {
@@ -171,13 +165,12 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void checkMessage() {
         applySymbol();
-        if (m_userSentence.equals(m_sentence))
+        m_userSentenceMorse.stop();
+        if (m_userSentence.equals(m_sentence)) {
             completedStep();
-        else
+        } else {
             notCompletedStep();
-        m_timeBreakPoint = 0;
-        updateSentence();
-        clearUserSentence();
+        }
     }
 
     void clearSentence() {
@@ -218,12 +211,14 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void completedStep() {
         winGradient();
+        m_timeBreakPoint = 0;
         Log.d("MorseFree", "Completed: " + m_userSentence
                 + "\n need: " + m_sentence + '\n');
     }
 
     private void notCompletedStep() {
         failGradient();
+        m_timeBreakPoint = 0;
         Log.d("MorseFree", "Not completed: " + m_userSentence
                 + "\n need: " + m_sentence + '\n');
     }
@@ -236,18 +231,20 @@ public class LessonTransmit extends AppCompatActivity {
                 m_handler.removeCallbacks(m_idleRunnable);
                 startSound();
                 view.setPressed(true);
-                if (m_timeBreakPoint == 0)
-                    ;
-                else if (isInterBase(diff))
-                    ;
-                else if (isInterSymbol(diff))
-                    applySymbol();
-                else if (isInterWord(diff))
-                    applyWord();
-                else {
-                    m_timeBreakPoint = 0;
-                    notCorrectInterval(diff);
-                    return true;
+                if (m_timeBreakPoint == 0) {
+                    m_userSentenceMorse.startDown();
+                } else {
+                    m_userSentenceMorse.press();
+                    if (isInterBase(diff))
+                        ;
+                    else if (isInterSymbol(diff))
+                        applySymbol();
+                    else if (isInterWord(diff))
+                        applyWord();
+                    else {
+                        notCorrectInterval(diff);
+                        return true;
+                    }
                 }
 
                 m_timeBreakPoint = newTimeBreakPoint;
@@ -265,10 +262,12 @@ public class LessonTransmit extends AppCompatActivity {
                 else if (isDash(diff))
                     applyDash();
                 else {
-                    m_timeBreakPoint = 0;
-                    notCorrectPointDash(diff);
+                    notCorrectInterval(diff);
+                    m_userSentenceMorse.stop();
+
                     return true;
                 }
+                m_userSentenceMorse.press();
 
                 m_timeBreakPoint = newTimeBreakPoint;
 
@@ -387,22 +386,20 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void notCorrectInterval(long diff) {
-        failGradient();
+        notCompletedStep();
         Log.d("MorseFree", "Not correct interval");
-    }
-
-    private void notCorrectPointDash(long diff) {
-        failGradient();
-        Log.d("MorseFree", "Not correct point or dash");
     }
 
     private void applySymbol() {
         updateSymbol();
         updateUserSentence(m_currentSymbol);
         m_dataMorse = Morse.empty();
+        m_currentSymbol = '\0';
     }
 
     private void applyWord() {
         updateUserSentence(' ');
+        m_dataMorse = Morse.empty();
+        m_currentSymbol = '\0';
     }
 }

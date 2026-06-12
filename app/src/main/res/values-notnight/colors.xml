@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="morse_background" type="color">#F8FAFC</item>
+    <item name="morse_surface" type="color">#FFFFFF</item>
+    <item name="morse_on_surface" type="color">#0F172A</item>
+
+    <item name="morse_primary" type="color">#1E3A8A</item>
+    <item name="morse_primary_variant" type="color">#1D4ED8</item>
+    <item name="morse_on_primary" type="color">#FFFFFF</item>
+
+    <item name="morse_secondary" type="color">#0F766E</item>
+    <item name="morse_on_secondary" type="color">#FFFFFF</item>
+
+    <item name="morse_accent" type="color">#EA580C</item>
+    <item name="morse_error" type="color">#BE123C</item>
+    <item name="morse_on_error" type="color">#FFFFFF</item>
+</resources>

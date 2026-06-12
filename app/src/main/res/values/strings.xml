@@ -64,4 +64,6 @@
     <string name="user_sentence">"User sentence"</string>
     <string name="all">"All"</string>
     <string name="clue">"Clue"</string>
+    <string name="back">"Back"</string>
+    <string name="repetition">"Repetition"</string>
 </resources>

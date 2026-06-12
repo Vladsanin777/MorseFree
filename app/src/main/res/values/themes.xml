@@ -1,16 +1,22 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <style name="Theme.MorseFree" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/morse_primary</item>
+        <item name="colorPrimaryVariant">@color/morse_primary_variant</item>
+        <item name="colorOnPrimary">@color/morse_on_primary</item>
+
+        <item name="colorSecondary">@color/morse_secondary</item>
+        <item name="colorSecondaryVariant">@color/morse_secondary</item>
+        <item name="colorOnSecondary">@color/morse_on_secondary</item>
+
+        <item name="android:windowBackground">@color/morse_background</item>
+        <item name="colorSurface">@color/morse_surface</item>
+        <item name="colorOnSurface">@color/morse_on_surface</item>
+
+        <item name="colorError">@color/morse_error</item>
+        <item name="colorOnError">@color/morse_on_error</item>
+
+        <item name="android:statusBarColor">@color/morse_background</item>
+        <item name="android:navigationBarColor">@color/morse_background</item>
     </style>
 </resources>
