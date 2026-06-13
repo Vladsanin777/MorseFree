@@ -43,9 +43,32 @@ public class MorseTolerances {
 
     private long m_lastBreakPoint = 0;
     private long m_currentBreakPoint = 0;
+    private long m_startPoint = 0;
+    private long m_pause = 0;
 
     public MorseTolerances() {
 
+    }
+
+    public void createStartPoint() {
+        m_startPoint = now();
+        clearBreakPoint();
+        createBreakPoint();
+    }
+
+    public void startPause() {
+        m_pause = now();
+    }
+
+    public void stopPause() {
+        if (m_pause == 0) {
+            return;
+        }
+        m_startPoint += now() - m_pause;
+        m_pause = 0;
+    }
+    public long getTime() {
+        return now() - m_startPoint;
     }
 
     public void createBreakPoint() {

@@ -73,7 +73,7 @@ public class Morse {
         m_length--;
         m_data >>= 1;
 
-        return true;
+        return m_length != 0;
     }
 
     public boolean isPointOnTop() {

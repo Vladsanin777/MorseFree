@@ -2,6 +2,7 @@ package com.example.morsefree;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.View;
 
 import android.content.Context;
@@ -22,8 +23,9 @@ public class MorseGraphView extends View {
     private boolean m_isStartUp = false;
     private Paint m_paint = new Paint();
     private boolean m_isRunning = false;
-    private long m_timeShift = 0;
     private boolean m_isInput = false;
+    private boolean m_isStartAgainSpoiler = false;
+    private boolean m_isSpoiler = false;
     private String m_text = null;
     private MorseTolerances m_tolerances = null;
 
@@ -59,30 +61,28 @@ public class MorseGraphView extends View {
         return m_text;
     }
 
-    private void cleanText() {
+    public void clear() {
         m_text = null;
         m_changePoints.clear();
+        postInvalidateOnAnimation();
     }
+
     public void setText(@NonNull String text) {
-        if (text == null) {
+        if (text == null || text.isEmpty()
+                || text.charAt(0) == ' ' || m_tolerances == null) {
+            Log.d("setText", "error");
             return;
         }
 
-        if (text.isEmpty() && text.charAt(0) == ' ') {
-            return;
-        }
-
-        if (m_tolerances == null) {
-            return;
-        }
-
-        cleanText();
+        clear();
 
         m_text = text;
 
         long currentTime = 0;
 
         m_changePoints.add(currentTime);
+
+        Log.d("setText", text);
 
         for (char symbol : text.toCharArray()) {
             if (symbol == ' ') {
@@ -99,17 +99,25 @@ public class MorseGraphView extends View {
 
             Morse morse = morseConst.getMorse();
 
-            while (morse.pop()) {
+            do {
                 m_changePoints.add(currentTime +=
                         (morse.isPointOnTop() ? m_tolerances.getPeriodPoint()
                                 : m_tolerances.getPeriodDash()));
+
                 m_changePoints.add(currentTime += m_tolerances.getPeriodGapBase());
-            }
+            } while (morse.pop());
 
             m_changePoints.set(m_changePoints.size() - 1,
                     currentTime += (m_tolerances.getPeriodGapSymbol() -
                             m_changePoints.get(m_changePoints.size() - 1)));
         }
+
+        m_changePoints.remove(m_changePoints.size() - 1);
+
+        m_isStartAgainSpoiler = true;
+        m_isSpoiler = true;
+
+        postInvalidateOnAnimation();
     }
 
     private int dpToPx(int dp) {
@@ -142,8 +150,6 @@ public class MorseGraphView extends View {
 
     public void start(boolean isInput) {
         m_isRunning = true;
-        m_timeShift = System.nanoTime();
-        m_changePoints.clear();
         setIsInput(isInput);
         press();
         postInvalidateOnAnimation();
@@ -166,19 +172,21 @@ public class MorseGraphView extends View {
     }
 
     public void stop() {
+        Log.d("stop", "stop");
         m_isRunning = false;
-        invalidate();
+        m_isSpoiler = false;
+        postInvalidateOnAnimation();
     }
 
     public void startAgain() {
         m_isRunning = true;
-        m_timeShift += System.nanoTime() - m_changePoints.get(m_changePoints.size() - 1);
+        m_isSpoiler = m_isStartAgainSpoiler;
         postInvalidateOnAnimation();
     }
 
     public void press() {
         if (m_isInput) {
-            m_changePoints.add(System.nanoTime() - m_timeShift);
+            m_changePoints.add(m_tolerances.getTime());
         }
     }
 
@@ -191,7 +199,8 @@ public class MorseGraphView extends View {
         setMeasuredDimension(width, height);
     }
 
-    void drawTime(@NonNull Canvas canvas, long currentTime, boolean isHalf) {
+    void drawTime(@NonNull Canvas canvas, long currentTime,
+                  boolean isHalf, boolean isSpoiler) {
         int width = getWidth();
         int height = getHeight();
         float yCenter = height / 2f;
@@ -200,7 +209,7 @@ public class MorseGraphView extends View {
             width /= 2;
         }
 
-        long endPoint = currentTime - m_timeShift;
+        long endPoint = currentTime;
 
         long widthTime = (long) ((width / (float) m_thicknessPx) * m_tolerances.getPeriodPoint());
         long startTime = endPoint - widthTime;
@@ -214,12 +223,13 @@ public class MorseGraphView extends View {
                 break;
             }
 
-            boolean shouldDraw = ((index % 2 == 1) && m_isStartUp)
-                    || ((index % 2 == 0) && !m_isStartUp);
+            boolean shouldDraw = (((index & 0x01) == 1) && m_isStartUp)
+                    || (((index & 0x01) == 0) && !m_isStartUp);
 
             if (shouldDraw) {
                 float xStart = width - ((endPoint - currentPoint) /
                         (float) m_tolerances.getPeriodPoint()) * m_thicknessPx;
+
                 float xEnd = width - ((endPoint - lastPoint) /
                         (float) m_tolerances.getPeriodPoint()) * m_thicknessPx;
 
@@ -241,15 +251,16 @@ public class MorseGraphView extends View {
             return;
         }
 
-        if (m_isRunning && m_isInput) {
-            drawTime(canvas, System.nanoTime(), true);
-        } else {
-            long lastSavedPoint = m_changePoints.get(m_changePoints.size() - 1) + m_timeShift;
-            drawTime(canvas, lastSavedPoint, false);
-        }
-
         if (m_isRunning) {
+            if (m_isInput) {
+                drawTime(canvas, m_tolerances.getTime(), true, m_isSpoiler);
+            } else {
+                drawTime(canvas, m_tolerances.getTime(), false, m_isSpoiler);
+            }
             postInvalidateOnAnimation();
+        } else {
+            long lastSavedPoint = m_changePoints.get(m_changePoints.size() - 1);
+            drawTime(canvas, lastSavedPoint, false, m_isSpoiler);
         }
     }
 }

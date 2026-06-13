@@ -41,9 +41,10 @@ public class LessonTransmit extends AppCompatActivity {
     private ConstraintLayout m_lessonTransmitLayout;
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
-    private Morse m_morse;
+    private Morse m_morse = new Morse();
     private char m_currentSymbol = '\0';
     private MorseTolerances m_tolerances = new MorseTolerances();
+    private boolean m_isRunning = true;
 
     @SuppressLint({"ClickableViewAccessibility", "ResourceType", "MissingInflatedId"})
     @Override
@@ -84,13 +85,18 @@ public class LessonTransmit extends AppCompatActivity {
 
         m_lessonTransmitLayout.post(this::initInfoGradient);
 
-        updateSentence();
-
         m_userSentenceMorse.setTolerances(m_tolerances);
+        m_sentenceMorse.setTolerances(m_tolerances);
+
+        m_userSentenceMorse.setIsStartUp(false);
+        m_sentenceMorse.setIsStartUp(false);
 
         Button backButton = findViewById(R.id.button_back);
 
         backButton.setOnClickListener(this::onClickBack);
+
+        updateSentence();
+        clearUserSentence();
     }
 
     private void onClickBack(View view) {
@@ -124,16 +130,27 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void animationInfoGradient() {
         m_lessonTransmitLayout.setBackground(m_infoGradient);
-        ObjectAnimator.ofInt(m_infoGradient, "alpha", 0xff, 0x00).setDuration(1000).start();
+        ObjectAnimator.ofInt(m_infoGradient, "alpha",
+                0xff, 0x00).setDuration(1000).start();
     }
 
     private void checkMessage() {
+        checkMessage(false);
+    }
+
+    private void checkMessage(boolean isError) {
         applySymbol();
+
+        m_handler.removeCallbacks(m_idleRunnable);
         m_userSentenceMorse.stop();
-        if (m_userSentence.equals(m_sentence)) {
-            completedStep();
+        m_sentenceMorse.stop();
+        m_tolerances.clearBreakPoint();
+        m_isRunning = false;
+
+        if (!isError && m_userSentence.equals(m_sentence)) {
+            winGradient();
         } else {
-            notCompletedStep();
+            failGradient();
         }
     }
 
@@ -150,7 +167,9 @@ public class LessonTransmit extends AppCompatActivity {
         }
         Log.d("Sentence", m_sentence);
         m_sentenceTextView.setText(m_sentence);
+        m_sentenceMorse.setText(m_sentence);
         clearUserSentence();
+        m_userSentenceMorse.clear();
     }
 
     void clearUserSentence() {
@@ -173,31 +192,17 @@ public class LessonTransmit extends AppCompatActivity {
         m_userSentenceTextView.setText(m_userSentence);
     }
 
-    private void completedStep() {
-        winGradient();
-        m_handler.removeCallbacks(m_idleRunnable);
-        m_tolerances.clearBreakPoint();
-        Log.d("MorseFree", "Completed: " + m_userSentence
-                + "\n need: " + m_sentence + '\n');
-    }
-
-    private void notCompletedStep() {
-        failGradient();
-        m_handler.removeCallbacks(m_idleRunnable);
-        m_userSentenceMorse.stop();
-        m_tolerances.clearBreakPoint();
-        Log.d("MorseFree", "Not completed: " + m_userSentence
-                + "\n need: " + m_sentence + '\n');
-    }
-
     private boolean OnTouchTransmitButton(View view, MotionEvent event) {
-        m_tolerances.createBreakPoint();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                if (!m_isRunning) {
+                    return true;
+                }
+
                 m_tolerances.createBreakPoint();
 
                 m_handler.removeCallbacks(m_idleRunnable);
-                startSound();
+                m_sound.start();
                 view.setPressed(true);
                 if (m_tolerances.isDiff()) {
                     m_userSentenceMorse.press();
@@ -213,19 +218,27 @@ public class LessonTransmit extends AppCompatActivity {
                         return true;
                     }
                 } else {
-                    m_userSentenceMorse.setIsStartUp(false);
+                    m_tolerances.createStartPoint();
                     m_userSentenceMorse.start(true);
+                    m_sentenceMorse.start(false);
                 }
 
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
+                if (!m_isRunning) {
+                    updateSentence();
+                    m_isRunning = true;
+                    return true;
+                }
+
                 m_tolerances.createBreakPoint();
 
                 m_handler.postDelayed(m_idleRunnable,
                         m_tolerances.getPeriodGapWord() +
                         m_tolerances.getPeriodGapWordEpsilonHigh());
-                stopSound();
+
+                m_sound.stop();
                 view.setPressed(false);
                 m_userSentenceMorse.press();
 
@@ -261,14 +274,6 @@ public class LessonTransmit extends AppCompatActivity {
         }
         return '\0';
     }
-    void startSound() {
-        m_sound.start();
-    }
-
-    void stopSound() {
-        m_sound.stop();
-    }
-
 
     private String newSentence(int length) {
         StringBuilder sentence = new StringBuilder(length);
@@ -313,20 +318,24 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void notCorrectInterval(long diff) {
-        notCompletedStep();
+        checkMessage(true);
         Log.d("MorseFree", "Not correct interval");
     }
 
     private void applySymbol() {
         updateSymbol();
-        updateUserSentence(m_currentSymbol);
+        if (m_currentSymbol != '\0') {
+            updateUserSentence(m_currentSymbol);
+        }
         m_morse.clear();
         m_currentSymbol = '\0';
+        m_currentSymbolTextView.setText(String.valueOf(m_currentSymbol));
     }
 
     private void applyWord() {
         updateUserSentence(' ');
         m_morse.clear();
         m_currentSymbol = '\0';
+        m_currentSymbolTextView.setText(String.valueOf(m_currentSymbol));
     }
 }
