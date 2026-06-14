@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
+import static com.example.morsefree.MorseGraphView.Position.*;
+
 public class MorseGraphView extends View {
     private static final int DEFAULT_HEIGHT_DP = 60;
     private int m_defaultHeightPx = dpToPx(DEFAULT_HEIGHT_DP);
@@ -24,10 +26,12 @@ public class MorseGraphView extends View {
     private Paint m_paint = new Paint();
     private boolean m_isRunning = false;
     private boolean m_isInput = false;
-    private boolean m_isStartAgainSpoiler = false;
-    private boolean m_isSpoiler = false;
     private String m_text = null;
     private MorseTolerances m_tolerances = null;
+
+    enum Position {
+        BEGIN, MIDDLE, END,
+    }
 
     public MorseGraphView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -114,9 +118,6 @@ public class MorseGraphView extends View {
 
         m_changePoints.remove(m_changePoints.size() - 1);
 
-        m_isStartAgainSpoiler = true;
-        m_isSpoiler = true;
-
         postInvalidateOnAnimation();
     }
 
@@ -174,19 +175,22 @@ public class MorseGraphView extends View {
     public void stop() {
         Log.d("stop", "stop");
         m_isRunning = false;
-        m_isSpoiler = false;
+        if ((m_changePoints.size() & 1) == 1) {
+            press();
+        }
         postInvalidateOnAnimation();
     }
 
     public void startAgain() {
         m_isRunning = true;
-        m_isSpoiler = m_isStartAgainSpoiler;
         postInvalidateOnAnimation();
     }
 
     public void press() {
         if (m_isInput) {
             m_changePoints.add(m_tolerances.getTime());
+            Log.d("press", String.valueOf(m_changePoints.get(m_changePoints.size() - 1)));
+
         }
     }
 
@@ -200,7 +204,7 @@ public class MorseGraphView extends View {
     }
 
     void drawTime(@NonNull Canvas canvas, long currentTime,
-                  boolean isHalf, boolean isSpoiler) {
+                  Position position, boolean isHalf) {
         int width = getWidth();
         int height = getHeight();
         float yCenter = height / 2f;
@@ -209,7 +213,19 @@ public class MorseGraphView extends View {
             width /= 2;
         }
 
-        long endPoint = currentTime;
+        long endPoint = 0;
+
+        switch (position) {
+            case BEGIN:
+                endPoint = currentTime + ((width / m_thicknessPx) * m_tolerances.getPeriodPoint());
+                break;
+            case MIDDLE:
+                endPoint = currentTime + (((width / 2) / m_thicknessPx) * m_tolerances.getPeriodPoint());
+                break;
+            case END:
+                endPoint = currentTime;
+                break;
+        }
 
         long widthTime = (long) ((width / (float) m_thicknessPx) * m_tolerances.getPeriodPoint());
         long startTime = endPoint - widthTime;
@@ -235,8 +251,8 @@ public class MorseGraphView extends View {
 
                 if (xStart < 0) xStart = 0;
 
-                canvas.drawLine(xStart - m_offsetPx, yCenter - m_offsetPx,
-                        xEnd - m_thicknessPx, yCenter - m_offsetPx, m_paint);
+                canvas.drawLine(xStart + m_offsetPx, yCenter - m_offsetPx,
+                        xEnd - m_offsetPx, yCenter - m_offsetPx, m_paint);
             }
 
             lastPoint = currentPoint;
@@ -253,14 +269,13 @@ public class MorseGraphView extends View {
 
         if (m_isRunning) {
             if (m_isInput) {
-                drawTime(canvas, m_tolerances.getTime(), true, m_isSpoiler);
+                drawTime(canvas, m_tolerances.getTime(), END, true);
             } else {
-                drawTime(canvas, m_tolerances.getTime(), false, m_isSpoiler);
+                drawTime(canvas, m_tolerances.getTime(), MIDDLE, false);
             }
             postInvalidateOnAnimation();
         } else {
-            long lastSavedPoint = m_changePoints.get(m_changePoints.size() - 1);
-            drawTime(canvas, lastSavedPoint, false, m_isSpoiler);
+            drawTime(canvas, m_changePoints.get(0), BEGIN, false);
         }
     }
 }

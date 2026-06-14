@@ -50,17 +50,17 @@ public class MorseTolerances {
 
     }
 
-    public void createStartPoint() {
+    public void start() {
         m_startPoint = now();
-        clearBreakPoint();
-        createBreakPoint();
+        clearPoints();
+        point();
     }
 
-    public void startPause() {
+    public void stop() {
         m_pause = now();
     }
 
-    public void stopPause() {
+    public void restart() {
         if (m_pause == 0) {
             return;
         }
@@ -71,12 +71,12 @@ public class MorseTolerances {
         return now() - m_startPoint;
     }
 
-    public void createBreakPoint() {
+    public void point() {
         m_lastBreakPoint = m_currentBreakPoint;
         m_currentBreakPoint = now();
     }
 
-    public void clearBreakPoint() {
+    public void clearPoints() {
         m_lastBreakPoint = 0;
         m_currentBreakPoint = 0;
     }

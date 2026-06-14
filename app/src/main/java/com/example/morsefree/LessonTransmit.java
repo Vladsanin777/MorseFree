@@ -142,9 +142,10 @@ public class LessonTransmit extends AppCompatActivity {
         applySymbol();
 
         m_handler.removeCallbacks(m_idleRunnable);
+        m_sound.stop();
         m_userSentenceMorse.stop();
         m_sentenceMorse.stop();
-        m_tolerances.clearBreakPoint();
+        m_tolerances.clearPoints();
         m_isRunning = false;
 
         if (!isError && m_userSentence.equals(m_sentence)) {
@@ -199,7 +200,7 @@ public class LessonTransmit extends AppCompatActivity {
                     return true;
                 }
 
-                m_tolerances.createBreakPoint();
+                m_tolerances.point();
 
                 m_handler.removeCallbacks(m_idleRunnable);
                 m_sound.start();
@@ -218,7 +219,7 @@ public class LessonTransmit extends AppCompatActivity {
                         return true;
                     }
                 } else {
-                    m_tolerances.createStartPoint();
+                    m_tolerances.start();
                     m_userSentenceMorse.start(true);
                     m_sentenceMorse.start(false);
                 }
@@ -232,7 +233,7 @@ public class LessonTransmit extends AppCompatActivity {
                     return true;
                 }
 
-                m_tolerances.createBreakPoint();
+                m_tolerances.point();
 
                 m_handler.postDelayed(m_idleRunnable,
                         m_tolerances.getPeriodGapWord() +
