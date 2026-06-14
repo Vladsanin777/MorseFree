@@ -139,6 +139,7 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void checkMessage(boolean isError) {
+        Log.d("chack", "CheckMessage");
         applySymbol();
 
         m_handler.removeCallbacks(m_idleRunnable);

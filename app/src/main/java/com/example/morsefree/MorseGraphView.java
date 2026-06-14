@@ -213,21 +213,31 @@ public class MorseGraphView extends View {
             width /= 2;
         }
 
+        long widthTime = (width / m_thicknessPx) * m_tolerances.getPeriodPoint() + 1;
+
         long endPoint = 0;
+
+        float extraStart = 0;
+        float extraEnd = 0;
 
         switch (position) {
             case BEGIN:
-                endPoint = currentTime + ((width / m_thicknessPx) * m_tolerances.getPeriodPoint());
+                endPoint = currentTime + widthTime;
+                extraStart = m_thicknessPx * 2;
+                extraEnd = -m_thicknessPx;
                 break;
             case MIDDLE:
-                endPoint = currentTime + (((width / 2) / m_thicknessPx) * m_tolerances.getPeriodPoint());
+                endPoint = currentTime + (widthTime / 2);
+                extraStart = -m_thicknessPx;
+                extraEnd = m_thicknessPx * 2;
                 break;
             case END:
                 endPoint = currentTime;
+                extraStart = -m_thicknessPx;
+                extraEnd = m_thicknessPx * 2;
                 break;
         }
 
-        long widthTime = (long) ((width / (float) m_thicknessPx) * m_tolerances.getPeriodPoint());
         long startTime = endPoint - widthTime;
 
         long lastPoint = endPoint;
@@ -251,8 +261,11 @@ public class MorseGraphView extends View {
 
                 if (xStart < 0) xStart = 0;
 
-                canvas.drawLine(xStart + m_offsetPx, yCenter - m_offsetPx,
-                        xEnd - m_offsetPx, yCenter - m_offsetPx, m_paint);
+                // Log.d("xStart", String.valueOf(xStart));
+                // Log.d("xEnd", String.valueOf(xEnd));
+
+                canvas.drawLine(xStart + extraStart, yCenter - m_offsetPx,
+                        xEnd - extraEnd, yCenter - m_offsetPx, m_paint);
             }
 
             lastPoint = currentPoint;
