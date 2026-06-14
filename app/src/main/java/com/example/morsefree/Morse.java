@@ -71,17 +71,17 @@ public class Morse {
         }
 
         m_length--;
-        m_data >>= 1;
+        m_data &= (0x01 << m_length) - 1;
 
         return m_length != 0;
     }
 
     public boolean isPointOnTop() {
-        return (m_data & 0x01) == 0;
+        return ((m_data >> (m_length - 1)) & 0x01) == 0;
     }
 
     public boolean isDashOnTop() {
-        return (m_data & 0x01) == 1;
+        return ((m_data >> (m_length - 1)) & 0x01) == 1;
     }
 
     public byte getLength() {
