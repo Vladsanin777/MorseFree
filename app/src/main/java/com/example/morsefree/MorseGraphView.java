@@ -20,7 +20,7 @@ public class MorseGraphView extends View {
     private int m_defaultHeightPx = dpToPx(DEFAULT_HEIGHT_DP);
     private int m_thicknessDp = 6;
     private int m_thicknessPx = dpToPx(m_thicknessDp);
-    private float m_offsetPx = m_thicknessPx / 2f;
+    private int m_offsetPx = m_thicknessPx / 2;
     private ArrayList<Long> m_changePoints = new ArrayList<Long>();
     private boolean m_isStartUp = false;
     private Paint m_paint = new Paint();
@@ -217,24 +217,15 @@ public class MorseGraphView extends View {
 
         long endPoint = 0;
 
-        float extraStart = 0;
-        float extraEnd = 0;
-
         switch (position) {
             case BEGIN:
                 endPoint = currentTime + widthTime;
-                extraStart = m_thicknessPx * 2;
-                extraEnd = -m_thicknessPx;
                 break;
             case MIDDLE:
                 endPoint = currentTime + (widthTime / 2);
-                extraStart = -m_thicknessPx;
-                extraEnd = m_thicknessPx * 2;
                 break;
             case END:
                 endPoint = currentTime;
-                extraStart = -m_thicknessPx;
-                extraEnd = m_thicknessPx * 2;
                 break;
         }
 
@@ -261,11 +252,16 @@ public class MorseGraphView extends View {
 
                 if (xStart < 0) xStart = 0;
 
+                xStart += m_offsetPx;
+                xEnd -= m_offsetPx;
+
+                xEnd = Math.max(xStart, xEnd);
+
                 // Log.d("xStart", String.valueOf(xStart));
                 // Log.d("xEnd", String.valueOf(xEnd));
 
-                canvas.drawLine(xStart + extraStart, yCenter - m_offsetPx,
-                        xEnd - extraEnd, yCenter - m_offsetPx, m_paint);
+                canvas.drawLine(xStart, yCenter - m_offsetPx,
+                        xEnd, yCenter - m_offsetPx, m_paint);
             }
 
             lastPoint = currentPoint;
