@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import java.util.ArrayList;
 
 import static com.example.morsefree.MorseGraphView.Position.*;
+import static com.example.morsefree.MorseLanguage.MORSE_LATIN;
+
+import kotlinx.coroutines.internal.Symbol;
 
 public class MorseGraphView extends View {
     private static final int DEFAULT_HEIGHT_DP = 60;
@@ -28,6 +31,13 @@ public class MorseGraphView extends View {
     private boolean m_isInput = false;
     private String m_text = null;
     private MorseTolerances m_tolerances = null;
+    private char m_currentSymbol = '\0';
+    private Morse m_morse = new Morse();
+    private MorseLanguage m_language = MorseLanguage.defaultValue();
+    private MorseLevel m_level = MorseLevel.defaultValue();
+    private boolean m_isLess = false;
+    private int m_lengthSentence = 1;
+    private boolean m_isRandomLengthSentence;
 
     enum Position {
         BEGIN, MIDDLE, END,
@@ -61,14 +71,14 @@ public class MorseGraphView extends View {
         m_tolerances = tolerances;
     }
 
-    public String getText() {
-        return m_text;
-    }
-
     public void clear() {
         m_text = null;
         m_changePoints.clear();
         postInvalidateOnAnimation();
+    }
+
+    public String getText() {
+        return m_text;
     }
 
     public void setText(@NonNull String text) {
@@ -119,6 +129,10 @@ public class MorseGraphView extends View {
         m_changePoints.remove(m_changePoints.size() - 1);
 
         postInvalidateOnAnimation();
+    }
+
+    public char getCurrentSymbol() {
+        return m_currentSymbol;
     }
 
     private int dpToPx(int dp) {
@@ -192,6 +206,97 @@ public class MorseGraphView extends View {
             Log.d("press", String.valueOf(m_changePoints.get(m_changePoints.size() - 1)));
 
         }
+
+        MorseConst morse = MorseConst.find(m_language, m_morse);
+        if (morse != null) {
+            m_currentSymbol = morse.getSymbol();
+        } else {
+            m_currentSymbol = '\0';
+        }
+    }
+
+    public MorseLanguage getLanguage() {
+        return m_language;
+    }
+
+    public void setLanguage(MorseLanguage language) {
+        m_language = language;
+    }
+
+    public MorseLevel getLevel() {
+        return m_level;
+    }
+
+    public void setLevel(MorseLevel level) {
+        m_level = level;
+    }
+
+    char randomSymbolCurrentAndLessLevel() {
+        MorseConst morse = MorseConst.randomSymbolCurrentAndLessLevel(m_language, m_level);
+        if (morse != null) {
+            return morse.getSymbol();
+        }
+        return '\0';
+    }
+
+    char randomSymbolCurrentLevel() {
+        MorseConst morse = MorseConst.randomSymbolCurrentLevel(m_language, m_level);
+        if (morse != null) {
+            return morse.getSymbol();
+        }
+        return '\0';
+    }
+
+    public String newSentence(int length) {
+        StringBuilder sentence = new StringBuilder(length);
+        if (m_isLess) {
+            while (sentence.length() < length) {
+                char symbol = randomSymbolCurrentAndLessLevel();
+                if (symbol != '\0') {
+                    sentence.append(symbol);
+                }
+            }
+        } else {
+            while (sentence.length() < length) {
+                char symbol = randomSymbolCurrentLevel();
+                if (symbol != '\0') {
+                    sentence.append(symbol);
+                }
+            }
+        }
+        return sentence.toString();
+    }
+
+    void updateSentence() {
+        if (m_isRandomLengthSentence) {
+            m_text = newSentence(((int)(Math.random() * (m_lengthSentence - 1))) + 1);
+        } else {
+            m_text = newSentence(m_lengthSentence);
+        }
+    }
+
+    public boolean getIsLess() {
+        return m_isLess;
+    }
+
+    public void setIsLess(boolean isLess) {
+        m_isLess = isLess;
+    }
+
+    public int getLengthSentence() {
+        return m_lengthSentence;
+    }
+
+    public void setLengthSentence(int lengthSentence) {
+        m_lengthSentence = lengthSentence;
+    }
+
+    public boolean getIsRandomLengthSentence() {
+        return m_isRandomLengthSentence;
+    }
+
+    public void setIsRandomLengthSentence(boolean isRandomLengthSentence) {
+        m_isRandomLengthSentence = isRandomLengthSentence;
     }
 
     @Override

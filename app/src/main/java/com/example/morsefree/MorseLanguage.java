@@ -9,11 +9,15 @@ public enum MorseLanguage {
     MORSE_SYMBOL(MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET.ordinal());
 
     private int m_levelOrdinal;
-    MorseLanguage(int ordinal) {
+    private MorseLanguage(int ordinal) {
         m_levelOrdinal = ordinal;
     }
 
-    int getLevelOrdinal() {
+    public int getLevelOrdinal() {
         return m_levelOrdinal;
+    }
+
+    public static MorseLanguage defaultValue() {
+        return MORSE_LATIN;
     }
 }

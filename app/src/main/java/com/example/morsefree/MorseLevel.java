@@ -20,5 +20,9 @@ public enum MorseLevel {
     MORSE_LEVEL_QUOTES_AND_APOSTROPHE,
     MORSE_LEVEL_DASH_AND_SLASH,
     MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK,
-    MORSE_LEVEL_AT
+    MORSE_LEVEL_AT;
+
+    public static MorseLevel defaultValue() {
+        return MORSE_LEVEL_E_AND_T;
+    }
 }

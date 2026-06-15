@@ -27,21 +27,13 @@ import com.example.morsefree.databinding.LessonTransmitBinding;
 
 public class LessonTransmit extends AppCompatActivity {
     private LessonTransmitBinding m_binding;
-    private boolean m_isLess;
-    private MorseLanguage m_language;
-    private MorseLevel m_level;
     private String m_userSentence;
-    private String m_sentence;
-    private boolean m_isRandomLengthSentence;
-    private int m_lengthSentence;
     private final Handler m_handler =
             new android.os.Handler(Looper.getMainLooper());
     private final Runnable m_idleRunnable = this::checkMessage;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
-    private Morse m_morse = new Morse();
-    private char m_currentSymbol = '\0';
     private MorseTolerances m_tolerances = new MorseTolerances();
     private boolean m_isRunning = true;
 
@@ -54,19 +46,32 @@ public class LessonTransmit extends AppCompatActivity {
         setContentView(m_binding.getRoot());
 
         Intent intent = getIntent();
-        m_language = MORSE_LATIN;
-        m_level = MORSE_LEVEL_E_AND_T;
-        m_isLess = false;
-        m_lengthSentence = 1;
-        m_isRandomLengthSentence = false;
 
         if (intent != null) {
-            m_language = MorseLanguage.values()[intent.getIntExtra("MORSE_LANGUAGE", m_language.ordinal())];
-            m_level = MorseLevel.values()[intent.getIntExtra("MORSE_LEVEL", m_level.ordinal())];
-            m_isLess = intent.getBooleanExtra("MORSE_IS_LESS", m_isLess);
-            m_lengthSentence = intent.getIntExtra("MORSE_LENGTH", 1);
-            m_isRandomLengthSentence = intent.getBooleanExtra("MORSE_IS_RANDOM_LENGTH", m_isRandomLengthSentence);
+            MorseLanguage language = MorseLanguage.values()
+                    [intent.getIntExtra("MORSE_LANGUAGE",
+                    MorseLanguage.defaultValue().ordinal())];
+
+            MorseLevel level = MorseLevel.values()
+                    [intent.getIntExtra("MORSE_LEVEL",
+                    MorseLevel.defaultValue().ordinal())];
+
+            boolean isLess = intent.getBooleanExtra("MORSE_IS_LESS", false);
+
+            int lengthSentence = intent.getIntExtra("MORSE_LENGTH", 1);
+
+            boolean isRandomLengthSentence =
+                    intent.getBooleanExtra("MORSE_IS_RANDOM_LENGTH", false);
+
             String nameLevel = intent.getStringExtra("LEVEL_NAME");
+
+            m_binding.userSentenceMorse.setLanguage(language);
+
+            m_binding.userSentenceMorse.setLevel(level);
+
+            m_binding.userSentenceMorse.setIsLess(isLess);
+
+            m_binding.userSentenceMorse.setLengthSentence(lengthSentence);
 
             m_binding.titleTransmitLevelName.setText(nameLevel);
         }
@@ -156,14 +161,10 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     void updateSentence() {
-        if (m_isRandomLengthSentence) {
-            m_sentence = newSentence(((int)(Math.random() * (m_lengthSentence - 1))) + 1);
-        } else {
-            m_sentence = newSentence(m_lengthSentence);
-        }
-        Log.d("Sentence", m_sentence);
-        m_binding.sentence.setText(m_sentence);
-        m_binding.sentenceMorse.setText(m_sentence);
+        m_binding.userSentenceMorse.updateSentence();
+        String sentence = m_binding.userSentenceMorse.getText();
+        m_binding.sentence.setText(sentence);
+        m_binding.sentenceMorse.setText(sentence);
         clearUserSentence();
         m_binding.userSentenceMorse.clear();
     }
@@ -257,50 +258,9 @@ public class LessonTransmit extends AppCompatActivity {
         return false;
     }
 
-    char randomSymbolCurrentAndLessLevel() {
-        MorseConst morse = MorseConst.randomSymbolCurrentAndLessLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
-        }
-        return '\0';
-    }
-
-    char randomSymbolCurrentLevel() {
-        MorseConst morse = MorseConst.randomSymbolCurrentLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
-        }
-        return '\0';
-    }
-
-    private String newSentence(int length) {
-        StringBuilder sentence = new StringBuilder(length);
-        if (m_isLess) {
-            while (sentence.length() < length) {
-                char symbol = randomSymbolCurrentAndLessLevel();
-                if (symbol != '\0') {
-                    sentence.append(symbol);
-                }
-            }
-        } else {
-            while (sentence.length() < length) {
-                char symbol = randomSymbolCurrentLevel();
-                if (symbol != '\0') {
-                    sentence.append(symbol);
-                }
-            }
-        }
-        return sentence.toString();
-    }
-
     private void updateSymbol() {
-        MorseConst morse = MorseConst.find(m_language, m_morse);
-        if (morse != null) {
-            m_currentSymbol = morse.getSymbol();
-        } else {
-            m_currentSymbol = '\0';
-        }
-        m_binding.currentSymbol.setText(String.valueOf(m_currentSymbol));
+        m_binding.currentSymbol.setText(
+                String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
     }
 
     private void applyPoint() {
