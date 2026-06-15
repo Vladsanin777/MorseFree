@@ -69,4 +69,5 @@
     <string name="repetition">"Повторение"</string>
     <string name="clear">"Очистить"</string>
     <string name="start">"Старт"</string>
+    <string name="again">"Заново"</string>
 </resources>

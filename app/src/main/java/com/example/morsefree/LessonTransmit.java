@@ -137,6 +137,8 @@ public class LessonTransmit extends AppCompatActivity {
         m_tolerances.clearPoints();
         m_isRunning = false;
 
+        m_binding.buttonTransmit.setText(R.string.again);
+
         if (!isError && m_userSentence.equals(m_sentence)) {
             winGradient();
         } else {
@@ -211,6 +213,7 @@ public class LessonTransmit extends AppCompatActivity {
                     m_tolerances.start();
                     m_binding.userSentenceMorse.start(true);
                     m_binding.sentenceMorse.start(false);
+                    m_binding.buttonTransmit.setText(R.string.transmit);
                 }
 
                 return true;
@@ -219,6 +222,7 @@ public class LessonTransmit extends AppCompatActivity {
                 if (!m_isRunning) {
                     updateSentence();
                     m_isRunning = true;
+                    m_binding.buttonTransmit.setText(R.string.start);
                     return true;
                 }
 
