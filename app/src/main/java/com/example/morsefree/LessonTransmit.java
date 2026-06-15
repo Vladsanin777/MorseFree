@@ -6,6 +6,7 @@ import static com.example.morsefree.MorseLevel.*;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -75,11 +76,14 @@ public class LessonTransmit extends AppCompatActivity {
 
         m_binding.rootLayout.post(this::initInfoGradient);
 
-        m_binding.userSentenceMorse.setTolerances(m_tolerances);
         m_binding.sentenceMorse.setTolerances(m_tolerances);
+        m_binding.userSentenceMorse.setTolerances(m_tolerances);
 
+        m_binding.sentenceMorse.setIsStartUp(false);
         m_binding.userSentenceMorse.setIsStartUp(false);
-        m_binding.userSentenceMorse.setIsStartUp(false);
+
+        m_binding.sentenceMorse.setColor(getColor(R.color.morse_secondary));
+        m_binding.userSentenceMorse.setColor(getColor(R.color.morse_primary_variant));
 
         m_binding.buttonBack.setOnClickListener(this::onClickBack);
 
