@@ -202,8 +202,18 @@ public class MorseGraphView extends View {
 
     public void press() {
         if (m_isInput) {
+            m_tolerances.point();
             m_changePoints.add(m_tolerances.getTime());
             Log.d("press", String.valueOf(m_changePoints.get(m_changePoints.size() - 1)));
+            if (m_tolerances.isGapBase()) {
+                ;
+            } else if (m_tolerances.isGapSymbol()) {
+                applySymbol();
+            } else if (m_tolerances.isGapWord()) {
+                applyWord();
+            } else {
+                notCorrectInterval(m_tolerances.getDiff());
+            }
 
         }
 
@@ -297,6 +307,14 @@ public class MorseGraphView extends View {
 
     public void setIsRandomLengthSentence(boolean isRandomLengthSentence) {
         m_isRandomLengthSentence = isRandomLengthSentence;
+    }
+
+    private void applyPoint() {
+        m_morse.addPoint();
+    }
+
+    private void applyDash() {
+        m_morse.addDash();
     }
 
     @Override

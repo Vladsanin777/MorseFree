@@ -196,21 +196,13 @@ public class LessonTransmit extends AppCompatActivity {
                     return true;
                 }
 
-                m_tolerances.point();
-
                 m_handler.removeCallbacks(m_idleRunnable);
                 m_sound.start();
                 view.setPressed(true);
                 if (m_tolerances.isDiff()) {
-                    m_binding.userSentenceMorse.press();
+                    MorseGraphView.TypeAction action = m_binding.userSentenceMorse.press();
 
-                    if (m_tolerances.isGapBase()) {
-                        ;
-                    } else if (m_tolerances.isGapSymbol()) {
-                        applySymbol();
-                    } else if (m_tolerances.isGapWord()) {
-                        applyWord();
-                    } else {
+                    if (action == MorseGraphView.TypeAction.NONE) {
                         notCorrectInterval(m_tolerances.getDiff());
                         return true;
                     }
@@ -231,8 +223,6 @@ public class LessonTransmit extends AppCompatActivity {
                     return true;
                 }
 
-                m_tolerances.point();
-
                 m_handler.postDelayed(m_idleRunnable,
                         m_tolerances.getPeriodGapWord() +
                         m_tolerances.getPeriodGapWordEpsilonHigh());
@@ -241,13 +231,19 @@ public class LessonTransmit extends AppCompatActivity {
                 view.setPressed(false);
                 m_binding.userSentenceMorse.press();
 
+                MorseGraphView.TypeAction action = m_binding.userSentenceMorse.press();
+
+                if (action == MorseGraphView.TypeAction.NONE) {
+                    notCorrectInterval(m_tolerances.getDiff());
+                    return true;
+                }
+
                 if (m_tolerances.isPoint()) {
                     applyPoint();
                 } else if (m_tolerances.isDash()) {
                     applyDash();
                 } else {
                     notCorrectInterval(m_tolerances.getDiff());
-
                     return true;
                 }
 
@@ -256,23 +252,6 @@ public class LessonTransmit extends AppCompatActivity {
                 return true;
         }
         return false;
-    }
-
-    private void updateSymbol() {
-        m_binding.currentSymbol.setText(
-                String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
-    }
-
-    private void applyPoint() {
-        m_morse.addPoint();
-
-        updateSymbol();
-    }
-
-    private void applyDash() {
-        m_morse.addDash();
-
-        updateSymbol();
     }
 
     private void notCorrectInterval(long diff) {
