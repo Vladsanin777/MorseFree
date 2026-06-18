@@ -89,7 +89,7 @@
             app:layout_constraintRight_toLeftOf="@id/user_sentence_morse"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <com.example.morsefree.MorseGraphView
+        <com.example.morsefree.MorseGraphViewInput
             android:id="@+id/user_sentence_morse"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

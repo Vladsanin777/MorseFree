@@ -4202,6 +4202,7 @@ ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/Compil
 ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#   define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID$/;"	d	file:
+Action	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    enum Action {$/;"	g	class:MorseGraphView
 ActionMorse	app/src/main/java/com/example/morsefree/ActionMorse.java	/^public enum ActionMorse {$/;"	g
 ActivityMainBinding	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button learnReceiveMo/;"	m	class:ActivityMainBinding	file:
 ActivityMainBinding	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^public final class ActivityMainBinding implements ViewBinding {$/;"	c
@@ -5162,6 +5163,7 @@ C_VERSION	app/.cxx/Debug/2l62296u/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMa
 C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION /;"	d	file:
 C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION$/;"	d	file:
 C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
+DASH	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseGraphView.Action	file:
 DASH_ACTION_MORSE	app/src/main/java/com/example/morsefree/ActionMorse.java	/^    DASH_ACTION_MORSE, BASE_INTERVAL_ACTION_MORSE,$/;"	e	enum:ActionMorse	file:
 DATA_TO_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private static HashMap<MorseLanguage, HashMap<MorseLevel, ArrayList<MorseConst>>> DATA_TO_SY/;"	f	class:MorseConst	file:
 DEC	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
@@ -5188,6 +5190,9 @@ EXIT_CODE	gradlew.bat	/^if %EXIT_CODE% equ 0 set EXIT_CODE=1$/;"	v
 EXIT_CODE	gradlew.bat	/^set EXIT_CODE=%ERRORLEVEL%$/;"	v
 ExampleInstrumentedTest	app/src/androidTest/java/com/example/morsefree/ExampleInstrumentedTest.java	/^public class ExampleInstrumentedTest {$/;"	c
 ExampleUnitTest	app/src/test/java/com/example/morsefree/ExampleUnitTest.java	/^public class ExampleUnitTest {$/;"	c
+GAP_BASE	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseGraphView.Action	file:
+GAP_SYMBOL	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseGraphView.Action	file:
+GAP_WORD	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseGraphView.Action	file:
 GRADLE	.idea/workspace.xml	/^    <system id="GRADLE">$/;"	i
 Gradle Configuration Cache	build/reports/problems/problems-report.html	/^    <title>Gradle Configuration Cache<\/title>$/;"	j
 HEX	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
@@ -5420,6 +5425,7 @@ NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	
 NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
 NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
 NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
+NONE	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseGraphView.Action	file:
 NOT_ACTION_MORSE	app/src/main/java/com/example/morsefree/ActionMorse.java	/^    NOT_ACTION_MORSE, ERROR_POINT_OR_DASH_ACTION_MORSE,$/;"	e	enum:ActionMorse	file:
 O	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "O": 26,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 O	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "O": 26,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5488,6 +5494,7 @@ PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerId
 PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID$/;"	d	file:
 PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID$/;"	d	file:
+POINT	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseGraphView.Action	file:
 POINT_ACTION_MORSE	app/src/main/java/com/example/morsefree/ActionMorse.java	/^    ERROR_ANY_INTERVAL_ACTION_MORSE, POINT_ACTION_MORSE,$/;"	e	enum:ActionMorse	file:
 Position	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    enum Position {$/;"	g	class:MorseGraphView
 Q	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "Q": 29,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5745,9 +5752,9 @@ applicationId	app/build/intermediates/packaged_manifests/debugAndroidTest/proces
 applicationId	app/build/outputs/apk/androidTest/debug/output-metadata.json	/^  "applicationId": "com.example.morsefree.test",$/;"	s
 application_name	app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir/values/values.xml	/^    <string name="abc_shareactionprovider_share_with_application">Share with <ns2:g example="Mai/;"	i
 application_name	app/build/intermediates/incremental/debug/mergeDebugResources/merger.xml	/^    <\/style><\/file><file path="\/home\/vlad\/.gradle\/caches\/9.1.0\/transforms\/e59da0e547c51/;"	i
-applyDash	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void applyDash() {$/;"	m	class:LessonTransmit	file:
+applyDash	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    private void applyDash() {$/;"	m	class:MorseGraphView	file:
 applyInfoGradient	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void applyInfoGradient(int finalColor) {$/;"	m	class:LessonTransmit	file:
-applyPoint	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void applyPoint() {$/;"	m	class:LessonTransmit	file:
+applyPoint	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    private void applyPoint() {$/;"	m	class:MorseGraphView	file:
 applySymbol	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void applySymbol() {$/;"	m	class:LessonTransmit	file:
 applyWord	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void applyWord() {$/;"	m	class:LessonTransmit	file:
 architecture	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "architecture": "arm",$/;"	s	object:variant.module.ndkMetaAbiList.0
@@ -23248,7 +23255,6 @@ unknownFields	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/metadata_ge
 unknownFields	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/metadata_generation_record.json	/^    "unknownFields": {$/;"	o	object:2
 updateSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void updateSentence() {$/;"	m	class:LessonTransmit
 updateSentence	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    void updateSentence() {$/;"	m	class:MorseGraphView
-updateSymbol	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private void updateSymbol() {$/;"	m	class:LessonTransmit	file:
 updateUserSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void updateUserSentence(String string) {$/;"	m	class:LessonTransmit
 updateUserSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void updateUserSentence(char symbol) {$/;"	m	class:LessonTransmit
 updateUserSentence	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    void updateUserSentence(char[] string) {$/;"	m	class:LessonTransmit

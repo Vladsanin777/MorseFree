@@ -41,84 +41,6 @@ public class MorseTolerances {
     private byte m_periodGapWordEpsilonLowShare =
             (byte) ((m_periodGapWordEpsilonLow * 255) / m_periodGapWord);
 
-    private long m_lastBreakPoint = 0;
-    private long m_currentBreakPoint = 0;
-    private long m_startPoint = 0;
-    private long m_pause = 0;
-
-    public MorseTolerances() {
-
-    }
-
-    public void start() {
-        m_startPoint = now();
-        clearPoints();
-        point();
-    }
-
-    public void stop() {
-        m_pause = now();
-    }
-
-    public void restart() {
-        if (m_pause == 0) {
-            return;
-        }
-        m_startPoint += now() - m_pause;
-        m_pause = 0;
-    }
-    public long getTime() {
-        return now() - m_startPoint;
-    }
-
-    public void point() {
-        m_lastBreakPoint = m_currentBreakPoint;
-        m_currentBreakPoint = now();
-    }
-
-    public void clearPoints() {
-        m_lastBreakPoint = 0;
-        m_currentBreakPoint = 0;
-    }
-
-    public boolean isDiff() {
-        return m_currentBreakPoint != 0 && m_lastBreakPoint != 0;
-    }
-
-    public long getDiff() {
-        return m_currentBreakPoint - m_lastBreakPoint;
-    }
-
-    public boolean isPoint() {
-        long epsilon = getDiff() - m_periodPoint;
-        return epsilon > 0 ? m_periodPointEpsilonHigh > epsilon :
-                m_periodPointEpsilonLow > -epsilon;
-    }
-
-    public boolean isDash() {
-        long epsilon = getDiff() - m_periodDash;
-        return epsilon > 0 ? m_periodDashEpsilonHigh > epsilon :
-                m_periodDashEpsilonLow > -epsilon;
-    }
-
-    public boolean isGapBase() {
-        long epsilon = getDiff() - m_periodGapBase;
-        return epsilon > 0 ? m_periodGapBaseEpsilonHigh > epsilon :
-                m_periodGapBaseEpsilonLow > -epsilon;
-    }
-
-    public boolean isGapSymbol() {
-        long epsilon = getDiff() - m_periodGapSymbol;
-        return epsilon > 0 ? m_periodGapSymbolEpsilonHigh > epsilon :
-                m_periodGapSymbolEpsilonLow > -epsilon;
-    }
-
-    public boolean isGapWord() {
-        long epsilon = getDiff() - m_periodGapWord;
-        return epsilon > 0 ? m_periodGapWordEpsilonHigh > epsilon :
-                m_periodGapWordEpsilonLow > -epsilon;
-    }
-
     public long getPeriodPoint() {
         return m_periodPoint;
     }
@@ -345,9 +267,5 @@ public class MorseTolerances {
     public void setPeriodGapWordEpsilonLowShare(byte periodGapWordEpsilonLowShare) {
         m_periodGapWordEpsilonLowShare = periodGapWordEpsilonLowShare;
         m_periodGapWordEpsilonLow = (periodGapWordEpsilonLowShare * m_periodGapWord) / 255;
-    }
-
-    private static long now() {
-        return System.currentTimeMillis();
     }
 }

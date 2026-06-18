@@ -1,12 +1,11 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.MorseLanguage.*;
-import static com.example.morsefree.MorseLevel.*;
+import static com.example.morsefree.MorseTime.Action;
+import static com.example.morsefree.MorseTime.Action.*;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,24 +16,18 @@ import android.widget.Button;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-
-import android.widget.TextView;
-
-import com.example.morsefree.databinding.ActivityMainBinding;
 import com.example.morsefree.databinding.LessonTransmitBinding;
 
 public class LessonTransmit extends AppCompatActivity {
     private LessonTransmitBinding m_binding;
-    private String m_userSentence;
     private final Handler m_handler =
             new android.os.Handler(Looper.getMainLooper());
     private final Runnable m_idleRunnable = this::checkMessage;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
-    private MorseTolerances m_tolerances = new MorseTolerances();
+    private MorseTime m_time = new MorseTime();
     private boolean m_isRunning = true;
 
     @SuppressLint({"ClickableViewAccessibility", "ResourceType"})
@@ -65,13 +58,13 @@ public class LessonTransmit extends AppCompatActivity {
 
             String nameLevel = intent.getStringExtra("LEVEL_NAME");
 
-            m_binding.userSentenceMorse.setLanguage(language);
+            MorseGraphViewInput morse = m_binding.userSentenceMorse;
 
-            m_binding.userSentenceMorse.setLevel(level);
-
-            m_binding.userSentenceMorse.setIsLess(isLess);
-
-            m_binding.userSentenceMorse.setLengthSentence(lengthSentence);
+            morse.setLanguage(language);
+            morse.setLevel(level);
+            morse.setIsLess(isLess);
+            morse.setLengthSentence(lengthSentence);
+            morse.setIsRandomLengthSentence(isRandomLengthSentence);
 
             m_binding.titleTransmitLevelName.setText(nameLevel);
         }
@@ -81,8 +74,8 @@ public class LessonTransmit extends AppCompatActivity {
 
         m_binding.rootLayout.post(this::initInfoGradient);
 
-        m_binding.sentenceMorse.setTolerances(m_tolerances);
-        m_binding.userSentenceMorse.setTolerances(m_tolerances);
+        m_binding.sentenceMorse.setTime(m_time);
+        m_binding.userSentenceMorse.setTime(m_time);
 
         m_binding.sentenceMorse.setIsStartUp(false);
         m_binding.userSentenceMorse.setIsStartUp(false);
@@ -131,33 +124,39 @@ public class LessonTransmit extends AppCompatActivity {
                 0xff, 0x00).setDuration(1000).start();
     }
 
-    private void checkMessage() {
-        checkMessage(false);
-    }
-
-    private void checkMessage(boolean isError) {
-        Log.d("chack", "CheckMessage");
+    private void endAction() {
         applySymbol();
 
         m_handler.removeCallbacks(m_idleRunnable);
         m_sound.stop();
         m_binding.sentenceMorse.stop();
         m_binding.userSentenceMorse.stop();
-        m_tolerances.clearPoints();
+        m_time.clearPoints();
         m_isRunning = false;
 
         m_binding.buttonTransmit.setText(R.string.again);
-
-        if (!isError && m_userSentence.equals(m_sentence)) {
-            winGradient();
-        } else {
-            failGradient();
-        }
     }
 
-    void clearSentence() {
-        m_sentence = "";
-        m_binding.sentence.setText(m_sentence);
+    private void error() {
+        endAction();
+        failGradient();
+    }
+
+    private void win() {
+        endAction();
+        winGradient();
+    }
+
+    private void checkMessage() {
+        checkMessage(false);
+    }
+
+    private void checkMessage(boolean isError) {
+        if (m_binding.sentence.getText().equals(m_binding.userSentence.getText())) {
+            win();
+        } else {
+            error();
+        }
     }
 
     void updateSentence() {
@@ -170,23 +169,18 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     void clearUserSentence() {
-        m_userSentence = "";
-        m_binding.userSentence.setText(m_userSentence);
+        m_binding.userSentence.setText("");
+        m_binding.userSentenceMorse.setText("");
     }
 
-    void updateUserSentence(String string) {
-        m_userSentence += string;
-        m_binding.userSentence.setText(m_userSentence);
+    void clearSentence() {
+        m_binding.sentence.setText("");
+        m_binding.sentenceMorse.setText("");
     }
 
-    void updateUserSentence(char symbol) {
-        m_userSentence += symbol;
-        m_binding.userSentence.setText(m_userSentence);
-    }
-
-    void updateUserSentence(char[] string) {
-        m_userSentence += string;
-        m_binding.userSentence.setText(m_userSentence);
+    void updateUserSentence() {
+        String sentence = m_binding.userSentenceMorse.getText();
+        m_binding.userSentence.setText(sentence);
     }
 
     private boolean OnTouchTransmitButton(View view, MotionEvent event) {
@@ -199,17 +193,23 @@ public class LessonTransmit extends AppCompatActivity {
                 m_handler.removeCallbacks(m_idleRunnable);
                 m_sound.start();
                 view.setPressed(true);
-                if (m_tolerances.isDiff()) {
-                    MorseGraphView.TypeAction action = m_binding.userSentenceMorse.press();
+                if (m_time.isDiff()) {
+                    Action action = m_binding.userSentenceMorse.press();
 
-                    if (action == MorseGraphView.TypeAction.NONE) {
-                        notCorrectInterval(m_tolerances.getDiff());
-                        return true;
+                    switch (action) {
+                        case NONE:
+                            error();
+                            return true;
+                        case POINT:
+
+                    }
+                    if (action == NONE) {
+
                     }
                 } else {
-                    m_tolerances.start();
-                    m_binding.userSentenceMorse.start(true);
-                    m_binding.sentenceMorse.start(false);
+                    m_time.start();
+                    m_binding.userSentenceMorse.start();
+                    m_binding.sentenceMorse.start();
                     m_binding.buttonTransmit.setText(R.string.transmit);
                 }
 
@@ -224,26 +224,16 @@ public class LessonTransmit extends AppCompatActivity {
                 }
 
                 m_handler.postDelayed(m_idleRunnable,
-                        m_tolerances.getPeriodGapWord() +
-                        m_tolerances.getPeriodGapWordEpsilonHigh());
+                        m_time.getPeriodGapWord() +
+                        m_time.getPeriodGapWordEpsilonHigh());
 
                 m_sound.stop();
                 view.setPressed(false);
-                m_binding.userSentenceMorse.press();
 
-                MorseGraphView.TypeAction action = m_binding.userSentenceMorse.press();
+                Action action = m_binding.userSentenceMorse.press();
 
-                if (action == MorseGraphView.TypeAction.NONE) {
-                    notCorrectInterval(m_tolerances.getDiff());
-                    return true;
-                }
-
-                if (m_tolerances.isPoint()) {
-                    applyPoint();
-                } else if (m_tolerances.isDash()) {
-                    applyDash();
-                } else {
-                    notCorrectInterval(m_tolerances.getDiff());
+                if (action == NONE) {
+                    error();
                     return true;
                 }
 
@@ -252,11 +242,6 @@ public class LessonTransmit extends AppCompatActivity {
                 return true;
         }
         return false;
-    }
-
-    private void notCorrectInterval(long diff) {
-        checkMessage(true);
-        Log.d("MorseFree", "Not correct interval");
     }
 
     private void applySymbol() {
