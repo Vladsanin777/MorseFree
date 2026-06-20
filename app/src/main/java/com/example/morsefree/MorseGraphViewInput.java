@@ -3,6 +3,15 @@ package com.example.morsefree;
 import static com.example.morsefree.MorseTime.Action.*;
 import static com.example.morsefree.MorseTime.Action;
 
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
+
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
+
+import static com.example.morsefree.Morse.Const;
+import static com.example.morsefree.Morse.Const.*;
+
 import static com.example.morsefree.MorseGraphView.Position.*;
 
 import android.content.Context;
@@ -14,11 +23,9 @@ import androidx.annotation.NonNull;
 public class MorseGraphViewInput extends MorseGraphView {
     private char m_currentSymbol = '\0';
     private Morse m_morse = new Morse();
-    private MorseLanguage m_language = MorseLanguage.defaultValue();
-    private MorseLevel m_level = MorseLevel.defaultValue();
+    private Language m_language = Language.defaultValue();
+    private Level m_level = Level.defaultValue();
     private boolean m_isLess = false;
-    private Morse.Language m_language = LATIN;
-    private Morse.Level m_level = E_AND_T;
 
     public MorseGraphViewInput(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -41,110 +48,60 @@ public class MorseGraphViewInput extends MorseGraphView {
     }
 
     public Action press() {
+        Action action = NONE;
         setTimePoint();
         add(getTime());
         if ((size() & 0x01) == 0) {
-            return isPointDash();
+            action = isPointDash();
         } else {
-            return isGap();
+            action = isGap();
         }
 
-        MorseConst morse = MorseConst.find(m_language, m_morse);
-        if (morse != null) {
-            m_currentSymbol = morse.getSymbol();
-        } else {
-            m_currentSymbol = '\0';
+        switch (action) {
+            case NONE:
+                break;
+            case POINT:
+                m_morse.addPoint();
+                updateSymbol();
+                break;
+            case DASH:
+                m_morse.addDash();
+                updateSymbol();
+                break;
+            case GAP_BASE:
+                break;
+            case GAP_SYMBOL:
+                applySymbol();
+                break;
+            case GAP_WORD:
+                applyWord();
+                break;
+            default:
+                break;
         }
+
+        return action;
     }
 
-    public MorseLanguage getLanguage() {
+    private void updateSymbol() {
+        Const.find(m_language, m_morse);
+    }
+
+    public Language getLanguage() {
         return m_language;
     }
 
-    public void setLanguage(MorseLanguage language) {
+    public void setLanguage(Language language) {
         m_language = language;
     }
 
-    public MorseLevel getLevel() {
+    public Level getLevel() {
         return m_level;
     }
 
-    public void setLevel(MorseLevel level) {
+    public void setLevel(Level level) {
         m_level = level;
     }
-
-
-
-    char randomSymbolCurrentAndLessLevel() {
-        MorseConst morse = MorseConst.randomSymbolCurrentAndLessLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
-        }
-        return '\0';
-    }
-
-    char randomSymbolCurrentLevel() {
-        MorseConst morse = MorseConst.randomSymbolCurrentLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
-        }
-        return '\0';
-    }
-
-    public String newSentence(int length) {
-        StringBuilder sentence = new StringBuilder(length);
-        if (m_isLess) {
-            while (sentence.length() < length) {
-                char symbol = randomSymbolCurrentAndLessLevel();
-                if (symbol != '\0') {
-                    sentence.append(symbol);
-                }
-            }
-        } else {
-            while (sentence.length() < length) {
-                char symbol = randomSymbolCurrentLevel();
-                if (symbol != '\0') {
-                    sentence.append(symbol);
-                }
-            }
-        }
-        return sentence.toString();
-    }
-
-    void updateSentence() {
-        String text = null;
-        if (m_isRandomLengthSentence) {
-            text = newSentence(((int)(Math.random() * (m_lengthSentence - 1))) + 1);
-        } else {
-            text = newSentence(m_lengthSentence);
-        }
-        setText(text);
-    }
-
-    public boolean getIsLess() {
-        return m_isLess;
-    }
-
-    public void setIsLess(boolean isLess) {
-        m_isLess = isLess;
-    }
-
-    public int getLengthSentence() {
-        return m_lengthSentence;
-    }
-
-    public void setLengthSentence(int lengthSentence) {
-        m_lengthSentence = lengthSentence;
-    }
-
-    public boolean getIsRandomLengthSentence() {
-        return m_isRandomLengthSentence;
-    }
-
-    public void setIsRandomLengthSentence(boolean isRandomLengthSentence) {
-        m_isRandomLengthSentence = isRandomLengthSentence;
-    }
-
     private void applyPoint() {
         m_morse.addPoint();
     }

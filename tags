@@ -4157,7 +4157,7 @@
 @+id/yu_and_z_cyrillic_transmit_lesson	app/build/intermediates/data_binding_layout_info_type_package/debug/packageDebugResources/out/select_lesson_transmit-layout.xml	/^<?xml version="1.0" encoding="utf-8" standalone="yes"?><Layout layout="select_lesson_transmit" m/;"	i
 @+id/yu_and_z_latin_transmit_lesson	app/build/intermediates/data_binding_layout_info_type_merge/debug/mergeDebugResources/out/select_lesson_transmit-layout.xml	/^<?xml version="1.0" encoding="utf-8" standalone="yes"?><Layout layout="select_lesson_transmit" m/;"	i
 @+id/yu_and_z_latin_transmit_lesson	app/build/intermediates/data_binding_layout_info_type_package/debug/packageDebugResources/out/select_lesson_transmit-layout.xml	/^<?xml version="1.0" encoding="utf-8" standalone="yes"?><Layout layout="select_lesson_transmit" m/;"	i
-APOSTROPHE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    APOSTROPHE(SYMBOL, QUOTES_AND_APOSTROPHE, new Morse(0x1E, 0x6), '\\''),$/;"	e	enum:MorseConst	file:
+APOSTROPHE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    APOSTROPHE('\\'', 0x1E, 0x06, SYMBOL, QUOTES_AND_APOSTROPHE),$/;"	e	enum:MorseConst	file:
 APPLICATION_NAME	app/build/intermediates/incremental/debug/mergeDebugResources/merger.xml	/^     <\/style><\/file><file path="\/home\/vlad\/.gradle\/caches\/9.1.0\/transforms\/e59da0e547c5/;"	i
 APPLICATION_NAME	app/build/intermediates/incremental/debug/mergeDebugResources/merger.xml	/^    <\/declare-styleable><\/file><\/source><\/dataSet><dataSet aapt-namespace="http:\/\/schemas./;"	i
 APPLICATION_NAME	app/build/intermediates/incremental/debug/mergeDebugResources/merger.xml	/^    <\/declare-styleable><\/file><file path="\/home\/vlad\/.gradle\/caches\/9.1.0\/transforms\/e/;"	i
@@ -4203,19 +4203,19 @@ ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/Compil
 ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID /;"	d	file:
 ARCHITECTURE_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define ARCHITECTURE_ID$/;"	d	file:
 AT	app/src/main/java/com/example/morsefree/Morse.java	/^        QUESTION_MARK_AND_EXCLAMATION_MARK, AT;$/;"	e	enum:Morse.Level	file:
-AT	app/src/main/java/com/example/morsefree/MorseConst.java	/^    AT(MORSE_SYMBOL, MORSE_LEVEL_AT, new Morse(0x1A, 0x6), '@');$/;"	e	enum:MorseConst	file:
+AT	app/src/main/java/com/example/morsefree/MorseConst.java	/^    AT('@', 0x1A, 0x06, SYMBOL, Level.AT);$/;"	e	enum:MorseConst	file:
 A_AND_N	app/src/main/java/com/example/morsefree/Morse.java	/^        E_AND_T, I_AND_M, A_AND_N, S_AND_O,$/;"	e	enum:Morse.Level	file:
-A_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    A_CYRILLIC(CYRILLIC, A_AND_N, new Morse(0x1, 0x2), 'А'),$/;"	e	enum:MorseConst	file:
-A_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    A_LATIN(LATIN, A_AND_N, new Morse(0x1, 0x2), 'A'),$/;"	e	enum:MorseConst	file:
+A_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    A_CYRILLIC('А', 0x01, 0x02, CYRILLIC, A_AND_N),$/;"	e	enum:MorseConst	file:
+A_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    A_LATIN('A', 0x01, 0x02, LATIN, A_AND_N),$/;"	e	enum:MorseConst	file:
 Action	app/src/main/java/com/example/morsefree/MorseTime.java	/^    enum Action {$/;"	g	class:MorseTime
 ActivityMainBinding	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^  private ActivityMainBinding(@NonNull ConstraintLayout rootView, @NonNull Button learnReceiveMo/;"	m	class:ActivityMainBinding	file:
 ActivityMainBinding	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^public final class ActivityMainBinding implements ViewBinding {$/;"	c
 BEGIN	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        BEGIN, MIDDLE, END,$/;"	e	enum:MorseGraphView.Position	file:
-B_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    B_CYRILLIC(CYRILLIC, J_AND_B, new Morse(0x8, 0x4), 'Б'),$/;"	e	enum:MorseConst	file:
-B_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    B_LATIN(LATIN, J_AND_B, new Morse(0x8, 0x4), 'B'),$/;"	e	enum:MorseConst	file:
-CH_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    CH_CYRILLIC(CYRILLIC, V_AND_CH, new Morse(0xE, 0x4), 'Ч'),$/;"	e	enum:MorseConst	file:
+B_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    B_CYRILLIC('Б', 0x08, 0x04, CYRILLIC, J_AND_B),$/;"	e	enum:MorseConst	file:
+B_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    B_LATIN('B', 0x08, 0x04, LATIN, J_AND_B),$/;"	e	enum:MorseConst	file:
+CH_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    CH_CYRILLIC('Ч', 0x0E, 0x04, CYRILLIC, V_AND_CH),$/;"	e	enum:MorseConst	file:
 CLASSPATH	gradlew.bat	/^set CLASSPATH=$/;"	v
-CLOSE_BRACKET	app/src/main/java/com/example/morsefree/MorseConst.java	/^    CLOSE_BRACKET(SYMBOL, OPEN_BRACKET_AND_CLOSE_BRACKET, new Morse(0x2D, 0x6), ')'),$/;"	e	enum:MorseConst	file:
+CLOSE_BRACKET	app/src/main/java/com/example/morsefree/MorseConst.java	/^    CLOSE_BRACKET(')', 0x2D, 0x06, SYMBOL, OPEN_BRACKET_AND_CLOSE_BRACKET),$/;"	e	enum:MorseConst	file:
 CMAKE_AR	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake	/^set(CMAKE_AR "\/home\/vlad\/Android\/Sdk\/ndk\/28.2.13676358\/toolchains\/llvm\/prebuilt\/linux-/;"	v
 CMAKE_AR	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CMakeCXXCompiler.cmake	/^set(CMAKE_AR "\/home\/vlad\/Android\/Sdk\/ndk\/28.2.13676358\/toolchains\/llvm\/prebuilt\/linux-/;"	v
 CMAKE_AR	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeCCompiler.cmake	/^set(CMAKE_AR "\/home\/vlad\/Android\/Sdk\/ndk\/28.2.13676358\/toolchains\/llvm\/prebuilt\/linux-/;"	v
@@ -4894,8 +4894,8 @@ CMAKE_SYSTEM_VERSION	app/.cxx/Debug/2l62296u/arm64-v8a/CMakeFiles/3.22.1-g37088a
 CMAKE_SYSTEM_VERSION	app/.cxx/Debug/2l62296u/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_VERSION "1")$/;"	v
 CMAKE_SYSTEM_VERSION	app/.cxx/Debug/2l62296u/x86/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_VERSION "1")$/;"	v
 CMAKE_SYSTEM_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CMakeSystem.cmake	/^set(CMAKE_SYSTEM_VERSION "1")$/;"	v
-COLON	app/src/main/java/com/example/morsefree/MorseConst.java	/^    COLON(SYMBOL, POINT_AND_COMMA, new Morse(0x38, 0x6), ':'),$/;"	e	enum:MorseConst	file:
-COMMA	app/src/main/java/com/example/morsefree/MorseConst.java	/^    COMMA(SYMBOL, POINT_AND_COMMA, new Morse(0x15, 0x6), ','),$/;"	e	enum:MorseConst	file:
+COLON	app/src/main/java/com/example/morsefree/MorseConst.java	/^    COLON(':', 0x38, 0x06, SYMBOL, POINT_AND_COMMA),$/;"	e	enum:MorseConst	file:
+COMMA	app/src/main/java/com/example/morsefree/MorseConst.java	/^    COMMA(',', 0x15, 0x06, SYMBOL, POINT_AND_COMMA),$/;"	e	enum:MorseConst	file:
 COMPILER_ID	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
 COMPILER_ID	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define COMPILER_ID /;"	d	file:
 COMPILER_ID	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define COMPILER_ID /;"	d	file:
@@ -5155,8 +5155,8 @@ CXX_STD	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/
 CXX_STD	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#    define CXX_STD /;"	d	file:
 CXX_STD	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define CXX_STD /;"	d	file:
 CYRILLIC	app/src/main/java/com/example/morsefree/Morse.java	/^        CYRILLIC(defaultCirillic().ordinal()),$/;"	e	enum:Morse.Language	file:
-C_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    C_CYRILLIC(CYRILLIC, YA_AND_C, new Morse(0xA, 0x4), 'Ц'),$/;"	e	enum:MorseConst	file:
-C_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    C_LATIN(LATIN, YA_AND_C, new Morse(0xA, 0x4), 'C'),$/;"	e	enum:MorseConst	file:
+C_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    C_CYRILLIC('Ц', 0x0A, 0x04, CYRILLIC, YA_AND_C),$/;"	e	enum:MorseConst	file:
+C_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    C_LATIN('C', 0x0A, 0x04, LATIN, YA_AND_C),$/;"	e	enum:MorseConst	file:
 C_VERSION	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION /;"	d	file:
 C_VERSION	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define C_VERSION$/;"	d	file:
 C_VERSION	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
@@ -5177,8 +5177,8 @@ C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/
 C_VERSION	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define C_VERSION /;"	d	file:
 DASH	app/src/main/java/com/example/morsefree/MorseTime.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseTime.Action	file:
 DASH_AND_SLASH	app/src/main/java/com/example/morsefree/Morse.java	/^        QUOTES_AND_APOSTROPHE, DASH_AND_SLASH,$/;"	e	enum:Morse.Level	file:
-DASH_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    DASH_SYMBOL(SYMBOL, DASH_AND_SLASH, new Morse(0x21, 0x6), '-'),$/;"	e	enum:MorseConst	file:
-DATA_TO_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private static HashMap<MorseLanguage, HashMap<MorseLevel, ArrayList<MorseConst>>> DATA_TO_SY/;"	f	class:MorseConst	file:
+DASH_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    DASH_SYMBOL('-', 0x21, 0x06, SYMBOL, DASH_AND_SLASH),$/;"	e	enum:MorseConst	file:
+DATA_TO_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private static HashMap<Language, HashMap<Level, ArrayList<MorseConst>>> DATA_TO_SYMBOL =$/;"	f	class:MorseConst	file:
 DEC	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
 DEC	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define DEC(/;"	d	file:
 DEC	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define DEC(/;"	d	file:
@@ -5195,33 +5195,35 @@ DEFAULT_HEIGHT_DP	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^
 DEFAULT_JVM_OPTS	gradlew.bat	/^set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"$/;"	v
 DIRNAME	gradlew.bat	/^if "%DIRNAME%"=="" set DIRNAME=.$/;"	v
 DIRNAME	gradlew.bat	/^set DIRNAME=%~dp0$/;"	v
-D_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    D_CYRILLIC(CYRILLIC, W_AND_D, new Morse(0x4, 0x3), 'Д'),$/;"	e	enum:MorseConst	file:
-D_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    D_LATIN(LATIN, W_AND_D, new Morse(0x4, 0x3), 'D'),$/;"	e	enum:MorseConst	file:
+D_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    D_CYRILLIC('Д', 0x04, 0x03, CYRILLIC, W_AND_D),$/;"	e	enum:MorseConst	file:
+D_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    D_LATIN('D', 0x04, 0x03, LATIN, W_AND_D),$/;"	e	enum:MorseConst	file:
 Default	.idea/workspace.xml	/^    <task active="true" id="Default" summary="Default task">$/;"	i
-EIGHT	app/src/main/java/com/example/morsefree/MorseConst.java	/^    EIGHT(NUMBER, THREE_AND_EIGHT, new Morse(0x1C, 0x5), '8'),$/;"	e	enum:MorseConst	file:
+EIGHT	app/src/main/java/com/example/morsefree/MorseConst.java	/^    EIGHT('8', 0x1C, 0x05, NUMBER, THREE_AND_EIGHT),$/;"	e	enum:MorseConst	file:
 END	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        BEGIN, MIDDLE, END,$/;"	e	enum:MorseGraphView.Position	file:
-EXCLAMATION_MARK	app/src/main/java/com/example/morsefree/MorseConst.java	/^    EXCLAMATION_MARK(SYMBOL, QUESTION_MARK_AND_EXCLAMATION_MARK, new Morse(0x33, 0x6), '!'),$/;"	e	enum:MorseConst	file:
+EXCLAMATION_MARK	app/src/main/java/com/example/morsefree/MorseConst.java	/^    EXCLAMATION_MARK('!', 0x33, 0x06, SYMBOL, QUESTION_MARK_AND_EXCLAMATION_MARK),$/;"	e	enum:MorseConst	file:
 EXIT_CODE	gradlew.bat	/^if %EXIT_CODE% equ 0 set EXIT_CODE=1$/;"	v
 EXIT_CODE	gradlew.bat	/^set EXIT_CODE=%ERRORLEVEL%$/;"	v
 E_AND_T	app/src/main/java/com/example/morsefree/Morse.java	/^        E_AND_T, I_AND_M, A_AND_N, S_AND_O,$/;"	e	enum:Morse.Level	file:
-E_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    E_CYRILLIC(CYRILLIC, E_AND_T, new Morse(0x0, 0x1), 'Е'),$/;"	e	enum:MorseConst	file:
-E_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    E_LATIN(LATIN, E_AND_T, new Morse(0x0, 0x1),'E'),$/;"	e	enum:MorseConst	file:
+E_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    E_CYRILLIC('Е', 0x00, 0x01, CYRILLIC, E_AND_T),$/;"	e	enum:MorseConst	file:
+E_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    E_LATIN('E', 0x00, 0x01, LATIN, E_AND_T),$/;"	e	enum:MorseConst	file:
 ExampleInstrumentedTest	app/src/androidTest/java/com/example/morsefree/ExampleInstrumentedTest.java	/^public class ExampleInstrumentedTest {$/;"	c
 ExampleUnitTest	app/src/test/java/com/example/morsefree/ExampleUnitTest.java	/^public class ExampleUnitTest {$/;"	c
-FIVE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    FIVE(NUMBER, FIVE_AND_ZERO, new Morse(0x0, 0x5), '5'),$/;"	e	enum:MorseConst	file:
+FIVE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    FIVE('5', 0x00, 0x05, NUMBER, FIVE_AND_ZERO),$/;"	e	enum:MorseConst	file:
 FIVE_AND_ZERO	app/src/main/java/com/example/morsefree/Morse.java	/^        FIVE_AND_ZERO, OPEN_BRACKET_AND_CLOSE_BRACKET,$/;"	e	enum:Morse.Level	file:
-FOUR	app/src/main/java/com/example/morsefree/MorseConst.java	/^    FOUR(NUMBER, FOUR_AND_NINE, new Morse(0x01, 0x5), '4'),$/;"	e	enum:MorseConst	file:
+FOUR	app/src/main/java/com/example/morsefree/MorseConst.java	/^    FOUR('4', 0x01, 0x05, NUMBER, FOUR_AND_NINE),$/;"	e	enum:MorseConst	file:
+FOUR_AND_NINE	app/src/main/java/com/example/morsefree/Morse.java	/^        THREE_AND_EIGHT, FOUR_AND_NINE,$/;"	e	enum:Morse.Level	file:
 F_AND_Q	app/src/main/java/com/example/morsefree/Morse.java	/^        V_AND_CH, F_AND_Q,$/;"	e	enum:Morse.Level	file:
-F_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    F_CYRILLIC(CYRILLIC, F_AND_Q, new Morse(0x2, 0x4), 'Ф'),$/;"	e	enum:MorseConst	file:
-F_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    F_LATIN(LATIN, F_AND_Q, new Morse(0x2, 0x4), 'F'),$/;"	e	enum:MorseConst	file:
+F_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    F_CYRILLIC('Ф', 0x02, 0x4, CYRILLIC, F_AND_Q),$/;"	e	enum:MorseConst	file:
+F_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    F_LATIN('F', 0x02, 0x04, LATIN, F_AND_Q),$/;"	e	enum:MorseConst	file:
 GAP_BASE	app/src/main/java/com/example/morsefree/MorseTime.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseTime.Action	file:
 GAP_SYMBOL	app/src/main/java/com/example/morsefree/MorseTime.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseTime.Action	file:
 GAP_WORD	app/src/main/java/com/example/morsefree/MorseTime.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseTime.Action	file:
 GRADLE	.idea/workspace.xml	/^    <system id="GRADLE">$/;"	i
-G_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    G_CYRILLIC(CYRILLIC, U_AND_G, new Morse(0x6, 0x3), 'Г'),$/;"	e	enum:MorseConst	file:
-G_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    G_LATIN(LATIN, U_AND_G, new Morse(0x6, 0x3), 'G'),$/;"	e	enum:MorseConst	file:
+G_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    G_CYRILLIC('Г', 0x06, 0x03, CYRILLIC, U_AND_G),$/;"	e	enum:MorseConst	file:
+G_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    G_LATIN('G', 0x06, 0x03, LATIN, U_AND_G),$/;"	e	enum:MorseConst	file:
 Gradle Configuration Cache	build/reports/problems/problems-report.html	/^    <title>Gradle Configuration Cache<\/title>$/;"	j
-HARD_SING_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    HARD_SING_CYRILLIC(CYRILLIC, HARD_SING, new Morse(0x1A, 0x5), 'Ъ'),$/;"	e	enum:MorseConst	file:
+HARD_SING	app/src/main/java/com/example/morsefree/Morse.java	/^        J_AND_B, HARD_SING,$/;"	e	enum:Morse.Level	file:
+HARD_SING_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    HARD_SING_CYRILLIC('Ъ', 0x1A, 0x05, CYRILLIC, HARD_SING),$/;"	e	enum:MorseConst	file:
 HEX	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
 HEX	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
 HEX	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
@@ -5235,8 +5237,8 @@ HEX	app/.cxx/Debug/2l62296u/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCX
 HEX	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define HEX(/;"	d	file:
 HEX	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define HEX(/;"	d	file:
 H_AND_SH	app/src/main/java/com/example/morsefree/Morse.java	/^        U_AND_G, R_AND_K, W_AND_D, H_AND_SH,$/;"	e	enum:Morse.Level	file:
-H_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    H_CYRILLIC(CYRILLIC, H_AND_SH, new Morse(0x0, 0x4), 'Х'),$/;"	e	enum:MorseConst	file:
-H_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    H_LATIN(LATIN, H_AND_SH, new Morse(0x0, 0x4), 'H'),$/;"	e	enum:MorseConst	file:
+H_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    H_CYRILLIC('Х', 0x00, 0x04, CYRILLIC, H_AND_SH),$/;"	e	enum:MorseConst	file:
+H_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    H_LATIN('H', 0x00, 0x04, LATIN, H_AND_SH),$/;"	e	enum:MorseConst	file:
 ID_VOID_MAIN	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
 ID_VOID_MAIN	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
 ID_VOID_MAIN	app/.cxx/Debug/2l62296u/arm64-v8a/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
@@ -5244,8 +5246,8 @@ ID_VOID_MAIN	app/.cxx/Debug/2l62296u/armeabi-v7a/CMakeFiles/3.22.1-g37088a8/Comp
 ID_VOID_MAIN	app/.cxx/Debug/2l62296u/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
 ID_VOID_MAIN	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define ID_VOID_MAIN$/;"	d	file:
 I_AND_M	app/src/main/java/com/example/morsefree/Morse.java	/^        E_AND_T, I_AND_M, A_AND_N, S_AND_O,$/;"	e	enum:Morse.Level	file:
-I_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    I_CYRILLIC(CYRILLIC, I_AND_M, new Morse(0x0, 0x2), 'И'),$/;"	e	enum:MorseConst	file:
-I_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    I_LATIN(LATIN, I_AND_M, new Morse(0x0, 0x2), 'I'),$/;"	e	enum:MorseConst	file:
+I_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    I_CYRILLIC('И', 0x00, 0x02, CYRILLIC, I_AND_M),$/;"	e	enum:MorseConst	file:
+I_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    I_LATIN('I', 0x00, 0x02, LATIN, I_AND_M),$/;"	e	enum:MorseConst	file:
 J	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "J": 16,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 J	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "J": 16,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 J	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "J": 16,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5267,17 +5269,17 @@ J-MR2	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^
 JAVA_EXE	gradlew.bat	/^set JAVA_EXE=%JAVA_HOME%\/bin\/java.exe$/;"	v
 JAVA_EXE	gradlew.bat	/^set JAVA_EXE=java.exe$/;"	v
 JAVA_HOME	gradlew.bat	/^set JAVA_HOME=%JAVA_HOME:"=%$/;"	v
-J_AND_B	app/src/main/java/com/example/morsefree/Morse.java	/^        J_AND_B, MORSE_LEVEL_HARD_SING,$/;"	e	enum:Morse.Level	file:
-J_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    J_CYRILLIC(CYRILLIC, J_AND_B, new Morse(0x7, 0x4), 'Й'),$/;"	e	enum:MorseConst	file:
-J_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    J_LATIN(LATIN, J_AND_B, new Morse(0x7, 0x4), 'J'),$/;"	e	enum:MorseConst	file:
+J_AND_B	app/src/main/java/com/example/morsefree/Morse.java	/^        J_AND_B, HARD_SING,$/;"	e	enum:Morse.Level	file:
+J_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    J_CYRILLIC('Й', 0x07, 0x04, CYRILLIC, J_AND_B),$/;"	e	enum:MorseConst	file:
+J_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    J_LATIN('J', 0x07, 0x04, LATIN, J_AND_B),$/;"	e	enum:MorseConst	file:
 K	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "K": 19,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 K	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "K": 19,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 K	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "K": 19,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 K	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "K": 19,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 K	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "K": 19,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 K	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "K": 19,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-K_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    K_CYRILLIC(CYRILLIC, R_AND_K, new Morse(0x5, 0x3), 'К'),$/;"	e	enum:MorseConst	file:
-K_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    K_LATIN(LATIN, R_AND_K, new Morse(0x5, 0x3), 'K'),$/;"	e	enum:MorseConst	file:
+K_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    K_CYRILLIC('К', 0x05, 0x03, CYRILLIC, R_AND_K),$/;"	e	enum:MorseConst	file:
+K_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    K_LATIN('K', 0x05, 0x03, LATIN, R_AND_K),$/;"	e	enum:MorseConst	file:
 L	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "L": 21,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 L	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "L": 21,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 L	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "L": 21,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5303,8 +5305,9 @@ LIBCXX_STATIC	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_mo
 LIBCXX_STATIC	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^        "LIBCXX_STATIC": {},$/;"	o	object:variant.module.stlSharedObjectMap
 LIBCXX_STATIC	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^        "LIBCXX_STATIC": {},$/;"	o	object:variant.module.stlSharedObjectMap
 LIBCXX_STATIC	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^        "LIBCXX_STATIC": {},$/;"	o	object:variant.module.stlSharedObjectMap
-L_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    L_CYRILLIC(CYRILLIC, L_AND_Y, new Morse(0x4, 0x4), 'Л'),$/;"	e	enum:MorseConst	file:
-L_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    L_LATIN(LATIN, L_AND_Y, new Morse(0x4, 0x4), 'L'),$/;"	e	enum:MorseConst	file:
+L_AND_Y	app/src/main/java/com/example/morsefree/Morse.java	/^        YU_AND_Z, L_AND_Y,$/;"	e	enum:Morse.Level	file:
+L_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    L_CYRILLIC('Л', 0x04, 0x04, CYRILLIC, L_AND_Y),$/;"	e	enum:MorseConst	file:
+L_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    L_LATIN('L', 0x04, 0x04, LATIN, L_AND_Y),$/;"	e	enum:MorseConst	file:
 Language	app/src/main/java/com/example/morsefree/Morse.java	/^        private Language(int ordinal) {$/;"	m	class:Morse.Language	file:
 Language	app/src/main/java/com/example/morsefree/Morse.java	/^    public enum Language {$/;"	g	class:Morse
 Layer_1	build/reports/problems/problems-report.html	/^    background-image: url('data:image\/svg+xml;utf8,<svg width="800px" height="800px" viewBox="-/;"	I
@@ -5319,56 +5322,23 @@ M	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/
 M	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "M": 23,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 M	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "M": 23,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 MIDDLE	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^        BEGIN, MIDDLE, END,$/;"	e	enum:MorseGraphView.Position	file:
-MORSE_LEVEL_AT	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_AT;$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_A_AND_N	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_A_AND_N, MORSE_LEVEL_S_AND_O,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_DASH_AND_SLASH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_DASH_AND_SLASH,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_E_AND_T	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_E_AND_T, MORSE_LEVEL_I_AND_M,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_FIVE_AND_ZERO	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_FIVE_AND_ZERO,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_FOUR_AND_NINE	app/src/main/java/com/example/morsefree/Morse.java	/^        THREE_AND_EIGHT, MORSE_LEVEL_FOUR_AND_NINE,$/;"	e	enum:Morse.Level	file:
-MORSE_LEVEL_FOUR_AND_NINE	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_THREE_AND_EIGHT, MORSE_LEVEL_FOUR_AND_NINE,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_F_AND_Q	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_V_AND_CH, MORSE_LEVEL_F_AND_Q,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_HARD_SING	app/src/main/java/com/example/morsefree/Morse.java	/^        J_AND_B, MORSE_LEVEL_HARD_SING,$/;"	e	enum:Morse.Level	file:
-MORSE_LEVEL_HARD_SING	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_J_AND_B, MORSE_LEVEL_HARD_SING,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_H_AND_SH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_W_AND_D, MORSE_LEVEL_H_AND_SH,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_I_AND_M	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_E_AND_T, MORSE_LEVEL_I_AND_M,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_J_AND_B	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_J_AND_B, MORSE_LEVEL_HARD_SING,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_L_AND_Y	app/src/main/java/com/example/morsefree/Morse.java	/^        YU_AND_Z, MORSE_LEVEL_L_AND_Y,$/;"	e	enum:Morse.Level	file:
-MORSE_LEVEL_L_AND_Y	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YU_AND_Z, MORSE_LEVEL_L_AND_Y,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_ONE_AND_SIX	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_ONE_AND_SIX, MORSE_LEVEL_TWO_AND_SEVEN,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_POINT_AND_COMMA	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_POINT_AND_COMMA,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_P_AND_X	app/src/main/java/com/example/morsefree/Morse.java	/^        YA_AND_C, MORSE_LEVEL_P_AND_X,$/;"	e	enum:Morse.Level	file:
-MORSE_LEVEL_P_AND_X	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YA_AND_C, MORSE_LEVEL_P_AND_X,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_QUOTES_AND_APOSTROPHE	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_QUOTES_AND_APOSTROPHE,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_R_AND_K	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_U_AND_G, MORSE_LEVEL_R_AND_K,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_SEMICOLON_AND_COLON	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_SEMICOLON_AND_COLON,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_S_AND_O	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_A_AND_N, MORSE_LEVEL_S_AND_O,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_THREE_AND_EIGHT	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_THREE_AND_EIGHT, MORSE_LEVEL_FOUR_AND_NINE,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_TWO_AND_SEVEN	app/src/main/java/com/example/morsefree/Morse.java	/^        ONE_AND_SIX, MORSE_LEVEL_TWO_AND_SEVEN,$/;"	e	enum:Morse.Level	file:
-MORSE_LEVEL_TWO_AND_SEVEN	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_ONE_AND_SIX, MORSE_LEVEL_TWO_AND_SEVEN,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_U_AND_G	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_U_AND_G, MORSE_LEVEL_R_AND_K,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_V_AND_CH	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_V_AND_CH, MORSE_LEVEL_F_AND_Q,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_W_AND_D	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_W_AND_D, MORSE_LEVEL_H_AND_SH,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_YA_AND_C	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YA_AND_C, MORSE_LEVEL_P_AND_X,$/;"	e	enum:MorseLevel	file:
-MORSE_LEVEL_YU_AND_Z	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    MORSE_LEVEL_YU_AND_Z, MORSE_LEVEL_L_AND_Y,$/;"	e	enum:MorseLevel	file:
-M_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    M_CYRILLIC(CYRILLIC, I_AND_M, new Morse(0x3, 0x2), 'М'),$/;"	e	enum:MorseConst	file:
-M_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    M_LATIN(LATIN, I_AND_M, new Morse(0x3, 0x2), 'M'),$/;"	e	enum:MorseConst	file:
+M_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    M_CYRILLIC('М', 0x03, 0x02, CYRILLIC, I_AND_M),$/;"	e	enum:MorseConst	file:
+M_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    M_LATIN('M', 0x03, 0x02, LATIN, I_AND_M),$/;"	e	enum:MorseConst	file:
 MainActivity	app/src/main/java/com/example/morsefree/MainActivity.java	/^public class MainActivity extends AppCompatActivity {$/;"	c
 Morse	app/src/main/java/com/example/morsefree/Morse.java	/^    public Morse() {$/;"	m	class:Morse
 Morse	app/src/main/java/com/example/morsefree/Morse.java	/^    public Morse(int data, int length) {$/;"	m	class:Morse
+Morse	app/src/main/java/com/example/morsefree/Morse.java	/^    public Morse(int data, int length, Language language, Level level) {$/;"	m	class:Morse
 Morse	app/src/main/java/com/example/morsefree/Morse.java	/^public class Morse {$/;"	c
 MorseAudioPlayer	app/src/main/java/com/example/morsefree/MorseAudioPlayer.java	/^    public MorseAudioPlayer() {$/;"	m	class:MorseAudioPlayer
 MorseAudioPlayer	app/src/main/java/com/example/morsefree/MorseAudioPlayer.java	/^public class MorseAudioPlayer {$/;"	c
-MorseConst	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private MorseConst(MorseLanguage language, MorseLevel level,$/;"	m	class:MorseConst	file:
-MorseConst	app/src/main/java/com/example/morsefree/MorseConst.java	/^public enum MorseConst {$/;"	g
+MorseConst	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private MorseConst(char symbol, int data, int length,$/;"	m	class:MorseConst	file:
+MorseConst	app/src/main/java/com/example/morsefree/MorseConst.java	/^public enum MorseConst extends Morse {$/;"	g
 MorseGraphView	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public MorseGraphView(Context context, AttributeSet attributeSet) {$/;"	m	class:MorseGraphView
 MorseGraphView	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^public class MorseGraphView extends View {$/;"	c
 MorseGraphViewInput	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public MorseGraphViewInput(Context context, AttributeSet attributeSet) {$/;"	m	class:MorseGraphViewInput
 MorseGraphViewInput	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^public class MorseGraphViewInput extends MorseGraphView {$/;"	c
 MorseGraphViewOutput	app/src/main/java/com/example/morsefree/MorseGraphViewOutput.java	/^    public MorseGraphViewOutput(Context context, AttributeSet attributeSet) {$/;"	m	class:MorseGraphViewOutput
 MorseGraphViewOutput	app/src/main/java/com/example/morsefree/MorseGraphViewOutput.java	/^public class MorseGraphViewOutput extends MorseGraphView {$/;"	c
-MorseLevel	app/src/main/java/com/example/morsefree/MorseLevel.java	/^public enum MorseLevel {$/;"	g
 MorseTime	app/src/main/java/com/example/morsefree/MorseTime.java	/^    public MorseTime() {$/;"	m	class:MorseTime
 MorseTime	app/src/main/java/com/example/morsefree/MorseTime.java	/^public class MorseTime extends MorseTolerances {$/;"	c
 MorseTolerances	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^public class MorseTolerances {$/;"	c
@@ -5384,7 +5354,7 @@ N-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json
 N-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "N-MR1": 24,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 N-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "N-MR1": 24,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 N-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "N-MR1": 24,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-NINE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    NINE(NUMBER, FOUR_AND_NINE, new Morse(0x1E, 0x5), '9'),$/;"	e	enum:MorseConst	file:
+NINE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    NINE('9', 0x1E, 0x05, NUMBER, FOUR_AND_NINE),$/;"	e	enum:MorseConst	file:
 NONE	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
 NONE	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
 NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
@@ -5393,8 +5363,8 @@ NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^    
 NONE	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^        "NONE": {},$/;"	o	object:variant.module.stlSharedObjectMap
 NONE	app/src/main/java/com/example/morsefree/MorseTime.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseTime.Action	file:
 NUMBER	app/src/main/java/com/example/morsefree/Morse.java	/^        NUMBER(defaultNumber().ordinal()),$/;"	e	enum:Morse.Language	file:
-N_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    N_CYRILLIC(CYRILLIC, A_AND_N, new Morse(0x2, 0x2), 'Н'),$/;"	e	enum:MorseConst	file:
-N_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    N_LATIN(LATIN, A_AND_N, new Morse(0x2, 0x2), 'N'),$/;"	e	enum:MorseConst	file:
+N_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    N_CYRILLIC('Н', 0x02, 0x2, CYRILLIC, A_AND_N),$/;"	e	enum:MorseConst	file:
+N_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    N_LATIN('N', 0x02, 0x02, LATIN, A_AND_N),$/;"	e	enum:MorseConst	file:
 O	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "O": 26,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 O	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "O": 26,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 O	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "O": 26,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5407,12 +5377,12 @@ O-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json
 O-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "O-MR1": 27,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 O-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "O-MR1": 27,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 O-MR1	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "O-MR1": 27,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-ONE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    ONE(NUMBER, ONE_AND_SIX, new Morse(0x0F, 0x5), '1'),$/;"	e	enum:MorseConst	file:
-ONE_AND_SIX	app/src/main/java/com/example/morsefree/Morse.java	/^        ONE_AND_SIX, MORSE_LEVEL_TWO_AND_SEVEN,$/;"	e	enum:Morse.Level	file:
-OPEN_BRACKET	app/src/main/java/com/example/morsefree/MorseConst.java	/^    OPEN_BRACKET(SYMBOL, OPEN_BRACKET_AND_CLOSE_BRACKET, new Morse(0x16, 0x6), '('),$/;"	e	enum:MorseConst	file:
+ONE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    ONE('1', 0x0F, 0x05, NUMBER, ONE_AND_SIX),$/;"	e	enum:MorseConst	file:
+ONE_AND_SIX	app/src/main/java/com/example/morsefree/Morse.java	/^        ONE_AND_SIX, TWO_AND_SEVEN,$/;"	e	enum:Morse.Level	file:
+OPEN_BRACKET	app/src/main/java/com/example/morsefree/MorseConst.java	/^    OPEN_BRACKET('(', 0x16, 0x06, SYMBOL, OPEN_BRACKET_AND_CLOSE_BRACKET),$/;"	e	enum:MorseConst	file:
 OPEN_BRACKET_AND_CLOSE_BRACKET	app/src/main/java/com/example/morsefree/Morse.java	/^        FIVE_AND_ZERO, OPEN_BRACKET_AND_CLOSE_BRACKET,$/;"	e	enum:Morse.Level	file:
-O_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    O_CYRILLIC(CYRILLIC, S_AND_O, new Morse(0x7, 0x3), 'О'),$/;"	e	enum:MorseConst	file:
-O_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    O_LATIN(LATIN, S_AND_O, new Morse(0x7, 0x3), 'O'),$/;"	e	enum:MorseConst	file:
+O_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    O_CYRILLIC('О', 0x07, 0x03, CYRILLIC, S_AND_O),$/;"	e	enum:MorseConst	file:
+O_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    O_LATIN('O', 0x07, 0x03, LATIN, S_AND_O),$/;"	e	enum:MorseConst	file:
 OnTouchTransmitButton	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    private boolean OnTouchTransmitButton(View view, MotionEvent event) {$/;"	m	class:LessonTransmit	file:
 P	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "P": 28,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 P	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "P": 28,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5468,11 +5438,12 @@ PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerId
 PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define PLATFORM_ID$/;"	d	file:
 PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID /;"	d	file:
 PLATFORM_ID	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define PLATFORM_ID$/;"	d	file:
-POINT	app/src/main/java/com/example/morsefree/MorseConst.java	/^    POINT(SYMBOL, POINT_AND_COMMA, new Morse(0x00, 0x6), '.'),$/;"	e	enum:MorseConst	file:
+POINT	app/src/main/java/com/example/morsefree/MorseConst.java	/^    POINT('.', 0x00, 0x06, SYMBOL, POINT_AND_COMMA),$/;"	e	enum:MorseConst	file:
 POINT	app/src/main/java/com/example/morsefree/MorseTime.java	/^        NONE, POINT, DASH, GAP_BASE, GAP_SYMBOL, GAP_WORD,$/;"	e	enum:MorseTime.Action	file:
 POINT_AND_COMMA	app/src/main/java/com/example/morsefree/Morse.java	/^        POINT_AND_COMMA, SEMICOLON_AND_COLON,$/;"	e	enum:Morse.Level	file:
-P_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    P_CYRILLIC(CYRILLIC, P_AND_X, new Morse(0x6, 0x4), 'P'),$/;"	e	enum:MorseConst	file:
-P_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    P_LATIN(LATIN, P_AND_X, new Morse(0x6, 0x4), 'P'),$/;"	e	enum:MorseConst	file:
+P_AND_X	app/src/main/java/com/example/morsefree/Morse.java	/^        YA_AND_C, P_AND_X,$/;"	e	enum:Morse.Level	file:
+P_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    P_CYRILLIC('P', 0x06, 0x04, CYRILLIC, P_AND_X),$/;"	e	enum:MorseConst	file:
+P_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    P_LATIN('P', 0x06, 0x04, LATIN, P_AND_X),$/;"	e	enum:MorseConst	file:
 Position	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    enum Position {$/;"	g	class:MorseGraphView
 Q	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "Q": 29,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Q	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "Q": 29,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5480,12 +5451,12 @@ Q	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^ 
 Q	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "Q": 29,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Q	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "Q": 29,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Q	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "Q": 29,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-QUESTION_MARK	app/src/main/java/com/example/morsefree/MorseConst.java	/^    QUESTION_MARK(SYMBOL, QUESTION_MARK_AND_EXCLAMATION_MARK, new Morse(0x0C, 0x6), '?'),$/;"	e	enum:MorseConst	file:
+QUESTION_MARK	app/src/main/java/com/example/morsefree/MorseConst.java	/^    QUESTION_MARK('?', 0x0C, 0x06, SYMBOL, QUESTION_MARK_AND_EXCLAMATION_MARK),$/;"	e	enum:MorseConst	file:
 QUESTION_MARK_AND_EXCLAMATION_MARK	app/src/main/java/com/example/morsefree/Morse.java	/^        QUESTION_MARK_AND_EXCLAMATION_MARK, AT;$/;"	e	enum:Morse.Level	file:
-QUOTES	app/src/main/java/com/example/morsefree/MorseConst.java	/^    QUOTES(SYMBOL, QUOTES_AND_APOSTROPHE, new Morse(0x12, 0x6), '\\"'),$/;"	e	enum:MorseConst	file:
+QUOTES	app/src/main/java/com/example/morsefree/MorseConst.java	/^    QUOTES('\\"', 0x12, 0x06, SYMBOL, QUOTES_AND_APOSTROPHE),$/;"	e	enum:MorseConst	file:
 QUOTES_AND_APOSTROPHE	app/src/main/java/com/example/morsefree/Morse.java	/^        QUOTES_AND_APOSTROPHE, DASH_AND_SLASH,$/;"	e	enum:Morse.Level	file:
-Q_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Q_CYRILLIC(CYRILLIC, F_AND_Q, new Morse(0xD, 0x4), 'Щ'),$/;"	e	enum:MorseConst	file:
-Q_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Q_LATIN(LATIN, F_AND_Q, new Morse(0xD, 0x4), 'Q'),$/;"	e	enum:MorseConst	file:
+Q_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Q_CYRILLIC('Щ', 0x0D, 0x04, CYRILLIC, F_AND_Q),$/;"	e	enum:MorseConst	file:
+Q_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Q_LATIN('Q', 0x0D, 0x04, LATIN, F_AND_Q),$/;"	e	enum:MorseConst	file:
 R	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "R": 30,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 R	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "R": 30,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 R	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "R": 30,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5493,18 +5464,18 @@ R	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/
 R	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "R": 30,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 R	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "R": 30,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 R_AND_K	app/src/main/java/com/example/morsefree/Morse.java	/^        U_AND_G, R_AND_K, W_AND_D, H_AND_SH,$/;"	e	enum:Morse.Level	file:
-R_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    R_CYRILLIC(CYRILLIC, R_AND_K, new Morse(0x2, 0x3), 'Р'),$/;"	e	enum:MorseConst	file:
-R_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    R_LATIN(LATIN, R_AND_K, new Morse(0x2, 0x3), 'R'),$/;"	e	enum:MorseConst	file:
+R_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    R_CYRILLIC('Р', 0x02, 0x03, CYRILLIC, R_AND_K),$/;"	e	enum:MorseConst	file:
+R_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    R_LATIN('R', 0x02, 0x03, LATIN, R_AND_K),$/;"	e	enum:MorseConst	file:
 S	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "S": 31,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 S	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "S": 31,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 S	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "S": 31,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 S	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "S": 31,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 S	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "S": 31,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 S	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "S": 31,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-SEMICOLON	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SEMICOLON(SYMBOL, POINT_AND_COMMA, new Morse(0x2A, 0x6), ';'),$/;"	e	enum:MorseConst	file:
+SEMICOLON	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SEMICOLON(';', 0x2A, 0x06, SYMBOL, POINT_AND_COMMA),$/;"	e	enum:MorseConst	file:
 SEMICOLON_AND_COLON	app/src/main/java/com/example/morsefree/Morse.java	/^        POINT_AND_COMMA, SEMICOLON_AND_COLON,$/;"	e	enum:Morse.Level	file:
-SEVEN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SEVEN(NUMBER, TWO_AND_SEVEN, new Morse(0x18, 0x5), '7'),$/;"	e	enum:MorseConst	file:
-SH_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SH_CYRILLIC(CYRILLIC, H_AND_SH, new Morse(0xF, 0x4), 'Ш'),$/;"	e	enum:MorseConst	file:
+SEVEN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SEVEN('7', 0x18, 0x05, NUMBER, TWO_AND_SEVEN),$/;"	e	enum:MorseConst	file:
+SH_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SH_CYRILLIC('Ш', 0x0F, 0x04, CYRILLIC, H_AND_SH),$/;"	e	enum:MorseConst	file:
 SIMULATE_ID	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define SIMULATE_ID /;"	d	file:
 SIMULATE_ID	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_ID /;"	d	file:
 SIMULATE_ID	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_ID /;"	d	file:
@@ -5601,8 +5572,8 @@ SIMULATE_VERSION_PATCH	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8
 SIMULATE_VERSION_PATCH	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
 SIMULATE_VERSION_PATCH	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define SIMULATE_VERSION_PATCH /;"	d	file:
 SIMULATE_VERSION_PATCH	app/.cxx/Debug/2l62296u/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^# define SIMULATE_VERSION_PATCH /;"	d	file:
-SIX	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SIX(NUMBER, ONE_AND_SIX, new Morse(0x10, 0x5), '9'),$/;"	e	enum:MorseConst	file:
-SLASH_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SLASH_SYMBOL(SYMBOL, DASH_AND_SLASH, new Morse(0x12, 0x5), '\/'),$/;"	e	enum:MorseConst	file:
+SIX	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SIX('9', 0x10, 0x05, NUMBER, ONE_AND_SIX),$/;"	e	enum:MorseConst	file:
+SLASH_SYMBOL	app/src/main/java/com/example/morsefree/MorseConst.java	/^    SLASH_SYMBOL('\/', 0x12, 0x05, SYMBOL, DASH_AND_SLASH),$/;"	e	enum:MorseConst	file:
 STRINGIFY	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(X) STRINGIFY_/;"	d	file:
 STRINGIFY	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#define STRINGIFY(X) STRINGIFY_/;"	d	file:
 STRINGIFY	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#define STRINGIFY(X) STRINGIFY_/;"	d	file:
@@ -5635,8 +5606,8 @@ SYSTEM	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.j
 SYSTEM	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^        "SYSTEM": {}$/;"	o	object:variant.module.stlSharedObjectMap
 SYSTEM	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^        "SYSTEM": {}$/;"	o	object:variant.module.stlSharedObjectMap
 S_AND_O	app/src/main/java/com/example/morsefree/Morse.java	/^        E_AND_T, I_AND_M, A_AND_N, S_AND_O,$/;"	e	enum:Morse.Level	file:
-S_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    S_CYRILLIC(CYRILLIC, S_AND_O, new Morse(0x0, 0x3), 'С'),$/;"	e	enum:MorseConst	file:
-S_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    S_LATIN(LATIN, S_AND_O, new Morse(0x0, 0x3), 'S'),$/;"	e	enum:MorseConst	file:
+S_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    S_CYRILLIC('С', 0x00, 0x03, CYRILLIC, S_AND_O),$/;"	e	enum:MorseConst	file:
+S_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    S_LATIN('S', 0x00, 0x03, LATIN, S_AND_O),$/;"	e	enum:MorseConst	file:
 SelectLessonTransmit	app/src/main/java/com/example/morsefree/SelectLessonTransmit.java	/^public class SelectLessonTransmit extends AppCompatActivity {$/;"	c
 SelectLessonTransmitBinding	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  private SelectLessonTransmitBinding(@NonNull ConstraintLayout rootView,$/;"	m	class:SelectLessonTransmitBinding	file:
 SelectLessonTransmitBinding	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^public final class SelectLessonTransmitBinding implements ViewBinding {$/;"	c
@@ -5646,11 +5617,12 @@ Sv2	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/
 Sv2	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model.json	/^          "Sv2": 32,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Sv2	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "Sv2": 32,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Sv2	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "Sv2": 32,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
-THREE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    THREE(NUMBER, THREE_AND_EIGHT, new Morse(0x03, 0x5), '3'),$/;"	e	enum:MorseConst	file:
-THREE_AND_EIGHT	app/src/main/java/com/example/morsefree/Morse.java	/^        THREE_AND_EIGHT, MORSE_LEVEL_FOUR_AND_NINE,$/;"	e	enum:Morse.Level	file:
-TWO	app/src/main/java/com/example/morsefree/MorseConst.java	/^    TWO(NUMBER, TWO_AND_SEVEN, new Morse(0x07, 0x5), '2'),$/;"	e	enum:MorseConst	file:
-T_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    T_CYRILLIC(CYRILLIC, E_AND_T, new Morse(0x1, 0x1), 'Т'),$/;"	e	enum:MorseConst	file:
-T_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    T_LATIN(LATIN, E_AND_T, new Morse(0x1, 0x1), 'T'),$/;"	e	enum:MorseConst	file:
+THREE	app/src/main/java/com/example/morsefree/MorseConst.java	/^    THREE('3', 0x03, 0x05, NUMBER, THREE_AND_EIGHT),$/;"	e	enum:MorseConst	file:
+THREE_AND_EIGHT	app/src/main/java/com/example/morsefree/Morse.java	/^        THREE_AND_EIGHT, FOUR_AND_NINE,$/;"	e	enum:Morse.Level	file:
+TWO	app/src/main/java/com/example/morsefree/MorseConst.java	/^    TWO('2', 0x07, 0x05, NUMBER, TWO_AND_SEVEN),$/;"	e	enum:MorseConst	file:
+TWO_AND_SEVEN	app/src/main/java/com/example/morsefree/Morse.java	/^        ONE_AND_SIX, TWO_AND_SEVEN,$/;"	e	enum:Morse.Level	file:
+T_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    T_CYRILLIC('Т', 0x01, 0x01, CYRILLIC, E_AND_T),$/;"	e	enum:MorseConst	file:
+T_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    T_LATIN('T', 0x01, 0x01, LATIN, E_AND_T),$/;"	e	enum:MorseConst	file:
 Tiramisu	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "Tiramisu": 33,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Tiramisu	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "Tiramisu": 33,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Tiramisu	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "Tiramisu": 33,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5658,8 +5630,8 @@ Tiramisu	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build_model
 Tiramisu	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "Tiramisu": 33,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 Tiramisu	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "Tiramisu": 33,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 U_AND_G	app/src/main/java/com/example/morsefree/Morse.java	/^        U_AND_G, R_AND_K, W_AND_D, H_AND_SH,$/;"	e	enum:Morse.Level	file:
-U_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    U_CYRILLIC(CYRILLIC, U_AND_G, new Morse(0x1, 0x3), 'У'),$/;"	e	enum:MorseConst	file:
-U_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    U_LATIN(LATIN, U_AND_G, new Morse(0x1, 0x3), 'U'),$/;"	e	enum:MorseConst	file:
+U_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    U_CYRILLIC('У', 0x01, 0x03, CYRILLIC, U_AND_G),$/;"	e	enum:MorseConst	file:
+U_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    U_LATIN('U', 0x01, 0x03, LATIN, U_AND_G),$/;"	e	enum:MorseConst	file:
 UpsideDownCake	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "UpsideDownCake": 34,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 UpsideDownCake	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "UpsideDownCake": 34,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 UpsideDownCake	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "UpsideDownCake": 34,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5667,8 +5639,8 @@ UpsideDownCake	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/build
 UpsideDownCake	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "UpsideDownCake": 34,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 UpsideDownCake	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "UpsideDownCake": 34,$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 V_AND_CH	app/src/main/java/com/example/morsefree/Morse.java	/^        V_AND_CH, F_AND_Q,$/;"	e	enum:Morse.Level	file:
-V_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    V_CYRILLIC(CYRILLIC, V_AND_CH, new Morse(0x1, 0x4), 'Ж'),$/;"	e	enum:MorseConst	file:
-V_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    V_LATIN(LATIN, V_AND_CH, new Morse(0x1, 0x4), 'V'),$/;"	e	enum:MorseConst	file:
+V_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    V_CYRILLIC('Ж', 0x01, 0x04, CYRILLIC, V_AND_CH),$/;"	e	enum:MorseConst	file:
+V_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    V_LATIN('V', 0x01, 0x04, LATIN, V_AND_CH),$/;"	e	enum:MorseConst	file:
 VanillaIceCream	app/build/intermediates/cxx/Debug/1v11b672/logs/x86/build_model.json	/^          "VanillaIceCream": 35$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 VanillaIceCream	app/build/intermediates/cxx/Debug/1v11b672/logs/x86_64/build_model.json	/^          "VanillaIceCream": 35$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 VanillaIceCream	app/build/intermediates/cxx/Debug/2l62296u/logs/arm64-v8a/build_model.json	/^          "VanillaIceCream": 35$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
@@ -5676,19 +5648,19 @@ VanillaIceCream	app/build/intermediates/cxx/Debug/2l62296u/logs/armeabi-v7a/buil
 VanillaIceCream	app/build/intermediates/cxx/Debug/2l62296u/logs/x86/build_model.json	/^          "VanillaIceCream": 35$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 VanillaIceCream	app/build/intermediates/cxx/Debug/2l62296u/logs/x86_64/build_model.json	/^          "VanillaIceCream": 35$/;"	n	object:variant.module.ndkMetaPlatforms.aliases
 W_AND_D	app/src/main/java/com/example/morsefree/Morse.java	/^        U_AND_G, R_AND_K, W_AND_D, H_AND_SH,$/;"	e	enum:Morse.Level	file:
-W_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    W_CYRILLIC(CYRILLIC, W_AND_D, new Morse(0x3, 0x3), 'В'),$/;"	e	enum:MorseConst	file:
-W_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    W_LATIN(LATIN, W_AND_D, new Morse(0x3, 0x3), 'W'),$/;"	e	enum:MorseConst	file:
-X_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    X_CYRILLIC(MORSE_CYRILLIC, P_AND_X, new Morse(0x9, 0x4), 'Ь'),$/;"	e	enum:MorseConst	file:
-X_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    X_LATIN(LATIN, P_AND_X, new Morse(0x9, 0x4), 'X'),$/;"	e	enum:MorseConst	file:
-YA_AND_C	app/src/main/java/com/example/morsefree/Morse.java	/^        YA_AND_C, MORSE_LEVEL_P_AND_X,$/;"	e	enum:Morse.Level	file:
-YA_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    YA_CYRILLIC(CYRILLIC, YA_AND_C, new Morse(0x5, 0x4), 'Я'),$/;"	e	enum:MorseConst	file:
-YU_AND_Z	app/src/main/java/com/example/morsefree/Morse.java	/^        YU_AND_Z, MORSE_LEVEL_L_AND_Y,$/;"	e	enum:Morse.Level	file:
-YU_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    YU_CYRILLIC(CYRILLIC, YU_AND_Z, new Morse(0x3, 0x4), 'Ю'),$/;"	e	enum:MorseConst	file:
-Y_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Y_CYRILLIC(CYRILLIC, L_AND_Y, new Morse(0xB, 0x4), 'Ы'),$/;"	e	enum:MorseConst	file:
-Y_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Y_LATIN(LATIN, L_AND_Y, new Morse(0xB, 0x4), 'Y'),$/;"	e	enum:MorseConst	file:
-ZERO	app/src/main/java/com/example/morsefree/MorseConst.java	/^    ZERO(NUMBER, FIVE_AND_ZERO, new Morse(0x1F, 0x5), '0'),$/;"	e	enum:MorseConst	file:
-Z_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Z_CYRILLIC(CYRILLIC, YU_AND_Z, new Morse(0xC, 0x4), 'З'),$/;"	e	enum:MorseConst	file:
-Z_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Z_LATIN(LATIN, YU_AND_Z, new Morse(0xC, 0x4), 'Z'),$/;"	e	enum:MorseConst	file:
+W_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    W_CYRILLIC('В', 0x03, 0x03, CYRILLIC, W_AND_D),$/;"	e	enum:MorseConst	file:
+W_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    W_LATIN('W', 0x03, 0x03, LATIN, W_AND_D),$/;"	e	enum:MorseConst	file:
+X_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    X_CYRILLIC('Ь', 0x09, 0x04, CYRILLIC, P_AND_X),$/;"	e	enum:MorseConst	file:
+X_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    X_LATIN('X', 0x09, 0x04, LATIN, P_AND_X),$/;"	e	enum:MorseConst	file:
+YA_AND_C	app/src/main/java/com/example/morsefree/Morse.java	/^        YA_AND_C, P_AND_X,$/;"	e	enum:Morse.Level	file:
+YA_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    YA_CYRILLIC('Я', 0x05, 0x4, CYRILLIC, YA_AND_C),$/;"	e	enum:MorseConst	file:
+YU_AND_Z	app/src/main/java/com/example/morsefree/Morse.java	/^        YU_AND_Z, L_AND_Y,$/;"	e	enum:Morse.Level	file:
+YU_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    YU_CYRILLIC('Ю', 0x03, 0x04, CYRILLIC, YU_AND_Z),$/;"	e	enum:MorseConst	file:
+Y_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Y_CYRILLIC('Ы', 0x0B, 0x04, CYRILLIC, L_AND_Y),$/;"	e	enum:MorseConst	file:
+Y_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Y_LATIN('Y', 0x0B, 0x04, LATIN, L_AND_Y),$/;"	e	enum:MorseConst	file:
+ZERO	app/src/main/java/com/example/morsefree/MorseConst.java	/^    ZERO('0', 0x1F, 0x05, NUMBER, FIVE_AND_ZERO),$/;"	e	enum:MorseConst	file:
+Z_CYRILLIC	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Z_CYRILLIC('З', 0x0C, 0x04, CYRILLIC, YU_AND_Z),$/;"	e	enum:MorseConst	file:
+Z_LATIN	app/src/main/java/com/example/morsefree/MorseConst.java	/^    Z_LATIN('Z', 0x0C, 0x04, LATIN, YU_AND_Z),$/;"	e	enum:MorseConst	file:
 __has_include	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define __has_include(/;"	d	file:
 __has_include	app/.cxx/Debug/1v11b672/x86/CMakeFiles/3.22.1-g37088a8/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^#  define __has_include(/;"	d	file:
 __has_include	app/.cxx/Debug/1v11b672/x86_64/CMakeFiles/3.22.1-g37088a8/CompilerIdC/CMakeCCompilerId.c	/^#  define __has_include(/;"	d	file:
@@ -6141,8 +6113,6 @@ com.example.morsefree	app/src/main/java/com/example/morsefree/MorseConst.java	/^
 com.example.morsefree	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^package com.example.morsefree;$/;"	p
 com.example.morsefree	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^package com.example.morsefree;$/;"	p
 com.example.morsefree	app/src/main/java/com/example/morsefree/MorseGraphViewOutput.java	/^package com.example.morsefree;$/;"	p
-com.example.morsefree	app/src/main/java/com/example/morsefree/MorseLanguage.java	/^package com.example.morsefree;$/;"	p
-com.example.morsefree	app/src/main/java/com/example/morsefree/MorseLevel.java	/^package com.example.morsefree;$/;"	p
 com.example.morsefree	app/src/main/java/com/example/morsefree/MorseTime.java	/^package com.example.morsefree;$/;"	p
 com.example.morsefree	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^package com.example.morsefree;$/;"	p
 com.example.morsefree	app/src/main/java/com/example/morsefree/SelectLessonTransmit.java	/^package com.example.morsefree;$/;"	p
@@ -6326,7 +6296,6 @@ defaultSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^        SYMBO
 defaultSymbol	app/src/main/java/com/example/morsefree/Morse.java	/^        public static Level defaultSymbol() {$/;"	m	class:Morse.Level
 defaultValue	app/src/main/java/com/example/morsefree/Morse.java	/^        public static Language defaultValue() {$/;"	m	class:Morse.Language
 defaultValue	app/src/main/java/com/example/morsefree/Morse.java	/^        public static Level defaultValue() {$/;"	m	class:Morse.Level
-defaultValue	app/src/main/java/com/example/morsefree/MorseLevel.java	/^    public static MorseLevel defaultValue() {$/;"	m	class:MorseLevel
 define	app/.cxx/Debug/1v11b672/x86/.cmake/api/v1/reply/target-morsefree-Debug-a29ecf534e93d654c37a.json	/^					"define" : "morsefree_EXPORTS"$/;"	s	object:compileGroups.0.defines.0
 define	app/.cxx/Debug/1v11b672/x86_64/.cmake/api/v1/reply/target-morsefree-Debug-cb2c30205e1a2ce70e44.json	/^					"define" : "morsefree_EXPORTS"$/;"	s	object:compileGroups.0.defines.0
 define	app/.cxx/Debug/2l62296u/arm64-v8a/.cmake/api/v1/reply/target-morsefree-Debug-9a229e6290661d7aaa0c.json	/^					"define" : "morsefree_EXPORTS"$/;"	s	object:compileGroups.0.defines.0
@@ -9523,7 +9492,7 @@ filters	app/build/intermediates/packaged_manifests/debug/processDebugManifestFor
 filters	app/build/intermediates/packaged_manifests/debugAndroidTest/processDebugAndroidTestManifest/output-metadata.json	/^      "filters": [],$/;"	a	object:elements.0
 filters	app/build/outputs/apk/androidTest/debug/output-metadata.json	/^      "filters": [],$/;"	a	object:elements.0
 find	app/src/main/java/com/example/morsefree/MorseConst.java	/^    public static @Nullable MorseConst find(char symbol) {$/;"	m	class:MorseConst
-find	app/src/main/java/com/example/morsefree/MorseConst.java	/^    public static MorseConst find(MorseLanguage language, Morse morse) {$/;"	m	class:MorseConst
+find	app/src/main/java/com/example/morsefree/MorseConst.java	/^    public static MorseConst find(Language language, Morse morse) {$/;"	m	class:MorseConst
 findJavaFromJavaHome	gradlew.bat	/^:findJavaFromJavaHome$/;"	l
 fiveAndZeroTransmitLesson	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public final Button fiveAndZeroTransmitLesson;$/;"	f	class:SelectLessonTransmitBinding
 fourAndNineTransmitLesson	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public final Button fourAndNineTransmitLesson;$/;"	f	class:SelectLessonTransmitBinding
@@ -10275,13 +10244,13 @@ getDiff	app/src/main/java/com/example/morsefree/MorseTime.java	/^    public long
 getIsLess	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public boolean getIsLess() {$/;"	m	class:MorseGraphViewInput
 getIsRandomLengthSentence	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public boolean getIsRandomLengthSentence() {$/;"	m	class:MorseGraphViewInput
 getIsStartUp	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public boolean getIsStartUp() {$/;"	m	class:MorseGraphView
-getLanguage	app/src/main/java/com/example/morsefree/MorseConst.java	/^    public MorseLanguage getLanguage() {$/;"	m	class:MorseConst
+getLanguage	app/src/main/java/com/example/morsefree/Morse.java	/^    public Language getLanguage() {$/;"	m	class:Morse
 getLanguage	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public MorseLanguage getLanguage() {$/;"	m	class:MorseGraphViewInput
 getLength	app/src/main/java/com/example/morsefree/Morse.java	/^    public byte getLength() {$/;"	m	class:Morse
 getLengthSentence	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public int getLengthSentence() {$/;"	m	class:MorseGraphViewInput
+getLevel	app/src/main/java/com/example/morsefree/Morse.java	/^    public Level getLevel() {$/;"	m	class:Morse
 getLevel	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public MorseLevel getLevel() {$/;"	m	class:MorseGraphViewInput
 getLevelOrdinal	app/src/main/java/com/example/morsefree/Morse.java	/^        public int getLevelOrdinal() {$/;"	m	class:Morse.Language
-getMorse	app/src/main/java/com/example/morsefree/MorseConst.java	/^    public Morse getMorse() {$/;"	m	class:MorseConst
 getPeriodDash	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^    public long getPeriodDash() {$/;"	m	class:MorseTolerances
 getPeriodDashEpsilonHigh	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^    public long getPeriodDashEpsilonHigh() {$/;"	m	class:MorseTolerances
 getPeriodDashEpsilonHighShare	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^    public byte getPeriodDashEpsilonHighShare() {$/;"	m	class:MorseTolerances
@@ -10310,7 +10279,6 @@ getPeriodPointEpsilonLowShare	app/src/main/java/com/example/morsefree/MorseToler
 getRoot	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/ActivityMainBinding.java	/^  public ConstraintLayout getRoot() {$/;"	m	class:ActivityMainBinding
 getRoot	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/LessonTransmitBinding.java	/^  public ConstraintLayout getRoot() {$/;"	m	class:LessonTransmitBinding
 getRoot	app/build/generated/data_binding_base_class_source_out/debug/out/com/example/morsefree/databinding/SelectLessonTransmitBinding.java	/^  public ConstraintLayout getRoot() {$/;"	m	class:SelectLessonTransmitBinding
-getSymbol	app/src/main/java/com/example/morsefree/MorseConst.java	/^    public char getSymbol() {$/;"	m	class:MorseConst
 getText	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public String getText() {$/;"	m	class:MorseGraphView
 getThicknessDp	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public int getThicknessDp() {$/;"	m	class:MorseGraphView
 getThicknessPx	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public int getThicknessPx() {$/;"	m	class:MorseGraphView
@@ -12871,14 +12839,12 @@ m_isRunning	app/src/main/java/com/example/morsefree/LessonTransmit.java	/^    pr
 m_isRunning	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    private boolean m_isRunning = false;$/;"	f	class:MorseGraphView	file:
 m_isStartUp	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    private boolean m_isStartUp = false;$/;"	f	class:MorseGraphView	file:
 m_language	app/src/main/java/com/example/morsefree/Morse.java	/^    private Language m_language = Language.defaultValue;$/;"	f	class:Morse	file:
-m_language	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private final MorseLanguage m_language;$/;"	f	class:MorseConst	file:
 m_language	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    private Morse.Language m_language = LATIN;$/;"	f	class:MorseGraphViewInput	file:
 m_language	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    private MorseLanguage m_language = MorseLanguage.defaultValue();$/;"	f	class:MorseGraphViewInput	file:
 m_lastBreakPoint	app/src/main/java/com/example/morsefree/MorseTime.java	/^    private long m_lastBreakPoint = 0;$/;"	f	class:MorseTime	file:
 m_length	app/src/main/java/com/example/morsefree/Morse.java	/^    private byte m_length = 0;$/;"	f	class:Morse	file:
 m_lengthSentence	app/src/main/java/com/example/morsefree/MorseGraphViewOutput.java	/^    private int m_lengthSentence = 1;$/;"	f	class:MorseGraphViewOutput	file:
 m_level	app/src/main/java/com/example/morsefree/Morse.java	/^    private Level m_level = Level.defaultValue;$/;"	f	class:Morse	file:
-m_level	app/src/main/java/com/example/morsefree/MorseConst.java	/^    private final MorseLevel m_level;$/;"	f	class:MorseConst	file:
 m_level	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    private Morse.Level m_level = E_AND_T;$/;"	f	class:MorseGraphViewInput	file:
 m_level	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    private MorseLevel m_level = MorseLevel.defaultValue();$/;"	f	class:MorseGraphViewInput	file:
 m_levelOrdinal	app/src/main/java/com/example/morsefree/Morse.java	/^        private int m_levelOrdinal;$/;"	f	class:Morse.Language	file:
@@ -17116,8 +17082,10 @@ setColor	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    publi
 setIsLess	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public void setIsLess(boolean isLess) {$/;"	m	class:MorseGraphViewInput
 setIsRandomLengthSentence	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public void setIsRandomLengthSentence(boolean isRandomLengthSentence) {$/;"	m	class:MorseGraphViewInput
 setIsStartUp	app/src/main/java/com/example/morsefree/MorseGraphView.java	/^    public void setIsStartUp(boolean isStartUp) {$/;"	m	class:MorseGraphView
+setLanguage	app/src/main/java/com/example/morsefree/Morse.java	/^    public void setLanguage(Language language) {$/;"	m	class:Morse
 setLanguage	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public void setLanguage(MorseLanguage language) {$/;"	m	class:MorseGraphViewInput
 setLengthSentence	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public void setLengthSentence(int lengthSentence) {$/;"	m	class:MorseGraphViewInput
+setLevel	app/src/main/java/com/example/morsefree/Morse.java	/^    public void setLevel(Level level) {$/;"	m	class:Morse
 setLevel	app/src/main/java/com/example/morsefree/MorseGraphViewInput.java	/^    public void setLevel(MorseLevel level) {$/;"	m	class:MorseGraphViewInput
 setPeriodDash	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^    public void setPeriodDash(long periodDash) {$/;"	m	class:MorseTolerances
 setPeriodDashEpsilonHigh	app/src/main/java/com/example/morsefree/MorseTolerances.java	/^    public void setPeriodDashEpsilonHigh(long periodDashEpsilonHigh) {$/;"	m	class:MorseTolerances

@@ -1,7 +1,10 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.MorseLanguage.*;
-import static com.example.morsefree.MorseLevel.*;
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
+
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,13 +23,13 @@ public class SelectLessonTransmit extends AppCompatActivity {
     public void onClickSelectLessonTransmit(View view) {
         Button button = (Button)view;
         String level_name = button.getText().toString();
-        MorseLevel level = null;
-        MorseLanguage language = null;
+        Level level = null;
+        Language language = null;
 
         if (button.getTag().toString().contains(";")) {
             String[] morseLanguageAndMorseLevel = button.getTag().toString().split(";");
-            level = MorseLevel.valueOf(morseLanguageAndMorseLevel[0]);
-            language = MorseLanguage.valueOf(morseLanguageAndMorseLevel[1]);
+            level = Level.valueOf(morseLanguageAndMorseLevel[0]);
+            language = Language.valueOf(morseLanguageAndMorseLevel[1]);
 
             Log.d("MorseFree", level_name);
 

@@ -17,6 +17,9 @@ import static com.example.morsefree.MorseGraphView.Position.*;
 
 import static com.example.morsefree.MorseTime.Action;
 
+import static com.example.morsefree.Morse.Const;
+import static com.example.morsefree.Morse.Const.*;
+
 public class MorseGraphView extends View {
     private static final int DEFAULT_HEIGHT_DP = 60;
     private int m_defaultHeightPx = dpToPx(DEFAULT_HEIGHT_DP);
@@ -90,13 +93,13 @@ public class MorseGraphView extends View {
                                 m_changePoints.get(m_changePoints.size() - 1)));
             }
 
-            MorseConst morseConst = MorseConst.find(symbol);
+            Const _const = Const.find(symbol);
 
-            if (morseConst == null) {
+            if (_const == null) {
                 continue;
             }
 
-            Morse morse = morseConst.getMorse();
+            Morse morse = _const.getMorse();
 
             do {
                 m_changePoints.add(currentTime +=

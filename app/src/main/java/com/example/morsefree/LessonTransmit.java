@@ -3,6 +3,15 @@ package com.example.morsefree;
 import static com.example.morsefree.MorseTime.Action;
 import static com.example.morsefree.MorseTime.Action.*;
 
+import static com.example.morsefree.Morse.Const;
+import static com.example.morsefree.Morse.Const.*;
+
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
+
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
+
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -41,13 +50,13 @@ public class LessonTransmit extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent != null) {
-            MorseLanguage language = MorseLanguage.values()
+            Language language = Language.values()
                     [intent.getIntExtra("MORSE_LANGUAGE",
-                    MorseLanguage.defaultValue().ordinal())];
+                    Language.defaultValue().ordinal())];
 
-            MorseLevel level = MorseLevel.values()
+            Level level = Level.values()
                     [intent.getIntExtra("MORSE_LEVEL",
-                    MorseLevel.defaultValue().ordinal())];
+                    Level.defaultValue().ordinal())];
 
             boolean isLess = intent.getBooleanExtra("MORSE_IS_LESS", false);
 
@@ -58,13 +67,15 @@ public class LessonTransmit extends AppCompatActivity {
 
             String nameLevel = intent.getStringExtra("LEVEL_NAME");
 
-            MorseGraphViewInput morse = m_binding.userSentenceMorse;
+            MorseGraphViewInput morseInput = m_binding.userSentenceMorse;
 
-            morse.setLanguage(language);
-            morse.setLevel(level);
-            morse.setIsLess(isLess);
-            morse.setLengthSentence(lengthSentence);
-            morse.setIsRandomLengthSentence(isRandomLengthSentence);
+            MorseGraphViewOutput morseOutput = m_binding.sentenceMorse;
+
+            morseInput.setLanguage(language);
+            morseInput.setLevel(level);
+            morseOutput.setIsLess(isLess);
+            morseOutput.setLengthSentence(lengthSentence);
+            morseOutput.setIsRandomLengthSentence(isRandomLengthSentence);
 
             m_binding.titleTransmitLevelName.setText(nameLevel);
         }
