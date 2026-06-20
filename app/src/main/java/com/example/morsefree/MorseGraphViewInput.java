@@ -16,6 +16,9 @@ public class MorseGraphViewInput extends MorseGraphView {
     private Morse m_morse = new Morse();
     private MorseLanguage m_language = MorseLanguage.defaultValue();
     private MorseLevel m_level = MorseLevel.defaultValue();
+    private boolean m_isLess = false;
+    private Morse.Language m_language = LATIN;
+    private Morse.Level m_level = E_AND_T;
 
     public MorseGraphViewInput(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);

@@ -245,19 +245,12 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void applySymbol() {
-        updateSymbol();
-        if (m_currentSymbol != '\0') {
-            updateUserSentence(m_currentSymbol);
-        }
-        m_morse.clear();
-        m_currentSymbol = '\0';
-        m_binding.currentSymbol.setText(String.valueOf(m_currentSymbol));
+        updateUserSentence();
+        m_binding.currentSymbol.setText(String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
     }
 
     private void applyWord() {
-        updateUserSentence(' ');
-        m_morse.clear();
-        m_currentSymbol = '\0';
-        m_binding.currentSymbol.setText(String.valueOf(m_currentSymbol));
+        updateUserSentence();
+        m_binding.currentSymbol.setText(String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
     }
 }

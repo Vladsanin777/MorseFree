@@ -1,7 +1,9 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.MorseLanguage.*;
-import static com.example.morsefree.MorseLevel.*;
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
 
 import android.util.Log;
 
@@ -11,130 +13,130 @@ import org.jspecify.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public enum MorseConst {
+public enum MorseConst extends Morse {
     // Unit 1
     // Level 1
-    MORSE_E_LATIN(MORSE_LATIN, MORSE_LEVEL_E_AND_T, new Morse(0x0, 0x1),'E'),
-    MORSE_E_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_E_AND_T, new Morse(0x0, 0x1), 'Е'),
-    MORSE_T_LATIN(MORSE_LATIN, MORSE_LEVEL_E_AND_T, new Morse(0x1, 0x1), 'T'),
-    MORSE_T_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_E_AND_T, new Morse(0x1, 0x1), 'Т'),
+    E_LATIN(LATIN, E_AND_T, new Morse(0x0, 0x1),'E'),
+    E_CYRILLIC(CYRILLIC, E_AND_T, new Morse(0x0, 0x1), 'Е'),
+    T_LATIN(LATIN, E_AND_T, new Morse(0x1, 0x1), 'T'),
+    T_CYRILLIC(CYRILLIC, E_AND_T, new Morse(0x1, 0x1), 'Т'),
     // Unit 2
     // Level 2
-    MORSE_I_LATIN(MORSE_LATIN, MORSE_LEVEL_I_AND_M, new Morse(0x0, 0x2), 'I'),
-    MORSE_I_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_I_AND_M, new Morse(0x0, 0x2), 'И'),
-    MORSE_M_LATIN(MORSE_LATIN, MORSE_LEVEL_I_AND_M, new Morse(0x3, 0x2), 'M'),
-    MORSE_M_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_I_AND_M, new Morse(0x3, 0x2), 'М'),
+    I_LATIN(LATIN, I_AND_M, new Morse(0x0, 0x2), 'I'),
+    I_CYRILLIC(CYRILLIC, I_AND_M, new Morse(0x0, 0x2), 'И'),
+    M_LATIN(LATIN, I_AND_M, new Morse(0x3, 0x2), 'M'),
+    M_CYRILLIC(CYRILLIC, I_AND_M, new Morse(0x3, 0x2), 'М'),
     // Level 3
-    MORSE_A_LATIN(MORSE_LATIN, MORSE_LEVEL_A_AND_N, new Morse(0x1, 0x2), 'A'),
-    MORSE_A_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_A_AND_N, new Morse(0x1, 0x2), 'А'),
-    MORSE_N_LATIN(MORSE_LATIN, MORSE_LEVEL_A_AND_N, new Morse(0x2, 0x2), 'N'),
-    MORSE_N_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_A_AND_N, new Morse(0x2, 0x2), 'Н'),
+    A_LATIN(LATIN, A_AND_N, new Morse(0x1, 0x2), 'A'),
+    A_CYRILLIC(CYRILLIC, A_AND_N, new Morse(0x1, 0x2), 'А'),
+    N_LATIN(LATIN, A_AND_N, new Morse(0x2, 0x2), 'N'),
+    N_CYRILLIC(CYRILLIC, A_AND_N, new Morse(0x2, 0x2), 'Н'),
     // Unit 3
     // Level 4
-    MORSE_S_LATIN(MORSE_LATIN, MORSE_LEVEL_S_AND_O, new Morse(0x0, 0x3), 'S'),
-    MORSE_S_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_S_AND_O, new Morse(0x0, 0x3), 'С'),
-    MORSE_O_LATIN(MORSE_LATIN, MORSE_LEVEL_S_AND_O, new Morse(0x7, 0x3), 'O'),
-    MORSE_O_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_S_AND_O, new Morse(0x7, 0x3), 'О'),
+    S_LATIN(LATIN, S_AND_O, new Morse(0x0, 0x3), 'S'),
+    S_CYRILLIC(CYRILLIC, S_AND_O, new Morse(0x0, 0x3), 'С'),
+    O_LATIN(LATIN, S_AND_O, new Morse(0x7, 0x3), 'O'),
+    O_CYRILLIC(CYRILLIC, S_AND_O, new Morse(0x7, 0x3), 'О'),
     // Level 5
-    MORSE_U_LATIN(MORSE_LATIN, MORSE_LEVEL_U_AND_G, new Morse(0x1, 0x3), 'U'),
-    MORSE_U_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_U_AND_G, new Morse(0x1, 0x3), 'У'),
-    MORSE_G_LATIN(MORSE_LATIN, MORSE_LEVEL_U_AND_G, new Morse(0x6, 0x3), 'G'),
-    MORSE_G_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_U_AND_G, new Morse(0x6, 0x3), 'Г'),
+    U_LATIN(LATIN, U_AND_G, new Morse(0x1, 0x3), 'U'),
+    U_CYRILLIC(CYRILLIC, U_AND_G, new Morse(0x1, 0x3), 'У'),
+    G_LATIN(LATIN, U_AND_G, new Morse(0x6, 0x3), 'G'),
+    G_CYRILLIC(CYRILLIC, U_AND_G, new Morse(0x6, 0x3), 'Г'),
     // Level 6
-    MORSE_R_LATIN(MORSE_LATIN, MORSE_LEVEL_R_AND_K, new Morse(0x2, 0x3), 'R'),
-    MORSE_R_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_R_AND_K, new Morse(0x2, 0x3), 'Р'),
-    MORSE_K_LATIN(MORSE_LATIN, MORSE_LEVEL_R_AND_K, new Morse(0x5, 0x3), 'K'),
-    MORSE_K_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_R_AND_K, new Morse(0x5, 0x3), 'К'),
+    R_LATIN(LATIN, R_AND_K, new Morse(0x2, 0x3), 'R'),
+    R_CYRILLIC(CYRILLIC, R_AND_K, new Morse(0x2, 0x3), 'Р'),
+    K_LATIN(LATIN, R_AND_K, new Morse(0x5, 0x3), 'K'),
+    K_CYRILLIC(CYRILLIC, R_AND_K, new Morse(0x5, 0x3), 'К'),
     // Level 7
-    MORSE_W_LATIN(MORSE_LATIN, MORSE_LEVEL_W_AND_D, new Morse(0x3, 0x3), 'W'),
-    MORSE_W_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_W_AND_D, new Morse(0x3, 0x3), 'В'),
-    MORSE_D_LATIN(MORSE_LATIN, MORSE_LEVEL_W_AND_D, new Morse(0x4, 0x3), 'D'),
-    MORSE_D_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_W_AND_D, new Morse(0x4, 0x3), 'Д'),
+    W_LATIN(LATIN, W_AND_D, new Morse(0x3, 0x3), 'W'),
+    W_CYRILLIC(CYRILLIC, W_AND_D, new Morse(0x3, 0x3), 'В'),
+    D_LATIN(LATIN, W_AND_D, new Morse(0x4, 0x3), 'D'),
+    D_CYRILLIC(CYRILLIC, W_AND_D, new Morse(0x4, 0x3), 'Д'),
     // Unit 4
     // Level 8
-    MORSE_H_LATIN(MORSE_LATIN, MORSE_LEVEL_H_AND_SH, new Morse(0x0, 0x4), 'H'),
-    MORSE_H_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_H_AND_SH, new Morse(0x0, 0x4), 'Х'),
-    MORSE_SH_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_H_AND_SH, new Morse(0xF, 0x4), 'Ш'),
+    H_LATIN(LATIN, H_AND_SH, new Morse(0x0, 0x4), 'H'),
+    H_CYRILLIC(CYRILLIC, H_AND_SH, new Morse(0x0, 0x4), 'Х'),
+    SH_CYRILLIC(CYRILLIC, H_AND_SH, new Morse(0xF, 0x4), 'Ш'),
     // Level 9
-    MORSE_V_LATIN(MORSE_LATIN, MORSE_LEVEL_V_AND_CH, new Morse(0x1, 0x4), 'V'),
-    MORSE_V_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_V_AND_CH, new Morse(0x1, 0x4), 'Ж'),
-    MORSE_CH_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_V_AND_CH, new Morse(0xE, 0x4), 'Ч'),
+    V_LATIN(LATIN, V_AND_CH, new Morse(0x1, 0x4), 'V'),
+    V_CYRILLIC(CYRILLIC, V_AND_CH, new Morse(0x1, 0x4), 'Ж'),
+    CH_CYRILLIC(CYRILLIC, V_AND_CH, new Morse(0xE, 0x4), 'Ч'),
     // Level 10
-    MORSE_F_LATIN(MORSE_LATIN, MORSE_LEVEL_F_AND_Q, new Morse(0x2, 0x4), 'F'),
-    MORSE_F_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_F_AND_Q, new Morse(0x2, 0x4), 'Ф'),
-    MORSE_Q_LATIN(MORSE_LATIN, MORSE_LEVEL_F_AND_Q, new Morse(0xD, 0x4), 'Q'),
-    MORSE_Q_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_F_AND_Q, new Morse(0xD, 0x4), 'Щ'),
+    F_LATIN(LATIN, F_AND_Q, new Morse(0x2, 0x4), 'F'),
+    F_CYRILLIC(CYRILLIC, F_AND_Q, new Morse(0x2, 0x4), 'Ф'),
+    Q_LATIN(LATIN, F_AND_Q, new Morse(0xD, 0x4), 'Q'),
+    Q_CYRILLIC(CYRILLIC, F_AND_Q, new Morse(0xD, 0x4), 'Щ'),
     // Level 11
-    MORSE_YU_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YU_AND_Z, new Morse(0x3, 0x4), 'Ю'),
-    MORSE_Z_LATIN(MORSE_LATIN, MORSE_LEVEL_YU_AND_Z, new Morse(0xC, 0x4), 'Z'),
-    MORSE_Z_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YU_AND_Z, new Morse(0xC, 0x4), 'З'),
+    YU_CYRILLIC(CYRILLIC, YU_AND_Z, new Morse(0x3, 0x4), 'Ю'),
+    Z_LATIN(LATIN, YU_AND_Z, new Morse(0xC, 0x4), 'Z'),
+    Z_CYRILLIC(CYRILLIC, YU_AND_Z, new Morse(0xC, 0x4), 'З'),
     // Level 12
-    MORSE_L_LATIN(MORSE_LATIN, MORSE_LEVEL_L_AND_Y, new Morse(0x4, 0x4), 'L'),
-    MORSE_L_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_L_AND_Y, new Morse(0x4, 0x4), 'Л'),
-    MORSE_Y_LATIN(MORSE_LATIN, MORSE_LEVEL_L_AND_Y, new Morse(0xB, 0x4), 'Y'),
-    MORSE_Y_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_L_AND_Y, new Morse(0xB, 0x4), 'Ы'),
+    L_LATIN(LATIN, L_AND_Y, new Morse(0x4, 0x4), 'L'),
+    L_CYRILLIC(CYRILLIC, L_AND_Y, new Morse(0x4, 0x4), 'Л'),
+    Y_LATIN(LATIN, L_AND_Y, new Morse(0xB, 0x4), 'Y'),
+    Y_CYRILLIC(CYRILLIC, L_AND_Y, new Morse(0xB, 0x4), 'Ы'),
     // Level 13
-    MORSE_YA_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YA_AND_C, new Morse(0x5, 0x4), 'Я'),
-    MORSE_C_LATIN(MORSE_LATIN, MORSE_LEVEL_YA_AND_C, new Morse(0xA, 0x4), 'C'),
-    MORSE_C_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_YA_AND_C, new Morse(0xA, 0x4), 'Ц'),
+    YA_CYRILLIC(CYRILLIC, YA_AND_C, new Morse(0x5, 0x4), 'Я'),
+    C_LATIN(LATIN, YA_AND_C, new Morse(0xA, 0x4), 'C'),
+    C_CYRILLIC(CYRILLIC, YA_AND_C, new Morse(0xA, 0x4), 'Ц'),
     // Level 14
-    MORSE_P_LATIN(MORSE_LATIN, MORSE_LEVEL_P_AND_X, new Morse(0x6, 0x4), 'P'),
-    MORSE_P_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_P_AND_X, new Morse(0x6, 0x4), 'P'),
-    MORSE_X_LATIN(MORSE_LATIN, MORSE_LEVEL_P_AND_X, new Morse(0x9, 0x4), 'X'),
-    MORSE_X_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_P_AND_X, new Morse(0x9, 0x4), 'Ь'),
+    P_LATIN(LATIN, P_AND_X, new Morse(0x6, 0x4), 'P'),
+    P_CYRILLIC(CYRILLIC, P_AND_X, new Morse(0x6, 0x4), 'P'),
+    X_LATIN(LATIN, P_AND_X, new Morse(0x9, 0x4), 'X'),
+    X_CYRILLIC(MORSE_CYRILLIC, P_AND_X, new Morse(0x9, 0x4), 'Ь'),
     // Level 15
-    MORSE_J_LATIN(MORSE_LATIN, MORSE_LEVEL_J_AND_B, new Morse(0x7, 0x4), 'J'),
-    MORSE_J_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_J_AND_B, new Morse(0x7, 0x4), 'Й'),
-    MORSE_B_LATIN(MORSE_LATIN, MORSE_LEVEL_J_AND_B, new Morse(0x8, 0x4), 'B'),
-    MORSE_B_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_J_AND_B, new Morse(0x8, 0x4), 'Б'),
+    J_LATIN(LATIN, J_AND_B, new Morse(0x7, 0x4), 'J'),
+    J_CYRILLIC(CYRILLIC, J_AND_B, new Morse(0x7, 0x4), 'Й'),
+    B_LATIN(LATIN, J_AND_B, new Morse(0x8, 0x4), 'B'),
+    B_CYRILLIC(CYRILLIC, J_AND_B, new Morse(0x8, 0x4), 'Б'),
     // Level additional
-    MORSE_HARD_SING_CYRILLIC(MORSE_CYRILLIC, MORSE_LEVEL_HARD_SING, new Morse(0x1A, 0x5), 'Ъ'),
+    HARD_SING_CYRILLIC(CYRILLIC, HARD_SING, new Morse(0x1A, 0x5), 'Ъ'),
     // Unit 5
     // Level 16
-    MORSE_ONE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_ONE_AND_SIX, new Morse(0x0F, 0x5), '1'),
-    MORSE_SIX_NUMBER(MORSE_NUMBER, MORSE_LEVEL_ONE_AND_SIX, new Morse(0x10, 0x5), '9'),
+    ONE(NUMBER, ONE_AND_SIX, new Morse(0x0F, 0x5), '1'),
+    SIX(NUMBER, ONE_AND_SIX, new Morse(0x10, 0x5), '9'),
     // Level 17
-    MORSE_TWO_NUMBER(MORSE_NUMBER, MORSE_LEVEL_TWO_AND_SEVEN, new Morse(0x07, 0x5), '2'),
-    MORSE_SEVEN_NUMBER(MORSE_NUMBER, MORSE_LEVEL_TWO_AND_SEVEN, new Morse(0x18, 0x5), '7'),
+    TWO(NUMBER, TWO_AND_SEVEN, new Morse(0x07, 0x5), '2'),
+    SEVEN(NUMBER, TWO_AND_SEVEN, new Morse(0x18, 0x5), '7'),
     // Level 18
-    MORSE_THREE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_THREE_AND_EIGHT, new Morse(0x03, 0x5), '3'),
-    MORSE_EIGHT_NUMBER(MORSE_NUMBER, MORSE_LEVEL_THREE_AND_EIGHT, new Morse(0x1C, 0x5), '8'),
+    THREE(NUMBER, THREE_AND_EIGHT, new Morse(0x03, 0x5), '3'),
+    EIGHT(NUMBER, THREE_AND_EIGHT, new Morse(0x1C, 0x5), '8'),
     // Level 19
-    MORSE_FOUR_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FOUR_AND_NINE, new Morse(0x01, 0x5), '4'),
-    MORSE_NINE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FOUR_AND_NINE, new Morse(0x1E, 0x5), '9'),
+    FOUR(NUMBER, FOUR_AND_NINE, new Morse(0x01, 0x5), '4'),
+    NINE(NUMBER, FOUR_AND_NINE, new Morse(0x1E, 0x5), '9'),
     // Level 20
-    MORSE_FIVE_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FIVE_AND_ZERO, new Morse(0x0, 0x5), '5'),
-    MORSE_ZERO_NUMBER(MORSE_NUMBER, MORSE_LEVEL_FIVE_AND_ZERO, new Morse(0x1F, 0x5), '0'),
+    FIVE(NUMBER, FIVE_AND_ZERO, new Morse(0x0, 0x5), '5'),
+    ZERO(NUMBER, FIVE_AND_ZERO, new Morse(0x1F, 0x5), '0'),
     // Unit 6
     // Level 21
-    MORSE_OPEN_BRACKET_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET, new Morse(0x16, 0x6), '('),
-    MORSE_CLOSE_BRACKET_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET, new Morse(0x2D, 0x6), ')'),
+    OPEN_BRACKET(SYMBOL, OPEN_BRACKET_AND_CLOSE_BRACKET, new Morse(0x16, 0x6), '('),
+    CLOSE_BRACKET(SYMBOL, OPEN_BRACKET_AND_CLOSE_BRACKET, new Morse(0x2D, 0x6), ')'),
     // Level 22
-    MORSE_POINT_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, new Morse(0x00, 0x6), '.'),
-    MORSE_COMMA_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, new Morse(0x15, 0x6), ','),
+    POINT(SYMBOL, POINT_AND_COMMA, new Morse(0x00, 0x6), '.'),
+    COMMA(SYMBOL, POINT_AND_COMMA, new Morse(0x15, 0x6), ','),
     // Level 23
-    MORSE_SEMICOLON_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, new Morse(0x2A, 0x6), ';'),
-    MORSE_COLON_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_POINT_AND_COMMA, new Morse(0x38, 0x6), ':'),
+    SEMICOLON(SYMBOL, POINT_AND_COMMA, new Morse(0x2A, 0x6), ';'),
+    COLON(SYMBOL, POINT_AND_COMMA, new Morse(0x38, 0x6), ':'),
     // Level 24
-    MORSE_QUOTES_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUOTES_AND_APOSTROPHE, new Morse(0x12, 0x6), '\"'),
-    MORSE_APOSTROPHE_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUOTES_AND_APOSTROPHE, new Morse(0x1E, 0x6), '\''),
+    QUOTES(SYMBOL, QUOTES_AND_APOSTROPHE, new Morse(0x12, 0x6), '\"'),
+    APOSTROPHE(SYMBOL, QUOTES_AND_APOSTROPHE, new Morse(0x1E, 0x6), '\''),
     // Level 25
-    MORSE_DASH_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_DASH_AND_SLASH, new Morse(0x21, 0x6), '-'),
-    MORSE_SLASH_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_DASH_AND_SLASH, new Morse(0x12, 0x5), '/'),
+    DASH_SYMBOL(SYMBOL, DASH_AND_SLASH, new Morse(0x21, 0x6), '-'),
+    SLASH_SYMBOL(SYMBOL, DASH_AND_SLASH, new Morse(0x12, 0x5), '/'),
     // Level 26
-    MORSE_QUESTION_MARK_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK, new Morse(0x0C, 0x6), '?'),
-    MORSE_EXCLAMATION_MARK_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK, new Morse(0x33, 0x6), '!'),
+    QUESTION_MARK(SYMBOL, QUESTION_MARK_AND_EXCLAMATION_MARK, new Morse(0x0C, 0x6), '?'),
+    EXCLAMATION_MARK(SYMBOL, QUESTION_MARK_AND_EXCLAMATION_MARK, new Morse(0x33, 0x6), '!'),
     // Level 27
-    MORSE_AT_SYMBOL(MORSE_SYMBOL, MORSE_LEVEL_AT, new Morse(0x1A, 0x6), '@');
+    AT(SYMBOL, AT, new Morse(0x1A, 0x6), '@');
 
     private final Morse m_morse;
     private final char m_symbol;
     private final MorseLevel m_level;
     private final MorseLanguage m_language;
-    private static HashMap<MorseLanguage, HashMap<MorseLevel, ArrayList<MorseConst>>> DATA_TO_SYMBOL =
-            new HashMap<MorseLanguage, HashMap<MorseLevel, ArrayList<MorseConst>>>();
+    private static HashMap<Language, HashMap<Level, ArrayList<MorseConst>>> DATA_TO_SYMBOL =
+            new HashMap<Language, HashMap<Level, ArrayList<MorseConst>>>();
 
-    private MorseConst(MorseLanguage language, MorseLevel level,
+    private MorseConst(Language language, Level level,
                        Morse morse, char symbol) {
         m_morse = morse;
         m_symbol = symbol;
@@ -173,18 +175,6 @@ public enum MorseConst {
         }
 
         return morse.equals(m_morse);
-    }
-
-    public MorseLanguage getLanguage() {
-        return m_language;
-    }
-
-    public char getSymbol() {
-        return m_symbol;
-    }
-
-    public Morse getMorse() {
-        return m_morse.copy();
     }
 
     public static MorseConst find(MorseLanguage language, Morse morse) {
