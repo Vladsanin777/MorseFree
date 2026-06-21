@@ -171,22 +171,16 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     void updateSentence() {
-        m_binding.userSentenceMorse.updateSentence();
-        String sentence = m_binding.userSentenceMorse.getText();
-        m_binding.sentence.setText(sentence);
-        m_binding.sentenceMorse.setText(sentence);
-        clearUserSentence();
-        m_binding.userSentenceMorse.clear();
     }
 
     void clearUserSentence() {
         m_binding.userSentence.setText("");
-        m_binding.userSentenceMorse.setText("");
+        m_binding.userSentenceMorse.clear();
     }
 
     void clearSentence() {
         m_binding.sentence.setText("");
-        m_binding.sentenceMorse.setText("");
+        m_binding.sentenceMorse.clear();
     }
 
     void updateUserSentence() {

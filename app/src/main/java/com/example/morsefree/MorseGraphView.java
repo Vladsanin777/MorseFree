@@ -20,7 +20,13 @@ import static com.example.morsefree.MorseTime.Action;
 import static com.example.morsefree.Morse.Const;
 import static com.example.morsefree.Morse.Const.*;
 
-public class MorseGraphView extends View {
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
+
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
+
+public abstract class MorseGraphView extends View {
     private static final int DEFAULT_HEIGHT_DP = 60;
     private int m_defaultHeightPx = dpToPx(DEFAULT_HEIGHT_DP);
     private int m_thicknessDp = 6;
@@ -32,6 +38,9 @@ public class MorseGraphView extends View {
     private boolean m_isRunning = false;
     private String m_text = null;
     private MorseTime m_time = null;
+
+    private Language m_language = Language.defaultValue();
+    private Level m_level = Level.defaultValue();
 
     enum Position {
         BEGIN, MIDDLE, END,
@@ -47,16 +56,36 @@ public class MorseGraphView extends View {
         m_paint.setColor(0xFFFFFFFF);
     }
 
+    public Language getLanguage() {
+        return m_language;
+    }
+
+    public void setLanguage(Language language) {
+        m_language = language;
+    }
+
+    public Level getLevel() {
+        return m_level;
+    }
+
+    public void setLevel(Level level) {
+        m_level = level;
+    }
+
     public void setColor(int color) {
         m_paint.setColor(color);
+    }
+
+    public MorseTime getTime() {
+        return m_time;
     }
 
     public void setTime(MorseTime time) {
         m_time = time;
     }
 
-    public MorseTime getTime(MorseTime time) {
-        return m_time;
+    public long time() {
+        return m_time.getTime();
     }
 
     public void clear() {
@@ -69,54 +98,8 @@ public class MorseGraphView extends View {
         return m_text;
     }
 
-    public void setText(@NonNull String text) {
-        if (text == null || text.isEmpty()
-                || text.charAt(0) == ' ' || m_time == null) {
-            Log.d("setText", "error");
-            return;
-        }
-
-        clear();
-
+    protected void setText(@NonNull String text) {
         m_text = text;
-
-        long currentTime = 0;
-
-        m_changePoints.add(currentTime);
-
-        Log.d("setText", text);
-
-        for (char symbol : text.toCharArray()) {
-            if (symbol == ' ') {
-                m_changePoints.set(m_changePoints.size() - 1,
-                        currentTime += (m_time.getPeriodGapWord() -
-                                m_changePoints.get(m_changePoints.size() - 1)));
-            }
-
-            Const _const = Const.find(symbol);
-
-            if (_const == null) {
-                continue;
-            }
-
-            Morse morse = _const.getMorse();
-
-            do {
-                m_changePoints.add(currentTime +=
-                        (morse.isPointOnTop() ? m_time.getPeriodPoint()
-                                : m_time.getPeriodDash()));
-
-                m_changePoints.add(currentTime += m_time.getPeriodGapBase());
-            } while (morse.pop());
-
-            m_changePoints.set(m_changePoints.size() - 1,
-                    currentTime += (m_time.getPeriodGapSymbol() -
-                            m_changePoints.get(m_changePoints.size() - 1)));
-        }
-
-        m_changePoints.remove(m_changePoints.size() - 1);
-
-        postInvalidateOnAnimation();
     }
 
     public int dpToPx(int dp) {
@@ -127,10 +110,6 @@ public class MorseGraphView extends View {
     public int pxToDp(int px) {
         float density = getContext().getResources().getDisplayMetrics().density;
         return (int) (px / density);
-    }
-
-    public long getTime() {
-        return m_time.getTime();
     }
 
     protected void setTimePoint() {
@@ -151,6 +130,14 @@ public class MorseGraphView extends View {
 
     protected void add(long value) {
         m_changePoints.add(value);
+    }
+
+    protected void set(int index, long value) {
+        m_changePoints.set(index, value);
+    }
+
+    protected void remove(int index) {
+        m_changePoints.remove(index);
     }
 
     public boolean isRunning() {
@@ -293,7 +280,7 @@ public class MorseGraphView extends View {
         }
 
         if (m_isRunning) {
-            drawTime(canvas, getTime(), MIDDLE, false);
+            drawTime(canvas, time(), MIDDLE, false);
             postInvalidateOnAnimation();
         } else {
             drawTime(canvas, get(0), BEGIN, false);

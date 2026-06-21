@@ -1,7 +1,19 @@
 package com.example.morsefree;
 
+import static com.example.morsefree.Morse.Const;
+import static com.example.morsefree.Morse.Const.*;
+
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
+
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
+
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 public class MorseGraphViewOutput extends MorseGraphView {
     private boolean m_isLess = false;
@@ -10,6 +22,54 @@ public class MorseGraphViewOutput extends MorseGraphView {
 
     public MorseGraphViewOutput(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+    }
+
+    public void setText(@NonNull String text) {
+        if (text == null || text.isEmpty()
+                || text.charAt(0) == ' ' || getTime() == null) {
+            Log.d("setText", "error");
+            return;
+        }
+
+        super.setText(text);
+
+        clear();
+
+        long currentTime = 0;
+
+        add(currentTime);
+
+        Log.d("setText", text);
+
+        for (char symbol : text.toCharArray()) {
+            if (symbol == ' ') {
+                set(size() - 1, currentTime +=
+                        (getTime().getPeriodGapWord() - get(size() - 1)));
+            }
+
+            Morse.Const _const = Morse.Const.find(symbol);
+
+            if (_const == null) {
+                continue;
+            }
+
+            Morse morse = _const.getMorse();
+
+            do {
+                add(currentTime +=
+                        (morse.isPointOnTop() ? getTime().getPeriodPoint()
+                                : getTime().getPeriodDash()));
+
+                add(currentTime += getTime().getPeriodGapBase());
+            } while (morse.pop());
+
+            set(size() - 1, currentTime +=
+                    (getTime().getPeriodGapSymbol() - get(size() - 1)));
+        }
+
+        remove(size() - 1);
+
+        postInvalidateOnAnimation();
     }
 
     public String newSentence(int length) {
@@ -42,20 +102,18 @@ public class MorseGraphViewOutput extends MorseGraphView {
         setText(text);
     }
 
-
-
     char randomSymbolCurrentAndLessLevel() {
-        Morse.Const morse = Morse.Const.randomSymbolCurrentAndLessLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
+        Const _const = Const.randomSymbolCurrentAndLessLevel(getLanguage(), getLevel());
+        if (_const != null) {
+            return _const.getSymbol();
         }
         return '\0';
     }
 
     char randomSymbolCurrentLevel() {
-        Morse.Const morse = Morse.Const.randomSymbolCurrentLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
+        Const _const = Const.randomSymbolCurrentLevel(getLanguage(), getLevel());
+        if (_const != null) {
+            return _const.getSymbol();
         }
         return '\0';
     }

@@ -23,8 +23,6 @@ import androidx.annotation.NonNull;
 public class MorseGraphViewInput extends MorseGraphView {
     private char m_currentSymbol = '\0';
     private Morse m_morse = new Morse();
-    private Language m_language = Language.defaultValue();
-    private Level m_level = Level.defaultValue();
     private boolean m_isLess = false;
 
     public MorseGraphViewInput(Context context, AttributeSet attributeSet) {
@@ -50,7 +48,7 @@ public class MorseGraphViewInput extends MorseGraphView {
     public Action press() {
         Action action = NONE;
         setTimePoint();
-        add(getTime());
+        add(time());
         if ((size() & 0x01) == 0) {
             action = isPointDash();
         } else {
@@ -84,24 +82,28 @@ public class MorseGraphViewInput extends MorseGraphView {
     }
 
     private void updateSymbol() {
-        Const.find(m_language, m_morse);
+        Const _const = Const.find(getLanguage(), m_morse);
+
+        if (_const != null) {
+            boolean isAdd = m_currentSymbol == '\0';
+            m_currentSymbol = _const.getSymbol();
+            if (isAdd) {
+                setText(getText() + m_currentSymbol);
+            } else {
+                setText(getText().substring(0, getText().length() - 1) + m_currentSymbol);
+            }
+        }
     }
 
-    public Language getLanguage() {
-        return m_language;
+    private void applySymbol() {
+        m_currentSymbol = '\0';
     }
 
-    public void setLanguage(Language language) {
-        m_language = language;
+    private void applyWord() {
+        applySymbol();
+        setText(getText() + ' ');
     }
 
-    public Level getLevel() {
-        return m_level;
-    }
-
-    public void setLevel(Level level) {
-        m_level = level;
-    }
     private void applyPoint() {
         m_morse.addPoint();
     }
@@ -119,7 +121,7 @@ public class MorseGraphViewInput extends MorseGraphView {
         }
 
         if (isRunning()) {
-            drawTime(canvas, getTime(), END, true);
+            drawTime(canvas, time(), END, true);
             postInvalidateOnAnimation();
         } else {
             drawTime(canvas, get(0), BEGIN, false);
