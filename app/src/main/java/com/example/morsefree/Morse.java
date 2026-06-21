@@ -1,10 +1,10 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.Morse.Level;
 import static com.example.morsefree.Morse.Level.*;
 
-import static com.example.morsefree.Morse.Language;
 import static com.example.morsefree.Morse.Language.*;
+
+import android.util.Log;
 
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
@@ -22,10 +22,8 @@ public class Morse {
     public enum Level {
         E_AND_T, I_AND_M, A_AND_N, S_AND_O,
         U_AND_G, R_AND_K, W_AND_D, H_AND_SH,
-        V_AND_CH, F_AND_Q,
-        YU_AND_Z, L_AND_Y,
-        YA_AND_C, P_AND_X,
-        J_AND_B, HARD_SING,
+        V_AND_CH, F_AND_Q, YU_AND_Z, L_AND_Y,
+        YA_AND_C, P_AND_X, J_AND_B, HARD_SING,
         ONE_AND_SIX, TWO_AND_SEVEN,
         THREE_AND_EIGHT, FOUR_AND_NINE,
         FIVE_AND_ZERO, OPEN_BRACKET_AND_CLOSE_BRACKET,
@@ -36,17 +34,25 @@ public class Morse {
         public static Level defaultValue() {
             return E_AND_T;
         }
+
         public static Level defaultLatin() {
             return E_AND_T;
         }
-        public static Level defaultCirillic() {
+
+        public static Level defaultCyrillic() {
             return E_AND_T;
         }
+
         public static Level defaultNumber() {
             return ONE_AND_SIX;
         }
+
         public static Level defaultSymbol() {
             return OPEN_BRACKET_AND_CLOSE_BRACKET;
+        }
+
+        public static Level end() {
+            return AT;
         }
 
         public boolean is(Level level) {
@@ -55,18 +61,24 @@ public class Morse {
     }
 
     public enum Language {
-        LATIN(defaultLatin().ordinal()),
-        CYRILLIC(defaultCirillic().ordinal()),
-        NUMBER(defaultNumber().ordinal()),
-        SYMBOL(defaultSymbol().ordinal());
+        LATIN(defaultLatin().ordinal(), defaultNumber().ordinal()),
+        CYRILLIC(defaultCyrillic().ordinal(), defaultNumber().ordinal()),
+        NUMBER(defaultNumber().ordinal(), defaultSymbol().ordinal()),
+        SYMBOL(defaultSymbol().ordinal(), end().ordinal() + 1);
 
-        private int m_levelOrdinal;
-        private Language(int ordinal) {
-            m_levelOrdinal = ordinal;
+        private int m_beginOrdinal = 0;
+        private int m_endOrdinal = 0;
+        private Language(int beginOrdinal, int endOrdinal) {
+            m_beginOrdinal = beginOrdinal;
+            m_endOrdinal = endOrdinal;
         }
 
-        public int getLevelOrdinal() {
-            return m_levelOrdinal;
+        public int getBeginOrdinal() {
+            return m_beginOrdinal;
+        }
+
+        public int getEndOrdinal() {
+            return m_endOrdinal;
         }
 
         public static Language defaultValue() {
@@ -197,8 +209,9 @@ public class Morse {
 
         private final char m_symbol;
         private final Morse m_morse;
-
-        private final static HashMap<Language, HashMap<Level, ArrayList<Const>>> DATA_TO_SYMBOL =
+        private final static HashMap<Language, HashMap<Morse, Const>> DATA_TO_SYMBOL =
+                new HashMap<Language, HashMap<Morse, Const>>();
+        private final static HashMap<Language, HashMap<Level, ArrayList<Const>>> DATA_LEVEL =
                 new HashMap<Language, HashMap<Level, ArrayList<Const>>>();
 
         private Const(char symbol) {
@@ -217,26 +230,50 @@ public class Morse {
 
         static {
             postInit();
+            for (HashMap<Morse, Const> consts : DATA_TO_SYMBOL.values()) {
+                for (Const _const : consts.values()) {
+                    Log.d("symbol", _const.toString() + '\t' + _const.getSymbol());
+                }
+            }
         }
 
         private static void postInit() {
-            for (Const morse : values()) {
-                HashMap<Level, ArrayList<Const>> map =
-                        DATA_TO_SYMBOL.get(morse.getLanguage());
+            for (Language language : Language.values()) {
+                HashMap<Level, ArrayList<Const>> levels =
+                        new HashMap<Level, ArrayList<Const>>();
+                DATA_TO_SYMBOL.put(language, new HashMap<Morse, Const>());
+                DATA_LEVEL.put(language, levels);
 
-                if (map == null) {
-                    DATA_TO_SYMBOL.put(morse.getLanguage(),
-                            map = new HashMap<Level, ArrayList<Const>>());
+                for (int beginOrdinal = language.getBeginOrdinal(),
+                        endOrdinal = language.getEndOrdinal();
+                        beginOrdinal < endOrdinal; beginOrdinal++) {
+                    levels.put(Level.values()[beginOrdinal], new ArrayList<Const>());
+                }
+            }
+
+            for (Const _const : values()) {
+                HashMap<Level, ArrayList<Const>> levels =
+                        DATA_LEVEL.get(_const.getLanguage());
+                HashMap<Morse, Const> currentLanguage =
+                        DATA_TO_SYMBOL.get(_const.getLanguage());
+
+                ArrayList<Const> level = null;
+
+                if (currentLanguage != null) {
+                    currentLanguage.put(_const.m_morse, _const);
                 }
 
-                ArrayList<Const> arr = map.get(morse.getLevel());
-
-                if (arr == null) {
-                    map.put(morse.getLevel(),
-                            arr = new ArrayList<Const>());
+                if (levels == null) {
+                    continue;
                 }
 
-                arr.add(morse);
+                level = levels.get(_const.getLevel());
+
+                if (level == null) {
+                    continue;
+                }
+
+                level.add(_const);
             }
         }
 
@@ -265,55 +302,34 @@ public class Morse {
         }
 
         private static @Nullable Const findPvt(Language language, Morse morse) {
-            HashMap<Level, ArrayList<Const>> levels = DATA_TO_SYMBOL.get(language);
+            HashMap<Morse, Const> currentLanguage = DATA_TO_SYMBOL.get(language);
 
-            if (levels == null) {
+            if (currentLanguage == null) {
                 return null;
             }
 
-            for (ArrayList<Const> constList : levels.values()) {
-                if (constList != null) {
-                    for (Const _const : constList) {
-                        if (_const.equals(morse)) {
-                            return _const;
-                        }
-                    }
-                }
-            }
-            return null;
+            Log.d("count", String.valueOf(currentLanguage.values().size()));
+
+            Log.d("I", String.valueOf(I_LATIN.m_morse.m_data) + '\t'
+                    + String.valueOf(I_LATIN.m_morse.m_length));
+
+            Log.d("morse", String.valueOf(morse.m_data) + '\t'
+                    + String.valueOf(morse.m_length));
+
+            return currentLanguage.get(morse);
         }
 
         public static @Nullable Const find(Language language, Morse morse) {
-            Const res = null;
-            switch (language) {
-                case LATIN:
-                    res = findPvt(LATIN, morse);
-                    if (res != null) {
-                        break;
-                    }
+            Const res = findPvt(language, morse);
+            if (res != null) {
+                return res;
+            }
 
-                    res = findPvt(NUMBER, morse);
-                    if (res != null) {
-                        break;
-                    }
+            if (language == Language.LATIN || language == Language.CYRILLIC) {
+                res = findPvt(Language.NUMBER, morse);
+                if (res != null) return res;
 
-                    res = findPvt(SYMBOL, morse);
-                    break;
-                case CYRILLIC:
-                    res = findPvt(CYRILLIC, morse);
-                    if (res != null) {
-                        break;
-                    }
-
-                    res = findPvt(NUMBER, morse);
-                    if (res != null) {
-                        break;
-                    }
-
-                    res = findPvt(SYMBOL, morse);
-                    break;
-                default:
-                    res = findPvt(language, morse);
+                res = findPvt(Language.SYMBOL, morse);
             }
 
             return res;
@@ -330,14 +346,15 @@ public class Morse {
         }
 
         public static @Nullable ArrayList<Const> symbols(
-                Language language, Level level) {
-            HashMap<Level, ArrayList<Const>> map =  DATA_TO_SYMBOL.get(language);
+                Language currentLanguage, Level currentLevel) {
+            HashMap<Level, ArrayList<Const>> levels =  DATA_LEVEL.get(currentLanguage);
+            ArrayList<Const> level = null;
 
-            if (map == null) {
+            if (levels == null) {
                 return null;
             }
 
-            return map.get(level);
+            return levels.get(currentLevel);
         }
 
         public static @Nullable Const randomSymbolCurrentLevel(
@@ -364,34 +381,40 @@ public class Morse {
                     level = (int)(Math.random() * 3) == 0 ?
                             level : Level.values()
                             [((int)(Math.random() * ((level.ordinal() -
-                            CYRILLIC.getLevelOrdinal() + 1)))) +
-                            CYRILLIC.getLevelOrdinal()];
+                            CYRILLIC.getBeginOrdinal() + 1)))) +
+                            CYRILLIC.getBeginOrdinal()];
                     break;
                 case LATIN:
                     level = (int)(Math.random() * 3) == 0 ?
                             level : Level.values()
                             [((int)(Math.random() * ((level.ordinal() -
-                            LATIN.getLevelOrdinal() + 1)))) +
-                            LATIN.getLevelOrdinal()];
+                            LATIN.getBeginOrdinal() + 1)))) +
+                            LATIN.getBeginOrdinal()];
                     break;
                 case NUMBER:
                     level = (int)(Math.random() * 3) == 0 ?
                             level : Level.values()
                             [((int)(Math.random() * ((level.ordinal() -
-                            NUMBER.getLevelOrdinal() + 1)))) +
-                            NUMBER.getLevelOrdinal()];
+                            NUMBER.getBeginOrdinal() + 1)))) +
+                            NUMBER.getBeginOrdinal()];
                     break;
                 case SYMBOL:
                     level = (int)(Math.random() * 3) == 0 ?
                             level : Level.values()
                             [((int)(Math.random() * ((level.ordinal() -
-                            SYMBOL.getLevelOrdinal() + 1)))) +
-                            SYMBOL.getLevelOrdinal()];
+                            SYMBOL.getBeginOrdinal() + 1)))) +
+                            SYMBOL.getBeginOrdinal()];
                     break;
                 default:
                     break;
             }
             return randomSymbolCurrentLevel(language, level);
+        }
+
+        @androidx.annotation.NonNull
+        @Override
+        public String toString() {
+            return m_morse.toString();
         }
     }
 
@@ -425,9 +448,7 @@ public class Morse {
         }
 
         Morse morse = (Morse) object;
-        return m_data == morse.m_data && m_length == morse.m_length
-                && m_language.equals(morse.m_language)
-                && m_level.equals(morse.m_level);
+        return m_data == morse.m_data && m_length == morse.m_length;
     }
 
     public boolean equals(Const morse) {
@@ -440,7 +461,7 @@ public class Morse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(m_data, m_length, m_language, m_level);
+        return Objects.hash(m_data, m_length);
     }
 
     public void clear() {
@@ -504,5 +525,26 @@ public class Morse {
 
     public void setLevel(Level level) {
         m_level = level;
+    }
+
+    @Override
+    public String toString() {
+        if (m_length == 0) {
+            return "";
+        }
+
+        StringBuilder string = new StringBuilder(m_length);
+
+        for (int i = m_length - 1; i >= 0; i--) {
+            int bit = (m_data >> i) & 0x01;
+
+            if (bit == 0) {
+                string.append('.');
+            } else {
+                string.append('-');
+            }
+        }
+
+        return string.toString();
     }
 }

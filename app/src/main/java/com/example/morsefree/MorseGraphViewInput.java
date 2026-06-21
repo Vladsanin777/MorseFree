@@ -17,19 +17,21 @@ import static com.example.morsefree.MorseGraphView.Position.*;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 public class MorseGraphViewInput extends MorseGraphView {
     private char m_currentSymbol = '\0';
     private Morse m_morse = new Morse();
-    private boolean m_isLess = false;
 
     public MorseGraphViewInput(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
     }
 
     public void start() {
+        m_morse.clear();
+        clear();
         press();
         super.start();
     }
@@ -38,6 +40,7 @@ public class MorseGraphViewInput extends MorseGraphView {
         if ((size() & 1) == 1) {
             press();
         }
+
         super.stop();
     }
 
@@ -82,7 +85,10 @@ public class MorseGraphViewInput extends MorseGraphView {
     }
 
     private void updateSymbol() {
+        Log.d("morse", m_morse.toString());
         Const _const = Const.find(getLanguage(), m_morse);
+
+        Log.d("find", String.valueOf(_const));
 
         if (_const != null) {
             String oldString = getText();
@@ -97,23 +103,17 @@ public class MorseGraphViewInput extends MorseGraphView {
                         : String.valueOf(m_currentSymbol));
             }
         }
+        Log.d("sentence", String.valueOf(getText()));
     }
 
     private void applySymbol() {
         m_currentSymbol = '\0';
+        m_morse.clear();
     }
 
     private void applyWord() {
         applySymbol();
         setText(getText() + ' ');
-    }
-
-    private void applyPoint() {
-        m_morse.addPoint();
-    }
-
-    private void applyDash() {
-        m_morse.addDash();
     }
 
     @Override

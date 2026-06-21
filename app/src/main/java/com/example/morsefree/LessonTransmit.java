@@ -73,6 +73,8 @@ public class LessonTransmit extends AppCompatActivity {
 
             morseInput.setLanguage(language);
             morseInput.setLevel(level);
+            morseOutput.setLanguage(language);
+            morseOutput.setLevel(level);
             morseOutput.setIsLess(isLess);
             morseOutput.setLengthSentence(lengthSentence);
             morseOutput.setIsRandomLengthSentence(isRandomLengthSentence);
@@ -138,7 +140,7 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void endAction() {
-        applySymbol();
+        updateUserSentence();
 
         m_handler.removeCallbacks(m_idleRunnable);
         m_sound.stop();
@@ -175,6 +177,7 @@ public class LessonTransmit extends AppCompatActivity {
 
     void clearUserSentence() {
         m_binding.userSentence.setText("");
+        m_binding.currentSymbol.setText("");
         m_binding.userSentenceMorse.clear();
     }
 
@@ -228,6 +231,7 @@ public class LessonTransmit extends AppCompatActivity {
             case MotionEvent.ACTION_CANCEL:
                 if (!m_isRunning) {
                     updateSentence();
+                    clearUserSentence();
                     m_isRunning = true;
                     m_binding.buttonTransmit.setText(R.string.start);
                     return true;
@@ -259,13 +263,5 @@ public class LessonTransmit extends AppCompatActivity {
                 return true;
         }
         return false;
-    }
-
-    private void applySymbol() {
-        m_binding.currentSymbol.setText(String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
-    }
-
-    private void applyWord() {
-        m_binding.currentSymbol.setText(String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
     }
 }

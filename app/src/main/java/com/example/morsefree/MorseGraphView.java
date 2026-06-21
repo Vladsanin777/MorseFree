@@ -101,6 +101,7 @@ public abstract class MorseGraphView extends View {
 
     protected void setText(@NonNull String text) {
         m_text = text;
+        Log.d("setText", text);
     }
 
     public int dpToPx(int dp) {
