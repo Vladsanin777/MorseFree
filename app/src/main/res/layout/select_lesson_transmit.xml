@@ -76,7 +76,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
                             android:text="@string/cyrillic_e_and_t"
-                            android:tag="MORSE_LEVEL_E_AND_T;MORSE_CYRILLIC"
+                            android:tag="E_AND_T;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -94,7 +94,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
                             android:text="@string/latin_e_and_t"
-                            android:tag="MORSE_LEVEL_E_AND_T;MORSE_LATIN"
+                            android:tag="E_AND_T;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -142,7 +142,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_i_and_m"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_I_AND_M;MORSE_CYRILLIC"
+                            android:tag="I_AND_M;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -151,7 +151,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_a_and_n"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_A_AND_N;MORSE_CYRILLIC"
+                            android:tag="A_AND_N;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -169,7 +169,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_i_and_m"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_I_AND_M;MORSE_LATIN"
+                            android:tag="I_AND_M;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -178,7 +178,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_a_and_n"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_A_AND_N;MORSE_LATIN"
+                            android:tag="A_AND_N;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -226,7 +226,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_s_and_o"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_S_AND_O;MORSE_CYRILLIC"
+                            android:tag="S_AND_O;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -235,7 +235,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_u_and_g"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_U_AND_G;MORSE_CYRILLIC"
+                            android:tag="U_AND_G;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -244,7 +244,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_r_and_k"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_R_AND_K;MORSE_CYRILLIC"
+                            android:tag="R_AND_K;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -253,7 +253,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_w_and_d"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_W_AND_D;MORSE_CYRILLIC"
+                            android:tag="W_AND_D;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -271,7 +271,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_s_and_o"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_S_AND_O;MORSE_LATIN"
+                            android:tag="S_AND_O;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -280,7 +280,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_u_and_g"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_U_AND_G;MORSE_LATIN"
+                            android:tag="U_AND_G;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -289,7 +289,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_r_and_k"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_R_AND_K;MORSE_LATIN"
+                            android:tag="R_AND_K;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -298,7 +298,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_w_and_d"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_W_AND_D;MORSE_LATIN"
+                            android:tag="W_AND_D;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -346,7 +346,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_h_and_sh"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_H_AND_SH;MORSE_CYRILLIC"
+                            android:tag="H_AND_SH;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -355,7 +355,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_v_and_ch"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_V_AND_CH;MORSE_CYRILLIC"
+                            android:tag="V_AND_CH;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -364,7 +364,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_f_and_q"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_F_AND_Q;MORSE_CYRILLIC"
+                            android:tag="F_AND_Q;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -373,7 +373,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_yu_and_z"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_YU_AND_Z;MORSE_CYRILLIC"
+                            android:tag="YU_AND_Z;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -382,7 +382,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_l_and_y"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_L_AND_Y;MORSE_CYRILLIC"
+                            android:tag="L_AND_Y;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -391,7 +391,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_ya_and_c"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_YA_AND_C;MORSE_CYRILLIC"
+                            android:tag="YA_AND_C;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -400,7 +400,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_p_and_x"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_P_AND_X;MORSE_CYRILLIC"
+                            android:tag="P_AND_X;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -409,7 +409,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/cyrillic_j_and_b"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_J_AND_B;MORSE_CYRILLIC"
+                            android:tag="J_AND_B;CYRILLIC"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -427,7 +427,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_h_and_sh"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_H_AND_SH;MORSE_LATIN"
+                            android:tag="H_AND_SH;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -436,7 +436,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_v_and_ch"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_V_AND_CH;MORSE_LATIN"
+                            android:tag="V_AND_CH;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -445,7 +445,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_f_and_q"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_F_AND_Q;MORSE_LATIN"
+                            android:tag="F_AND_Q;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -454,7 +454,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_yu_and_z"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_YU_AND_Z;MORSE_LATIN"
+                            android:tag="YU_AND_Z;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -463,7 +463,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_l_and_y"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_L_AND_Y;MORSE_LATIN"
+                            android:tag="L_AND_Y;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -472,7 +472,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_ya_and_c"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_YA_AND_C;MORSE_LATIN"
+                            android:tag="YA_AND_C;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -481,7 +481,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_p_and_x"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_P_AND_X;MORSE_LATIN"
+                            android:tag="P_AND_X;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                         <Button
@@ -490,7 +490,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/latin_j_and_b"
                             android:layout_margin="4dp"
-                            android:tag="MORSE_LEVEL_J_AND_B;MORSE_LATIN"
+                            android:tag="J_AND_B;LATIN"
                             android:onClick="onClickSelectLessonTransmit"/>
 
                     </LinearLayout>
@@ -526,7 +526,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_1_and_6"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_ONE_AND_SIX;MORSE_NUMBERS"
+                    android:tag="ONE_AND_SIX;NUMBER"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -535,7 +535,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_2_and_7"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_TWO_AND_SEVEN;MORSE_NUMBERS"
+                    android:tag="TWO_AND_SEVEN;NUMBERS"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -544,7 +544,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_3_and_8"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_THREE_AND_EIGHT;MORSE_NUMBERS"
+                    android:tag="THREE_AND_EIGHT;NUMBERS"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -553,7 +553,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_4_and_9"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_FOUR_AND_NINE;MORSE_NUMBERS"
+                    android:tag="FOUR_AND_NINE;NUMBERS"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -562,7 +562,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_5_and_0"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_FIVE_AND_ZERO;MORSE_NUMBERS"
+                    android:tag="FIVE_AND_ZERO;NUMBERS"
                     android:onClick="onClickSelectLessonTransmit"/>
 
             </LinearLayout>
@@ -594,7 +594,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_open_bracket_and_close_bracket"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_OPEN_BRACKET_AND_CLOSE_BRACKET;MORSE_SYMBOL"
+                    android:tag="OPEN_BRACKET_AND_CLOSE_BRACKET;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -603,7 +603,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_point_and_comma"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_POINT_AND_COMMA;MORSE_SYMBOL"
+                    android:tag="POINT_AND_COMMA;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -612,7 +612,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_semicolon_and_colon"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_SEMICOLON_AND_COLON;MORSE_SYMBOL"
+                    android:tag="SEMICOLON_AND_COLON;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -621,7 +621,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_quotes_and_apostrophe"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_QUOTES_AND_APOSTROPHE;MORSE_SYMBOL"
+                    android:tag="QUOTES_AND_APOSTROPHE;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -630,7 +630,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_dash_and_slash"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_DASH_AND_SLASH;MORSE_SYMBOL"
+                    android:tag="DASH_AND_SLASH;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -639,7 +639,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_question_mark_and_exclamation_mark"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_QUESTION_MARK_AND_EXCLAMATION_MARK;MORSE_SYMBOL"
+                    android:tag="QUESTION_MARK_AND_EXCLAMATION_MARK;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -648,7 +648,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/symbol_at"
                     android:layout_margin="4dp"
-                    android:tag="MORSE_LEVEL_AT;MORSE_SYMBOL"
+                    android:tag="AT;SYMBOL"
                     android:onClick="onClickSelectLessonTransmit"/>
 
             </LinearLayout>

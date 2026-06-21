@@ -85,12 +85,16 @@ public class MorseGraphViewInput extends MorseGraphView {
         Const _const = Const.find(getLanguage(), m_morse);
 
         if (_const != null) {
+            String oldString = getText();
             boolean isAdd = m_currentSymbol == '\0';
             m_currentSymbol = _const.getSymbol();
             if (isAdd) {
-                setText(getText() + m_currentSymbol);
+                setText(oldString != null ?
+                        oldString + m_currentSymbol : String.valueOf(m_currentSymbol));
             } else {
-                setText(getText().substring(0, getText().length() - 1) + m_currentSymbol);
+                setText(oldString != null ?
+                        oldString.substring(0, oldString.length() - 1) + m_currentSymbol
+                        : String.valueOf(m_currentSymbol));
             }
         }
     }

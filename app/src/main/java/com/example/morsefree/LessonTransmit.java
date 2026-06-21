@@ -122,7 +122,9 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void applyInfoGradient(int finalColor) {
         m_colorsInfoGradient[1] = finalColor;
-        float radius = Math.max(m_binding.rootLayout.getWidth(), m_binding.rootLayout.getHeight());
+        float radius = Math.max(m_binding.rootLayout.getWidth(),
+                m_binding.rootLayout.getHeight());
+
         m_infoGradient.setGradientRadius(radius);
         m_infoGradient.setColors(m_colorsInfoGradient);
 
@@ -159,10 +161,6 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void checkMessage() {
-        checkMessage(false);
-    }
-
-    private void checkMessage(boolean isError) {
         if (m_binding.sentence.getText().equals(m_binding.userSentence.getText())) {
             win();
         } else {
@@ -171,6 +169,8 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     void updateSentence() {
+        String sentence = m_binding.sentenceMorse.updateSentence();
+        m_binding.sentence.setText(sentence);
     }
 
     void clearUserSentence() {
@@ -184,7 +184,10 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     void updateUserSentence() {
+        char currentSymbol = m_binding.userSentenceMorse.getCurrentSymbol();
         String sentence = m_binding.userSentenceMorse.getText();
+
+        m_binding.currentSymbol.setText(String.valueOf(currentSymbol));
         m_binding.userSentence.setText(sentence);
     }
 
@@ -206,11 +209,13 @@ public class LessonTransmit extends AppCompatActivity {
                             error();
                             return true;
                         case POINT:
-
+                        case DASH:
+                            updateUserSentence();
+                            break;
+                        default:
+                            break;
                     }
-                    if (action == NONE) {
 
-                    }
                 } else {
                     m_time.start();
                     m_binding.userSentenceMorse.start();
@@ -237,9 +242,16 @@ public class LessonTransmit extends AppCompatActivity {
 
                 Action action = m_binding.userSentenceMorse.press();
 
-                if (action == NONE) {
-                    error();
-                    return true;
+                switch (action) {
+                    case NONE:
+                        error();
+                        return true;
+                    case GAP_SYMBOL:
+                    case GAP_WORD:
+                        updateUserSentence();
+                        break;
+                    default:
+                        break;
                 }
 
                 return true;
@@ -250,12 +262,10 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void applySymbol() {
-        updateUserSentence();
         m_binding.currentSymbol.setText(String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
     }
 
     private void applyWord() {
-        updateUserSentence();
         m_binding.currentSymbol.setText(String.valueOf(m_binding.userSentenceMorse.getCurrentSymbol()));
     }
 }

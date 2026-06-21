@@ -1,5 +1,6 @@
 package com.example.morsefree;
 
+import android.annotation.SuppressLint;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.Log;
@@ -144,8 +145,9 @@ public abstract class MorseGraphView extends View {
         return m_isRunning;
     }
 
+    @SuppressLint("WrongCall")
     protected final void drawStandardView(@NonNull Canvas canvas) {
-        super.draw(canvas);
+        super.onDraw(canvas);
     }
 
     protected Action isPointDash() {

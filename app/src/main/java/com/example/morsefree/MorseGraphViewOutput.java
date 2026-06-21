@@ -72,7 +72,7 @@ public class MorseGraphViewOutput extends MorseGraphView {
         postInvalidateOnAnimation();
     }
 
-    public String newSentence(int length) {
+    protected String newSentence(int length) {
         StringBuilder sentence = new StringBuilder(length);
         if (m_isLess) {
             while (sentence.length() < length) {
@@ -92,7 +92,7 @@ public class MorseGraphViewOutput extends MorseGraphView {
         return sentence.toString();
     }
 
-    void updateSentence() {
+    public String updateSentence() {
         String text = null;
         if (m_isRandomLengthSentence) {
             text = newSentence(((int)(Math.random() * (m_lengthSentence - 1))) + 1);
@@ -100,9 +100,11 @@ public class MorseGraphViewOutput extends MorseGraphView {
             text = newSentence(m_lengthSentence);
         }
         setText(text);
+
+        return text;
     }
 
-    char randomSymbolCurrentAndLessLevel() {
+    protected char randomSymbolCurrentAndLessLevel() {
         Const _const = Const.randomSymbolCurrentAndLessLevel(getLanguage(), getLevel());
         if (_const != null) {
             return _const.getSymbol();
@@ -110,7 +112,7 @@ public class MorseGraphViewOutput extends MorseGraphView {
         return '\0';
     }
 
-    char randomSymbolCurrentLevel() {
+    protected char randomSymbolCurrentLevel() {
         Const _const = Const.randomSymbolCurrentLevel(getLanguage(), getLevel());
         if (_const != null) {
             return _const.getSymbol();

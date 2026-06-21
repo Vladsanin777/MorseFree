@@ -264,14 +264,59 @@ public class Morse {
             return morse.equals(m_morse);
         }
 
-        public static @Nullable Const find(Language language, Morse morse) {
+        private static @Nullable Const findPvt(Language language, Morse morse) {
             HashMap<Level, ArrayList<Const>> levels = DATA_TO_SYMBOL.get(language);
-            for (Const _const : (Const[]) levels.values().toArray()) {
-                if (_const.equals(morse)) {
-                    return _const;
+
+            if (levels == null) {
+                return null;
+            }
+
+            for (ArrayList<Const> constList : levels.values()) {
+                if (constList != null) {
+                    for (Const _const : constList) {
+                        if (_const.equals(morse)) {
+                            return _const;
+                        }
+                    }
                 }
             }
             return null;
+        }
+
+        public static @Nullable Const find(Language language, Morse morse) {
+            Const res = null;
+            switch (language) {
+                case LATIN:
+                    res = findPvt(LATIN, morse);
+                    if (res != null) {
+                        break;
+                    }
+
+                    res = findPvt(NUMBER, morse);
+                    if (res != null) {
+                        break;
+                    }
+
+                    res = findPvt(SYMBOL, morse);
+                    break;
+                case CYRILLIC:
+                    res = findPvt(CYRILLIC, morse);
+                    if (res != null) {
+                        break;
+                    }
+
+                    res = findPvt(NUMBER, morse);
+                    if (res != null) {
+                        break;
+                    }
+
+                    res = findPvt(SYMBOL, morse);
+                    break;
+                default:
+                    res = findPvt(language, morse);
+            }
+
+            return res;
         }
 
         public static @Nullable Const find(char symbol) {
