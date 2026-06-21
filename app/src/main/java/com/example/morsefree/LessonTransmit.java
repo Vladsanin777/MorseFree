@@ -163,7 +163,13 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     private void checkMessage() {
-        if (m_binding.sentence.getText().equals(m_binding.userSentence.getText())) {
+        String correct = m_binding.sentenceMorse.getText();
+        String current = m_binding.userSentenceMorse.getText();
+
+        Log.d("correct", String.valueOf(correct.length()) + correct);
+        Log.d("current", String.valueOf(current.length()) + current);
+
+        if (correct.equals(current)) {
             win();
         } else {
             error();
@@ -190,6 +196,8 @@ public class LessonTransmit extends AppCompatActivity {
         char currentSymbol = m_binding.userSentenceMorse.getCurrentSymbol();
         String sentence = m_binding.userSentenceMorse.getText();
 
+        Log.d("update", String.valueOf(sentence));
+
         m_binding.currentSymbol.setText(String.valueOf(currentSymbol));
         m_binding.userSentence.setText(sentence);
     }
@@ -211,8 +219,8 @@ public class LessonTransmit extends AppCompatActivity {
                         case NONE:
                             error();
                             return true;
-                        case POINT:
-                        case DASH:
+                        case GAP_SYMBOL:
+                        case GAP_WORD:
                             updateUserSentence();
                             break;
                         default:
@@ -250,8 +258,8 @@ public class LessonTransmit extends AppCompatActivity {
                     case NONE:
                         error();
                         return true;
-                    case GAP_SYMBOL:
-                    case GAP_WORD:
+                    case POINT:
+                    case DASH:
                         updateUserSentence();
                         break;
                     default:

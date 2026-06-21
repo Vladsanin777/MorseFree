@@ -96,6 +96,7 @@ public abstract class MorseGraphView extends View {
     }
 
     public String getText() {
+        Log.d("getText", String.valueOf(m_text));
         return m_text;
     }
 

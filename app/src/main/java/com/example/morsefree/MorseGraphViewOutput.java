@@ -31,9 +31,9 @@ public class MorseGraphViewOutput extends MorseGraphView {
             return;
         }
 
-        super.setText(text);
-
         clear();
+
+        super.setText(text);
 
         long currentTime = 0;
 
