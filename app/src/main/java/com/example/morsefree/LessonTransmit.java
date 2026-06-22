@@ -83,7 +83,7 @@ public class LessonTransmit extends AppCompatActivity {
         }
 
         Button transmitButton = findViewById(R.id.button_transmit);
-        transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
+        transmitButton.setOnTouchListener(this::onTouchTransmitButton);
 
         m_binding.rootLayout.post(this::initInfoGradient);
 
@@ -142,6 +142,8 @@ public class LessonTransmit extends AppCompatActivity {
     private void endAction() {
         updateUserSentence();
 
+        clearCurrentSymbol();
+
         m_handler.removeCallbacks(m_idleRunnable);
         m_sound.stop();
         m_binding.sentenceMorse.stop();
@@ -166,9 +168,6 @@ public class LessonTransmit extends AppCompatActivity {
         String correct = m_binding.sentenceMorse.getText();
         String current = m_binding.userSentenceMorse.getText();
 
-        Log.d("correct", String.valueOf(correct.length()) + correct);
-        Log.d("current", String.valueOf(current.length()) + current);
-
         if (correct.equals(current)) {
             win();
         } else {
@@ -176,23 +175,27 @@ public class LessonTransmit extends AppCompatActivity {
         }
     }
 
-    void updateSentence() {
+    private void updateSentence() {
         String sentence = m_binding.sentenceMorse.updateSentence();
         m_binding.sentence.setText(sentence);
     }
 
-    void clearUserSentence() {
+    private void clearUserSentence() {
         m_binding.userSentence.setText("");
         m_binding.currentSymbol.setText("");
         m_binding.userSentenceMorse.clear();
     }
 
-    void clearSentence() {
+    private void clearSentence() {
         m_binding.sentence.setText("");
         m_binding.sentenceMorse.clear();
     }
 
-    void updateUserSentence() {
+    private void clearCurrentSymbol() {
+        m_binding.currentSymbol.setText("");
+    }
+
+    private void updateUserSentence() {
         char currentSymbol = m_binding.userSentenceMorse.getCurrentSymbol();
         String sentence = m_binding.userSentenceMorse.getText();
 
@@ -202,69 +205,80 @@ public class LessonTransmit extends AppCompatActivity {
         m_binding.userSentence.setText(sentence);
     }
 
-    private boolean OnTouchTransmitButton(View view, MotionEvent event) {
+    private void press() {
+        Action action = m_binding.userSentenceMorse.press();
+
+        switch (action) {
+            case NONE:
+                error();
+                break;
+            case POINT:
+            case DASH:
+            case GAP_SYMBOL:
+            case GAP_WORD:
+                updateUserSentence();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void start() {
+        updateSentence();
+        clearUserSentence();
+        m_isRunning = true;
+        m_binding.buttonTransmit.setText(R.string.start);
+    }
+
+    private void launche() {
+        m_time.start();
+        m_binding.userSentenceMorse.start();
+        m_binding.sentenceMorse.start();
+        m_binding.buttonTransmit.setText(R.string.transmit);
+    }
+
+    public void touchDown() {
+        if (!m_isRunning) {
+            return;
+        }
+
+        m_handler.removeCallbacks(m_idleRunnable);
+        m_sound.start();
+        if (m_time.isDiff()) {
+            press();
+        } else {
+            launche();
+        }
+    }
+
+    protected void touchUp() {
+        if (!m_isRunning) {
+            start();
+            return;
+        }
+
+        m_handler.postDelayed(m_idleRunnable,
+                m_time.getPeriodGapWord() +
+                        m_time.getPeriodGapWordEpsilonHigh());
+
+        m_sound.stop();
+
+        press();
+    }
+
+    protected boolean onTouchTransmitButton(View view, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                if (!m_isRunning) {
-                    return true;
-                }
-
-                m_handler.removeCallbacks(m_idleRunnable);
-                m_sound.start();
                 view.setPressed(true);
-                if (m_time.isDiff()) {
-                    Action action = m_binding.userSentenceMorse.press();
 
-                    switch (action) {
-                        case NONE:
-                            error();
-                            return true;
-                        case GAP_SYMBOL:
-                        case GAP_WORD:
-                            updateUserSentence();
-                            break;
-                        default:
-                            break;
-                    }
-
-                } else {
-                    m_time.start();
-                    m_binding.userSentenceMorse.start();
-                    m_binding.sentenceMorse.start();
-                    m_binding.buttonTransmit.setText(R.string.transmit);
-                }
+                touchDown();
 
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                if (!m_isRunning) {
-                    updateSentence();
-                    clearUserSentence();
-                    m_isRunning = true;
-                    m_binding.buttonTransmit.setText(R.string.start);
-                    return true;
-                }
-
-                m_handler.postDelayed(m_idleRunnable,
-                        m_time.getPeriodGapWord() +
-                        m_time.getPeriodGapWordEpsilonHigh());
-
-                m_sound.stop();
                 view.setPressed(false);
 
-                Action action = m_binding.userSentenceMorse.press();
-
-                switch (action) {
-                    case NONE:
-                        error();
-                        return true;
-                    case POINT:
-                    case DASH:
-                        updateUserSentence();
-                        break;
-                    default:
-                        break;
-                }
+                touchUp();
 
                 return true;
             case MotionEvent.ACTION_MOVE:

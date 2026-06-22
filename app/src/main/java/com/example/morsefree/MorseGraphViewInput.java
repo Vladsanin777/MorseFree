@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 public class MorseGraphViewInput extends MorseGraphView {
     private char m_currentSymbol = '\0';
     private Morse m_morse = new Morse();
+    private Language m_defaultLatCyr = LATIN;
 
     public MorseGraphViewInput(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -86,7 +87,7 @@ public class MorseGraphViewInput extends MorseGraphView {
 
     private void updateSymbol() {
         Log.d("morse", m_morse.toString());
-        Const _const = Const.find(getLanguage(), m_morse);
+        Const _const = Const.find(getLanguage(), m_morse, m_defaultLatCyr);
 
         Log.d("find", String.valueOf(_const));
 
@@ -114,6 +115,16 @@ public class MorseGraphViewInput extends MorseGraphView {
     private void applyWord() {
         applySymbol();
         setText(getText() + ' ');
+    }
+
+    public Language getDefaultLatCyr() {
+        return m_defaultLatCyr;
+    }
+
+    public void setDefaultLatCyr(Language language) {
+        if (language == LATIN || language == CYRILLIC) {
+            m_defaultLatCyr = language;
+        }
     }
 
     @Override

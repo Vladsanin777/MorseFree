@@ -17,7 +17,6 @@ public class Morse {
     private int m_data = 0;
     private byte m_length = 0;
     private Language m_language = Language.defaultValue();
-    private Level m_level = Level.defaultValue();
 
     public enum Level {
         E_AND_T, I_AND_M, A_AND_N, S_AND_O,
@@ -207,12 +206,16 @@ public class Morse {
         // Level 27
         AT('@', 0x1A, 0x06, SYMBOL, Level.AT);
 
-        private final char m_symbol;
-        private final Morse m_morse;
+        private Morse m_morse = null;
+        private char m_symbol = '\0';
+        private Level m_level = null;
+
         private final static HashMap<Language, HashMap<Morse, Const>> DATA_TO_SYMBOL =
                 new HashMap<Language, HashMap<Morse, Const>>();
         private final static HashMap<Language, HashMap<Level, ArrayList<Const>>> DATA_LEVEL =
                 new HashMap<Language, HashMap<Level, ArrayList<Const>>>();
+        private final static HashMap<Character, Const> DATA_VALUE =
+                new HashMap<Character, Const>();
 
         private Const(char symbol) {
             this(symbol, 0x00, 0x00);
@@ -224,8 +227,9 @@ public class Morse {
         }
         private Const(char symbol, int data, int length,
                            Language language, Level level) {
+            m_morse = new Morse(data, length, language);
             m_symbol = symbol;
-            m_morse = new Morse(data, length, language, level);
+            m_level = level;
         }
 
         static {
@@ -259,6 +263,8 @@ public class Morse {
 
                 ArrayList<Const> level = null;
 
+                DATA_VALUE.put(_const.m_symbol, _const);
+
                 if (currentLanguage != null) {
                     currentLanguage.put(_const.m_morse, _const);
                 }
@@ -282,7 +288,7 @@ public class Morse {
         }
 
         public Level getLevel() {
-            return m_morse.getLevel();
+            return m_level;
         }
 
         public char getSymbol() {
@@ -319,36 +325,45 @@ public class Morse {
             return currentLanguage.get(morse);
         }
 
-        public static @Nullable Const find(Language language, Morse morse) {
+        public static @Nullable Const find(Language language,
+                Morse morse, Language defaultLatCyr) {
             Const res = findPvt(language, morse);
             if (res != null) {
                 return res;
             }
 
-            if (language == Language.LATIN || language == Language.CYRILLIC) {
-                res = findPvt(Language.NUMBER, morse);
-                if (res != null) return res;
+            if (language == LATIN || language == CYRILLIC) {
+                res = findPvt(NUMBER, morse);
+                if (res != null) {
+                    return res;
+                }
 
-                res = findPvt(Language.SYMBOL, morse);
+                res = findPvt(SYMBOL, morse);
+            } else {
+                res = findPvt(defaultLatCyr, morse);
+                if (res != null) {
+                    return res;
+                }
+
+                if (language == SYMBOL) {
+                    res = findPvt(NUMBER, morse);
+                }
+
+                if (language == NUMBER) {
+                    res = findPvt(SYMBOL, morse);
+                }
             }
 
             return res;
         }
 
         public static @Nullable Const find(char symbol) {
-            for (Const _const : values()) {
-                if (_const.getSymbol() == symbol) {
-                    return _const;
-                }
-            }
-
-            return null;
+            return DATA_VALUE.get(symbol);
         }
 
         public static @Nullable ArrayList<Const> symbols(
                 Language currentLanguage, Level currentLevel) {
             HashMap<Level, ArrayList<Const>> levels =  DATA_LEVEL.get(currentLanguage);
-            ArrayList<Const> level = null;
 
             if (levels == null) {
                 return null;
@@ -423,9 +438,9 @@ public class Morse {
     }
 
     public Morse(int data, int length) {
-        this(data, length, Language.defaultValue(), Level.defaultValue());
+        this(data, length, Language.defaultValue());
     }
-    public Morse(int data, int length, Language language, Level level) {
+    public Morse(int data, int length, Language language) {
         if (32 < length || length < 0) {
             clear();
         } else {
@@ -434,7 +449,6 @@ public class Morse {
         }
 
         m_language = language;
-        m_level = level;
     }
 
     @Override
@@ -448,7 +462,7 @@ public class Morse {
         }
 
         Morse morse = (Morse) object;
-        return m_data == morse.m_data && m_length == morse.m_length;
+        return m_data == morse.m_data && m_length == morse.m_length && m_language.is(morse.m_language);
     }
 
     public boolean equals(Const morse) {
@@ -515,16 +529,8 @@ public class Morse {
         return m_language;
     }
 
-    public Level getLevel() {
-        return m_level;
-    }
-
     public void setLanguage(Language language) {
         m_language = language;
-    }
-
-    public void setLevel(Level level) {
-        m_level = level;
     }
 
     @Override
