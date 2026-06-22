@@ -1,12 +1,20 @@
 package com.example.morsefree;
 
-import static com.example.morsefree.MorseLanguage.*;
-import static com.example.morsefree.MorseLevel.*;
+import static com.example.morsefree.MorseTime.Action;
+import static com.example.morsefree.MorseTime.Action.*;
+
+import static com.example.morsefree.Morse.Const;
+import static com.example.morsefree.Morse.Const.*;
+
+import static com.example.morsefree.Morse.Level;
+import static com.example.morsefree.Morse.Level.*;
+
+import static com.example.morsefree.Morse.Language;
+import static com.example.morsefree.Morse.Language.*;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,32 +25,18 @@ import android.widget.Button;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
 
-
-import android.widget.TextView;
-
-import com.example.morsefree.databinding.ActivityMainBinding;
 import com.example.morsefree.databinding.LessonTransmitBinding;
 
 public class LessonTransmit extends AppCompatActivity {
     private LessonTransmitBinding m_binding;
-    private boolean m_isLess;
-    private MorseLanguage m_language;
-    private MorseLevel m_level;
-    private String m_userSentence;
-    private String m_sentence;
-    private boolean m_isRandomLengthSentence;
-    private int m_lengthSentence;
     private final Handler m_handler =
             new android.os.Handler(Looper.getMainLooper());
     private final Runnable m_idleRunnable = this::checkMessage;
     private final MorseAudioPlayer m_sound = new MorseAudioPlayer();
     private GradientDrawable m_infoGradient;
     private int[] m_colorsInfoGradient;
-    private Morse m_morse = new Morse();
-    private char m_currentSymbol = '\0';
-    private MorseTolerances m_tolerances = new MorseTolerances();
+    private MorseTime m_time = new MorseTime();
     private boolean m_isRunning = true;
 
     @SuppressLint({"ClickableViewAccessibility", "ResourceType"})
@@ -54,30 +48,47 @@ public class LessonTransmit extends AppCompatActivity {
         setContentView(m_binding.getRoot());
 
         Intent intent = getIntent();
-        m_language = MORSE_LATIN;
-        m_level = MORSE_LEVEL_E_AND_T;
-        m_isLess = false;
-        m_lengthSentence = 1;
-        m_isRandomLengthSentence = false;
 
         if (intent != null) {
-            m_language = MorseLanguage.values()[intent.getIntExtra("MORSE_LANGUAGE", m_language.ordinal())];
-            m_level = MorseLevel.values()[intent.getIntExtra("MORSE_LEVEL", m_level.ordinal())];
-            m_isLess = intent.getBooleanExtra("MORSE_IS_LESS", m_isLess);
-            m_lengthSentence = intent.getIntExtra("MORSE_LENGTH", 1);
-            m_isRandomLengthSentence = intent.getBooleanExtra("MORSE_IS_RANDOM_LENGTH", m_isRandomLengthSentence);
+            Language language = Language.values()
+                    [intent.getIntExtra("MORSE_LANGUAGE",
+                    Language.defaultValue().ordinal())];
+
+            Level level = Level.values()
+                    [intent.getIntExtra("MORSE_LEVEL",
+                    Level.defaultValue().ordinal())];
+
+            boolean isLess = intent.getBooleanExtra("MORSE_IS_LESS", false);
+
+            int lengthSentence = intent.getIntExtra("MORSE_LENGTH", 1);
+
+            boolean isRandomLengthSentence =
+                    intent.getBooleanExtra("MORSE_IS_RANDOM_LENGTH", false);
+
             String nameLevel = intent.getStringExtra("LEVEL_NAME");
+
+            MorseGraphViewInput morseInput = m_binding.userSentenceMorse;
+
+            MorseGraphViewOutput morseOutput = m_binding.sentenceMorse;
+
+            morseInput.setLanguage(language);
+            morseInput.setLevel(level);
+            morseOutput.setLanguage(language);
+            morseOutput.setLevel(level);
+            morseOutput.setIsLess(isLess);
+            morseOutput.setLengthSentence(lengthSentence);
+            morseOutput.setIsRandomLengthSentence(isRandomLengthSentence);
 
             m_binding.titleTransmitLevelName.setText(nameLevel);
         }
 
         Button transmitButton = findViewById(R.id.button_transmit);
-        transmitButton.setOnTouchListener(this::OnTouchTransmitButton);
+        transmitButton.setOnTouchListener(this::onTouchTransmitButton);
 
         m_binding.rootLayout.post(this::initInfoGradient);
 
-        m_binding.sentenceMorse.setTolerances(m_tolerances);
-        m_binding.userSentenceMorse.setTolerances(m_tolerances);
+        m_binding.sentenceMorse.setTime(m_time);
+        m_binding.userSentenceMorse.setTime(m_time);
 
         m_binding.sentenceMorse.setIsStartUp(false);
         m_binding.userSentenceMorse.setIsStartUp(false);
@@ -113,7 +124,9 @@ public class LessonTransmit extends AppCompatActivity {
 
     private void applyInfoGradient(int finalColor) {
         m_colorsInfoGradient[1] = finalColor;
-        float radius = Math.max(m_binding.rootLayout.getWidth(), m_binding.rootLayout.getHeight());
+        float radius = Math.max(m_binding.rootLayout.getWidth(),
+                m_binding.rootLayout.getHeight());
+
         m_infoGradient.setGradientRadius(radius);
         m_infoGradient.setColors(m_colorsInfoGradient);
 
@@ -126,214 +139,151 @@ public class LessonTransmit extends AppCompatActivity {
                 0xff, 0x00).setDuration(1000).start();
     }
 
-    private void checkMessage() {
-        checkMessage(false);
-    }
+    private void endAction() {
+        updateUserSentence();
 
-    private void checkMessage(boolean isError) {
-        Log.d("chack", "CheckMessage");
-        applySymbol();
+        clearCurrentSymbol();
 
         m_handler.removeCallbacks(m_idleRunnable);
         m_sound.stop();
         m_binding.sentenceMorse.stop();
         m_binding.userSentenceMorse.stop();
-        m_tolerances.clearPoints();
+        m_time.clearPoints();
         m_isRunning = false;
 
         m_binding.buttonTransmit.setText(R.string.again);
+    }
 
-        if (!isError && m_userSentence.equals(m_sentence)) {
-            winGradient();
+    private void error() {
+        endAction();
+        failGradient();
+    }
+
+    private void win() {
+        endAction();
+        winGradient();
+    }
+
+    private void checkMessage() {
+        String correct = m_binding.sentenceMorse.getText();
+        String current = m_binding.userSentenceMorse.getText();
+
+        if (correct.equals(current)) {
+            win();
         } else {
-            failGradient();
+            error();
         }
     }
 
-    void clearSentence() {
-        m_sentence = "";
-        m_binding.sentence.setText(m_sentence);
+    private void updateSentence() {
+        String sentence = m_binding.sentenceMorse.updateSentence();
+        m_binding.sentence.setText(sentence);
     }
 
-    void updateSentence() {
-        if (m_isRandomLengthSentence) {
-            m_sentence = newSentence(((int)(Math.random() * (m_lengthSentence - 1))) + 1);
-        } else {
-            m_sentence = newSentence(m_lengthSentence);
-        }
-        Log.d("Sentence", m_sentence);
-        m_binding.sentence.setText(m_sentence);
-        m_binding.sentenceMorse.setText(m_sentence);
-        clearUserSentence();
+    private void clearUserSentence() {
+        m_binding.userSentence.setText("");
+        m_binding.currentSymbol.setText("");
         m_binding.userSentenceMorse.clear();
     }
 
-    void clearUserSentence() {
-        m_userSentence = "";
-        m_binding.userSentence.setText(m_userSentence);
+    private void clearSentence() {
+        m_binding.sentence.setText("");
+        m_binding.sentenceMorse.clear();
     }
 
-    void updateUserSentence(String string) {
-        m_userSentence += string;
-        m_binding.userSentence.setText(m_userSentence);
+    private void clearCurrentSymbol() {
+        m_binding.currentSymbol.setText("");
     }
 
-    void updateUserSentence(char symbol) {
-        m_userSentence += symbol;
-        m_binding.userSentence.setText(m_userSentence);
+    private void updateUserSentence() {
+        char currentSymbol = m_binding.userSentenceMorse.getCurrentSymbol();
+        String sentence = m_binding.userSentenceMorse.getText();
+
+        Log.d("update", String.valueOf(sentence));
+
+        m_binding.currentSymbol.setText(String.valueOf(currentSymbol));
+        m_binding.userSentence.setText(sentence);
     }
 
-    void updateUserSentence(char[] string) {
-        m_userSentence += string;
-        m_binding.userSentence.setText(m_userSentence);
+    private void press() {
+        Action action = m_binding.userSentenceMorse.press();
+
+        switch (action) {
+            case NONE:
+                error();
+                break;
+            case POINT:
+            case DASH:
+            case GAP_SYMBOL:
+            case GAP_WORD:
+                updateUserSentence();
+                break;
+            default:
+                break;
+        }
     }
 
-    private boolean OnTouchTransmitButton(View view, MotionEvent event) {
+    private void start() {
+        updateSentence();
+        clearUserSentence();
+        m_isRunning = true;
+        m_binding.buttonTransmit.setText(R.string.start);
+    }
+
+    private void launche() {
+        m_time.start();
+        m_binding.userSentenceMorse.start();
+        m_binding.sentenceMorse.start();
+        m_binding.buttonTransmit.setText(R.string.transmit);
+    }
+
+    public void touchDown() {
+        if (!m_isRunning) {
+            return;
+        }
+
+        m_handler.removeCallbacks(m_idleRunnable);
+        m_sound.start();
+        if (m_time.isDiff()) {
+            press();
+        } else {
+            launche();
+        }
+    }
+
+    protected void touchUp() {
+        if (!m_isRunning) {
+            start();
+            return;
+        }
+
+        m_handler.postDelayed(m_idleRunnable,
+                m_time.getPeriodGapWord() +
+                        m_time.getPeriodGapWordEpsilonHigh());
+
+        m_sound.stop();
+
+        press();
+    }
+
+    protected boolean onTouchTransmitButton(View view, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                if (!m_isRunning) {
-                    return true;
-                }
-
-                m_tolerances.point();
-
-                m_handler.removeCallbacks(m_idleRunnable);
-                m_sound.start();
                 view.setPressed(true);
-                if (m_tolerances.isDiff()) {
-                    m_binding.userSentenceMorse.press();
 
-                    if (m_tolerances.isGapBase()) {
-                        ;
-                    } else if (m_tolerances.isGapSymbol()) {
-                        applySymbol();
-                    } else if (m_tolerances.isGapWord()) {
-                        applyWord();
-                    } else {
-                        notCorrectInterval(m_tolerances.getDiff());
-                        return true;
-                    }
-                } else {
-                    m_tolerances.start();
-                    m_binding.userSentenceMorse.start(true);
-                    m_binding.sentenceMorse.start(false);
-                    m_binding.buttonTransmit.setText(R.string.transmit);
-                }
+                touchDown();
 
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                if (!m_isRunning) {
-                    updateSentence();
-                    m_isRunning = true;
-                    m_binding.buttonTransmit.setText(R.string.start);
-                    return true;
-                }
-
-                m_tolerances.point();
-
-                m_handler.postDelayed(m_idleRunnable,
-                        m_tolerances.getPeriodGapWord() +
-                        m_tolerances.getPeriodGapWordEpsilonHigh());
-
-                m_sound.stop();
                 view.setPressed(false);
-                m_binding.userSentenceMorse.press();
 
-                if (m_tolerances.isPoint()) {
-                    applyPoint();
-                } else if (m_tolerances.isDash()) {
-                    applyDash();
-                } else {
-                    notCorrectInterval(m_tolerances.getDiff());
-
-                    return true;
-                }
+                touchUp();
 
                 return true;
             case MotionEvent.ACTION_MOVE:
                 return true;
         }
         return false;
-    }
-
-    char randomSymbolCurrentAndLessLevel() {
-        MorseConst morse = MorseConst.randomSymbolCurrentAndLessLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
-        }
-        return '\0';
-    }
-
-    char randomSymbolCurrentLevel() {
-        MorseConst morse = MorseConst.randomSymbolCurrentLevel(m_language, m_level);
-        if (morse != null) {
-            return morse.getSymbol();
-        }
-        return '\0';
-    }
-
-    private String newSentence(int length) {
-        StringBuilder sentence = new StringBuilder(length);
-        if (m_isLess) {
-            while (sentence.length() < length) {
-                char symbol = randomSymbolCurrentAndLessLevel();
-                if (symbol != '\0') {
-                    sentence.append(symbol);
-                }
-            }
-        } else {
-            while (sentence.length() < length) {
-                char symbol = randomSymbolCurrentLevel();
-                if (symbol != '\0') {
-                    sentence.append(symbol);
-                }
-            }
-        }
-        return sentence.toString();
-    }
-
-    private void updateSymbol() {
-        MorseConst morse = MorseConst.find(m_language, m_morse);
-        if (morse != null) {
-            m_currentSymbol = morse.getSymbol();
-        } else {
-            m_currentSymbol = '\0';
-        }
-        m_binding.currentSymbol.setText(String.valueOf(m_currentSymbol));
-    }
-
-    private void applyPoint() {
-        m_morse.addPoint();
-
-        updateSymbol();
-    }
-
-    private void applyDash() {
-        m_morse.addDash();
-
-        updateSymbol();
-    }
-
-    private void notCorrectInterval(long diff) {
-        checkMessage(true);
-        Log.d("MorseFree", "Not correct interval");
-    }
-
-    private void applySymbol() {
-        updateSymbol();
-        if (m_currentSymbol != '\0') {
-            updateUserSentence(m_currentSymbol);
-        }
-        m_morse.clear();
-        m_currentSymbol = '\0';
-        m_binding.currentSymbol.setText(String.valueOf(m_currentSymbol));
-    }
-
-    private void applyWord() {
-        updateUserSentence(' ');
-        m_morse.clear();
-        m_currentSymbol = '\0';
-        m_binding.currentSymbol.setText(String.valueOf(m_currentSymbol));
     }
 }
