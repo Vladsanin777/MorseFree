@@ -220,6 +220,7 @@
         android:insetBottom="0dp"
         android:importantForAccessibility="no"
         android:text="@string/start"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"

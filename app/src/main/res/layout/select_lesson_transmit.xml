@@ -535,7 +535,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_2_and_7"
                     android:layout_margin="4dp"
-                    android:tag="TWO_AND_SEVEN;NUMBERS"
+                    android:tag="TWO_AND_SEVEN;NUMBER"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -544,7 +544,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_3_and_8"
                     android:layout_margin="4dp"
-                    android:tag="THREE_AND_EIGHT;NUMBERS"
+                    android:tag="THREE_AND_EIGHT;NUMBER"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -553,7 +553,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_4_and_9"
                     android:layout_margin="4dp"
-                    android:tag="FOUR_AND_NINE;NUMBERS"
+                    android:tag="FOUR_AND_NINE;NUMBER"
                     android:onClick="onClickSelectLessonTransmit"/>
 
                 <Button
@@ -562,7 +562,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/number_5_and_0"
                     android:layout_margin="4dp"
-                    android:tag="FIVE_AND_ZERO;NUMBERS"
+                    android:tag="FIVE_AND_ZERO;NUMBER"
                     android:onClick="onClickSelectLessonTransmit"/>
 
             </LinearLayout>

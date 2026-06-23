@@ -121,6 +121,11 @@ public class MorseGraphViewInput extends MorseGraphView {
         return m_defaultLatCyr;
     }
 
+    public void setLanguage(Language language) {
+        super.setLanguage(language);
+        m_morse.setLanguage(language);
+    }
+
     public void setDefaultLatCyr(Language language) {
         if (language == LATIN || language == CYRILLIC) {
             m_defaultLatCyr = language;

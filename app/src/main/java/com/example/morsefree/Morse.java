@@ -192,8 +192,8 @@ public class Morse {
         POINT('.', 0x00, 0x06, SYMBOL, POINT_AND_COMMA),
         COMMA(',', 0x15, 0x06, SYMBOL, POINT_AND_COMMA),
         // Level 23
-        SEMICOLON(';', 0x2A, 0x06, SYMBOL, POINT_AND_COMMA),
-        COLON(':', 0x38, 0x06, SYMBOL, POINT_AND_COMMA),
+        SEMICOLON(';', 0x2A, 0x06, SYMBOL, SEMICOLON_AND_COLON),
+        COLON(':', 0x38, 0x06, SYMBOL, SEMICOLON_AND_COLON),
         // Level 24
         QUOTES('\"', 0x12, 0x06, SYMBOL, QUOTES_AND_APOSTROPHE),
         APOSTROPHE('\'', 0x1E, 0x06, SYMBOL, QUOTES_AND_APOSTROPHE),
