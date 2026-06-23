@@ -120,7 +120,6 @@
             android:insetTop="0dp"
             android:insetRight="0dp"
             android:insetBottom="0dp"
-            android:stateListAnimator="@null"
             app:layout_constraintWidth_percent="0.3"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -134,79 +133,28 @@
             android:gravity="center"
             android:textSize="54sp"
             android:textColor="@color/morse_accent"
+            app:layout_constraintWidth_percent="0.4"
             app:layout_constraintLeft_toRightOf="@id/button_help"
-            app:layout_constraintRight_toLeftOf="@id/left_widget"
+            app:layout_constraintRight_toLeftOf="@id/button_repeat"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <LinearLayout
-            android:id="@+id/left_widget"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/current_symbol"
-            app:layout_constraintRight_toRightOf="parent">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_repeat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/repeat"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                android:maxLines="3"
-                app:layout_constraintWidth_percent="0.15"
-                app:layout_constraintDimensionRatio="3:2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/current_symbol"
-                app:layout_constraintRight_toLeftOf="@id/button_repetition"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleTop"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="2dp"/>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_repetition"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/repetition"
-                android:insetLeft="0dp"
-                android:insetTop="0dp"
-                android:insetRight="0dp"
-                android:insetBottom="0dp"
-                app:layout_constraintWidth_percent="0.15"
-                app:layout_constraintDimensionRatio="3:2"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/button_repeat"
-                app:shapeAppearanceOverlay="@style/ShapeAppearance.CircleBottom"/>
-
-        </LinearLayout>
-
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_help_all"
+            android:id="@+id/button_repeat"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:backgroundTint="?attr/colorSecondary"
+            android:text="@string/repeat"
             android:insetLeft="0dp"
             android:insetTop="0dp"
             android:insetRight="0dp"
             android:insetBottom="0dp"
-            android:padding="0dp"
-            android:text="@string/all"
-            android:textSize="11sp"
+            app:layout_constraintWidth_percent="0.3"
             app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintRight_toRightOf="@+id/button_help"
-            app:layout_constraintTop_toTopOf="@+id/button_help"
-            app:layout_constraintWidth_percent="0.1"
-            app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/current_symbol"
+            app:layout_constraintRight_toRightOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Circle"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -219,8 +167,8 @@
         android:insetRight="0dp"
         android:insetBottom="0dp"
         android:importantForAccessibility="no"
-        android:text="@string/start"
-        android:textSize="40dp"
+        android:text="@string/transmit"
+        android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintLeft_toLeftOf="parent"

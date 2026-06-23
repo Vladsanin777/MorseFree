@@ -96,10 +96,9 @@ public class MorseGraphViewInput extends MorseGraphView {
             boolean isAdd = m_currentSymbol == '\0';
             m_currentSymbol = _const.getSymbol();
             if (isAdd) {
-                setText(oldString != null ?
-                        oldString + m_currentSymbol : String.valueOf(m_currentSymbol));
+                setText(oldString != null ? oldString : "");
             } else {
-                setText(oldString != null ?
+                setText(oldString != null && !oldString.isEmpty() ?
                         oldString.substring(0, oldString.length() - 1) + m_currentSymbol
                         : String.valueOf(m_currentSymbol));
             }

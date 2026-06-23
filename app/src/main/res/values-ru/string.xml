@@ -70,4 +70,5 @@
     <string name="clear">"Очистить"</string>
     <string name="start">"Старт"</string>
     <string name="again">"Заново"</string>
+    <string name="change">"Сменить"</string>
 </resources>

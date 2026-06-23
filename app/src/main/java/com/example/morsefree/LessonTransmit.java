@@ -38,6 +38,7 @@ public class LessonTransmit extends AppCompatActivity {
     private int[] m_colorsInfoGradient;
     private MorseTime m_time = new MorseTime();
     private boolean m_isRunning = true;
+    private boolean m_isBegin = true;
 
     @SuppressLint({"ClickableViewAccessibility", "ResourceType"})
     @Override
@@ -98,10 +99,20 @@ public class LessonTransmit extends AppCompatActivity {
 
         m_binding.buttonBack.setOnClickListener(this::onClickBack);
 
+        m_binding.buttonRepeat.setOnClickListener(this::onClickRepeat);
+
         updateSentence();
         clearUserSentence();
     }
 
+    private void onClickRepeat(View view) {
+        if (m_isRunning) {
+            touchUp();
+            endAction();
+        } else {
+            change();
+        }
+    }
     private void onClickBack(View view) {
         finish();
     }
@@ -150,8 +161,9 @@ public class LessonTransmit extends AppCompatActivity {
         m_binding.userSentenceMorse.stop();
         m_time.clearPoints();
         m_isRunning = false;
+        m_isBegin = false;
 
-        m_binding.buttonTransmit.setText(R.string.again);
+        m_binding.buttonRepeat.setText(R.string.again);
     }
 
     private void error() {
@@ -202,7 +214,7 @@ public class LessonTransmit extends AppCompatActivity {
         Log.d("update", String.valueOf(sentence));
 
         m_binding.currentSymbol.setText(String.valueOf(currentSymbol));
-        m_binding.userSentence.setText(sentence);
+        m_binding.userSentence.setText(sentence != null ? sentence : "");
     }
 
     private void press() {
@@ -223,14 +235,14 @@ public class LessonTransmit extends AppCompatActivity {
         }
     }
 
-    private void start() {
+    private void change() {
+        m_isBegin = true;
         updateSentence();
         clearUserSentence();
-        m_isRunning = true;
         m_binding.buttonTransmit.setText(R.string.start);
+        m_binding.buttonRepeat.setText(R.string.change);
     }
-
-    private void launche() {
+    private void start() {
         m_time.start();
         m_binding.userSentenceMorse.start();
         m_binding.sentenceMorse.start();
@@ -238,7 +250,8 @@ public class LessonTransmit extends AppCompatActivity {
     }
 
     public void touchDown() {
-        if (!m_isRunning) {
+        if (!m_isBegin) {
+            m_isRunning = true;
             return;
         }
 
@@ -247,13 +260,12 @@ public class LessonTransmit extends AppCompatActivity {
         if (m_time.isDiff()) {
             press();
         } else {
-            launche();
+            start();
         }
     }
 
     protected void touchUp() {
-        if (!m_isRunning) {
-            start();
+        if (!m_isBegin) {
             return;
         }
 
