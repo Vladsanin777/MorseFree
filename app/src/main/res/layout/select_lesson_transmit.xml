@@ -9,18 +9,39 @@
     android:id="@+id/root_layout"
     tools:context=".SelectLessonTransmit">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="48sp"
-        android:text="@string/select_lesson"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintWidth_percent="0.9"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/scroll_select_lesson_transmit"
-        app:layout_constraintWidth_percent="0.8"
-        tools:ignore="MissingConstraints,UnknownId"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scroll_select_lesson_transmit">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back"
+            app:shapeAppearance="@style/ShapeAppearance.Circle"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_lat_cyr"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back"
+            app:shapeAppearance="@style/ShapeAppearance.Circle"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_morse_symbol"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/back"
+            app:shapeAppearance="@style/ShapeAppearance.Circle"/>
+
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scroll_select_lesson_transmit"
@@ -28,632 +49,642 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.7"
+        app:layout_constraintHeight_percent="0.87"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.6">
+        app:layout_constraintTop_toBottomOf="@id/title">
 
-        <LinearLayout
-            android:id="@+id/layout_select_lesson_transmit"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/layout_select_lesson_transmit"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/unit_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_1"
-                    android:textSize="32sp"
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:padding="0dp"
-                    android:includeFontPadding="false"/>
+                android:orientation="vertical"
+                app:layout_constraintWidth_percent="0.6"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/unit_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_1"
+                        android:textSize="32sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:padding="0dp"
+                        android:includeFontPadding="false"/>
 
                     <LinearLayout
-                        android:id="@+id/cyrillic_unit_1"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/e_and_t_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:id="@+id/cyrillic_unit_1"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:text="@string/cyrillic_e_and_t"
-                            android:tag="E_AND_T;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                    </LinearLayout>
+                            <Button
+                                android:id="@+id/e_and_t_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/cyrillic_e_and_t"
+                                android:tag="E_AND_T;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                    <LinearLayout
-                        android:id="@+id/latin_unit_1"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        </LinearLayout>
 
-                        <Button
-                            android:id="@+id/e_and_t_latin_transmit_lesson"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:id="@+id/latin_unit_1"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:text="@string/latin_e_and_t"
-                            android:tag="E_AND_T;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/e_and_t_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:text="@string/latin_e_and_t"
+                                android:tag="E_AND_T;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/unit_2"
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_2"
-                    android:textSize="32sp"
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:padding="0dp"
-                    android:includeFontPadding="false"/>
+                    android:layout_height="24dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/unit_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_2"
+                        android:textSize="32sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:padding="0dp"
+                        android:includeFontPadding="false"/>
 
                     <LinearLayout
-                        android:id="@+id/cyrillic_unit_2"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/i_and_m_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:id="@+id/cyrillic_unit_2"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_i_and_m"
-                            android:layout_margin="4dp"
-                            android:tag="I_AND_M;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/a_and_n_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                            <Button
+                                android:id="@+id/i_and_m_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_i_and_m"
+                                android:layout_margin="4dp"
+                                android:tag="I_AND_M;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/a_and_n_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_a_and_n"
+                                android:layout_margin="4dp"
+                                android:tag="A_AND_N;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/latin_unit_2"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_a_and_n"
-                            android:layout_margin="4dp"
-                            android:tag="A_AND_N;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                    </LinearLayout>
+                            <Button
+                                android:id="@+id/i_and_m_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_i_and_m"
+                                android:layout_margin="4dp"
+                                android:tag="I_AND_M;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                    <LinearLayout
-                        android:id="@+id/latin_unit_2"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                            <Button
+                                android:id="@+id/a_and_n_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_a_and_n"
+                                android:layout_margin="4dp"
+                                android:tag="A_AND_N;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/i_and_m_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_i_and_m"
-                            android:layout_margin="4dp"
-                            android:tag="I_AND_M;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/a_and_n_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_a_and_n"
-                            android:layout_margin="4dp"
-                            android:tag="A_AND_N;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/unit_3"
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_3"
-                    android:textSize="32sp"
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:padding="0dp"
-                    android:includeFontPadding="false"/>
+                    android:layout_height="24dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/unit_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_3"
+                        android:textSize="32sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:padding="0dp"
+                        android:includeFontPadding="false"/>
 
                     <LinearLayout
-                        android:id="@+id/cyrillic_unit_3"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/s_and_o_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:id="@+id/cyrillic_unit_3"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_s_and_o"
-                            android:layout_margin="4dp"
-                            android:tag="S_AND_O;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/u_and_g_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                            <Button
+                                android:id="@+id/s_and_o_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_s_and_o"
+                                android:layout_margin="4dp"
+                                android:tag="S_AND_O;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/u_and_g_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_u_and_g"
+                                android:layout_margin="4dp"
+                                android:tag="U_AND_G;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/r_and_k_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_r_and_k"
+                                android:layout_margin="4dp"
+                                android:tag="R_AND_K;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/w_and_d_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_w_and_d"
+                                android:layout_margin="4dp"
+                                android:tag="W_AND_D;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/latin_unit_3"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_u_and_g"
-                            android:layout_margin="4dp"
-                            android:tag="U_AND_G;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/r_and_k_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_r_and_k"
-                            android:layout_margin="4dp"
-                            android:tag="R_AND_K;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/s_and_o_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_s_and_o"
+                                android:layout_margin="4dp"
+                                android:tag="S_AND_O;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/w_and_d_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_w_and_d"
-                            android:layout_margin="4dp"
-                            android:tag="W_AND_D;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/u_and_g_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_u_and_g"
+                                android:layout_margin="4dp"
+                                android:tag="U_AND_G;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                    </LinearLayout>
+                            <Button
+                                android:id="@+id/r_and_k_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_r_and_k"
+                                android:layout_margin="4dp"
+                                android:tag="R_AND_K;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                    <LinearLayout
-                        android:id="@+id/latin_unit_3"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                            <Button
+                                android:id="@+id/w_and_d_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_w_and_d"
+                                android:layout_margin="4dp"
+                                android:tag="W_AND_D;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/s_and_o_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_s_and_o"
-                            android:layout_margin="4dp"
-                            android:tag="S_AND_O;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/u_and_g_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_u_and_g"
-                            android:layout_margin="4dp"
-                            android:tag="U_AND_G;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/r_and_k_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_r_and_k"
-                            android:layout_margin="4dp"
-                            android:tag="R_AND_K;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/w_and_d_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_w_and_d"
-                            android:layout_margin="4dp"
-                            android:tag="W_AND_D;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/unit_4"
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_4"
-                    android:textSize="32sp"
-                    android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:padding="0dp"
-                    android:includeFontPadding="false"/>
+                    android:layout_height="24dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/unit_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_4"
+                        android:textSize="32sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:padding="0dp"
+                        android:includeFontPadding="false"/>
 
                     <LinearLayout
-                        android:id="@+id/cyrillic_unit_4"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
 
-                        <Button
-                            android:id="@+id/h_and_sh_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:id="@+id/cyrillic_unit_4"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_h_and_sh"
-                            android:layout_margin="4dp"
-                            android:tag="H_AND_SH;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/v_and_ch_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
+                            <Button
+                                android:id="@+id/h_and_sh_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_h_and_sh"
+                                android:layout_margin="4dp"
+                                android:tag="H_AND_SH;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/v_and_ch_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_v_and_ch"
+                                android:layout_margin="4dp"
+                                android:tag="V_AND_CH;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/f_and_q_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_f_and_q"
+                                android:layout_margin="4dp"
+                                android:tag="F_AND_Q;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/yu_and_z_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_yu_and_z"
+                                android:layout_margin="4dp"
+                                android:tag="YU_AND_Z;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/l_and_y_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_l_and_y"
+                                android:layout_margin="4dp"
+                                android:tag="L_AND_Y;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/ya_and_c_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_ya_and_c"
+                                android:layout_margin="4dp"
+                                android:tag="YA_AND_C;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/p_and_x_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_p_and_x"
+                                android:layout_margin="4dp"
+                                android:tag="P_AND_X;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                            <Button
+                                android:id="@+id/j_and_b_cyrillic_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cyrillic_j_and_b"
+                                android:layout_margin="4dp"
+                                android:tag="J_AND_B;CYRILLIC"
+                                android:onClick="onClickSelectLessonTransmit"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/latin_unit_4"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_v_and_ch"
-                            android:layout_margin="4dp"
-                            android:tag="V_AND_CH;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/f_and_q_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_f_and_q"
-                            android:layout_margin="4dp"
-                            android:tag="F_AND_Q;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/h_and_sh_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_h_and_sh"
+                                android:layout_margin="4dp"
+                                android:tag="H_AND_SH;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/yu_and_z_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_yu_and_z"
-                            android:layout_margin="4dp"
-                            android:tag="YU_AND_Z;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/v_and_ch_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_v_and_ch"
+                                android:layout_margin="4dp"
+                                android:tag="V_AND_CH;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/l_and_y_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_l_and_y"
-                            android:layout_margin="4dp"
-                            android:tag="L_AND_Y;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/f_and_q_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_f_and_q"
+                                android:layout_margin="4dp"
+                                android:tag="F_AND_Q;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/ya_and_c_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_ya_and_c"
-                            android:layout_margin="4dp"
-                            android:tag="YA_AND_C;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/yu_and_z_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_yu_and_z"
+                                android:layout_margin="4dp"
+                                android:tag="YU_AND_Z;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/p_and_x_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_p_and_x"
-                            android:layout_margin="4dp"
-                            android:tag="P_AND_X;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/l_and_y_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_l_and_y"
+                                android:layout_margin="4dp"
+                                android:tag="L_AND_Y;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/j_and_b_cyrillic_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cyrillic_j_and_b"
-                            android:layout_margin="4dp"
-                            android:tag="J_AND_B;CYRILLIC"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                            <Button
+                                android:id="@+id/ya_and_c_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_ya_and_c"
+                                android:layout_margin="4dp"
+                                android:tag="YA_AND_C;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                    </LinearLayout>
+                            <Button
+                                android:id="@+id/p_and_x_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_p_and_x"
+                                android:layout_margin="4dp"
+                                android:tag="P_AND_X;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                    <LinearLayout
-                        android:id="@+id/latin_unit_4"
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                            <Button
+                                android:id="@+id/j_and_b_latin_transmit_lesson"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/latin_j_and_b"
+                                android:layout_margin="4dp"
+                                android:tag="J_AND_B;LATIN"
+                                android:onClick="onClickSelectLessonTransmit"/>
 
-                        <Button
-                            android:id="@+id/h_and_sh_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_h_and_sh"
-                            android:layout_margin="4dp"
-                            android:tag="H_AND_SH;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/v_and_ch_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_v_and_ch"
-                            android:layout_margin="4dp"
-                            android:tag="V_AND_CH;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/f_and_q_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_f_and_q"
-                            android:layout_margin="4dp"
-                            android:tag="F_AND_Q;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/yu_and_z_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_yu_and_z"
-                            android:layout_margin="4dp"
-                            android:tag="YU_AND_Z;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/l_and_y_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_l_and_y"
-                            android:layout_margin="4dp"
-                            android:tag="L_AND_Y;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/ya_and_c_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_ya_and_c"
-                            android:layout_margin="4dp"
-                            android:tag="YA_AND_C;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/p_and_x_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_p_and_x"
-                            android:layout_margin="4dp"
-                            android:tag="P_AND_X;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
-
-                        <Button
-                            android:id="@+id/j_and_b_latin_transmit_lesson"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/latin_j_and_b"
-                            android:layout_margin="4dp"
-                            android:tag="J_AND_B;LATIN"
-                            android:onClick="onClickSelectLessonTransmit"/>
+                        </LinearLayout>
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"/>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/unit_5"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/unit_5"
-                    android:textSize="32sp"
                     android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:padding="0dp"
-                    android:includeFontPadding="false"/>
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/one_and_six_transmit_lesson"
+                    <TextView
+                        android:id="@+id/unit_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_5"
+                        android:textSize="32sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:padding="0dp"
+                        android:includeFontPadding="false"/>
+
+                    <Button
+                        android:id="@+id/one_and_six_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_1_and_6"
+                        android:layout_margin="4dp"
+                        android:tag="ONE_AND_SIX;NUMBER"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                    <Button
+                        android:id="@+id/two_and_seven_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_2_and_7"
+                        android:layout_margin="4dp"
+                        android:tag="TWO_AND_SEVEN;NUMBER"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                    <Button
+                        android:id="@+id/three_and_eight_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_3_and_8"
+                        android:layout_margin="4dp"
+                        android:tag="THREE_AND_EIGHT;NUMBER"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                    <Button
+                        android:id="@+id/four_and_nine_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_4_and_9"
+                        android:layout_margin="4dp"
+                        android:tag="FOUR_AND_NINE;NUMBER"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                    <Button
+                        android:id="@+id/five_and_zero_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_5_and_0"
+                        android:layout_margin="4dp"
+                        android:tag="FIVE_AND_ZERO;NUMBER"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/number_1_and_6"
-                    android:layout_margin="4dp"
-                    android:tag="ONE_AND_SIX;NUMBER"
-                    android:onClick="onClickSelectLessonTransmit"/>
-
-                <Button
-                    android:id="@+id/two_and_seven_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_2_and_7"
-                    android:layout_margin="4dp"
-                    android:tag="TWO_AND_SEVEN;NUMBER"
-                    android:onClick="onClickSelectLessonTransmit"/>
-
-                <Button
-                    android:id="@+id/three_and_eight_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_3_and_8"
-                    android:layout_margin="4dp"
-                    android:tag="THREE_AND_EIGHT;NUMBER"
-                    android:onClick="onClickSelectLessonTransmit"/>
-
-                <Button
-                    android:id="@+id/four_and_nine_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_4_and_9"
-                    android:layout_margin="4dp"
-                    android:tag="FOUR_AND_NINE;NUMBER"
-                    android:onClick="onClickSelectLessonTransmit"/>
-
-                <Button
-                    android:id="@+id/five_and_zero_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/number_5_and_0"
-                    android:layout_margin="4dp"
-                    android:tag="FIVE_AND_ZERO;NUMBER"
-                    android:onClick="onClickSelectLessonTransmit"/>
-
-            </LinearLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="24dp"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/unit_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_6"
-                    android:textSize="32sp"
                     android:gravity="center"
-                    android:layout_marginBottom="5dp"
-                    android:padding="0dp"
-                    android:includeFontPadding="false"/>
+                    android:orientation="vertical">
 
-                <Button
-                    android:id="@+id/open_bracket_and_close_bracet_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_open_bracket_and_close_bracket"
-                    android:layout_margin="4dp"
-                    android:tag="OPEN_BRACKET_AND_CLOSE_BRACKET;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <TextView
+                        android:id="@+id/unit_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_6"
+                        android:textSize="32sp"
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:padding="0dp"
+                        android:includeFontPadding="false"/>
 
-                <Button
-                    android:id="@+id/point_and_comma_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_point_and_comma"
-                    android:layout_margin="4dp"
-                    android:tag="POINT_AND_COMMA;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <Button
+                        android:id="@+id/open_bracket_and_close_bracet_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_open_bracket_and_close_bracket"
+                        android:layout_margin="4dp"
+                        android:tag="OPEN_BRACKET_AND_CLOSE_BRACKET;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
 
-                <Button
-                    android:id="@+id/semicolon_and_colon_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_semicolon_and_colon"
-                    android:layout_margin="4dp"
-                    android:tag="SEMICOLON_AND_COLON;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <Button
+                        android:id="@+id/point_and_comma_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_point_and_comma"
+                        android:layout_margin="4dp"
+                        android:tag="POINT_AND_COMMA;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
 
-                <Button
-                    android:id="@+id/quotes_and_apostrophe_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_quotes_and_apostrophe"
-                    android:layout_margin="4dp"
-                    android:tag="QUOTES_AND_APOSTROPHE;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <Button
+                        android:id="@+id/semicolon_and_colon_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_semicolon_and_colon"
+                        android:layout_margin="4dp"
+                        android:tag="SEMICOLON_AND_COLON;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
 
-                <Button
-                    android:id="@+id/dash_and_slash_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_dash_and_slash"
-                    android:layout_margin="4dp"
-                    android:tag="DASH_AND_SLASH;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <Button
+                        android:id="@+id/quotes_and_apostrophe_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_quotes_and_apostrophe"
+                        android:layout_margin="4dp"
+                        android:tag="QUOTES_AND_APOSTROPHE;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
 
-                <Button
-                    android:id="@+id/question_mark_and_exclamation_mark_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_question_mark_and_exclamation_mark"
-                    android:layout_margin="4dp"
-                    android:tag="QUESTION_MARK_AND_EXCLAMATION_MARK;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <Button
+                        android:id="@+id/dash_and_slash_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_dash_and_slash"
+                        android:layout_margin="4dp"
+                        android:tag="DASH_AND_SLASH;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
 
-                <Button
-                    android:id="@+id/at_transmit_lesson"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/symbol_at"
-                    android:layout_margin="4dp"
-                    android:tag="AT;SYMBOL"
-                    android:onClick="onClickSelectLessonTransmit"/>
+                    <Button
+                        android:id="@+id/question_mark_and_exclamation_mark_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_question_mark_and_exclamation_mark"
+                        android:layout_margin="4dp"
+                        android:tag="QUESTION_MARK_AND_EXCLAMATION_MARK;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                    <Button
+                        android:id="@+id/at_transmit_lesson"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/symbol_at"
+                        android:layout_margin="4dp"
+                        android:tag="AT;SYMBOL"
+                        android:onClick="onClickSelectLessonTransmit"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
