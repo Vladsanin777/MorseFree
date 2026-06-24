@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="ShapeAppearance.Circle" parent="">
-        <item name="cornerSize">50%</item>
+        <item name="cornerSize">20%</item>
     </style>
     <style name="TransmitButton" parent="">
         <item name="shapeAppearance">@style/ShapeAppearance.Circle</item>
